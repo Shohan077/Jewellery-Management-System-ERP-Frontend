@@ -1,0 +1,365 @@
+.page {
+  display: grid;
+  gap: 20px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--slate-200);
+  scrollbar-width: none;
+}
+
+.tab {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 2px 2px 12px;
+  color: var(--slate-600);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tab::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: transparent;
+  content: "";
+}
+
+.tab:hover,
+.activeTab {
+  color: var(--gold-600);
+}
+
+.activeTab::after {
+  background: var(--gold-500);
+}
+
+.tab span {
+  font-weight: 500;
+}
+
+.tableCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto auto auto;
+  gap: 10px;
+  padding: 14px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.searchField {
+  min-width: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  color: var(--slate-500);
+  background: var(--surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.searchField:focus-within {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, 0.11);
+}
+
+.searchField input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: var(--ink-950);
+  background: transparent;
+  font-size: 12px;
+}
+
+.searchField input::placeholder {
+  color: var(--slate-400);
+}
+
+.toolButton {
+  min-height: 42px;
+  white-space: nowrap;
+}
+
+.activity {
+  margin: 0;
+  padding: 8px 14px;
+  color: #745412;
+  border-bottom: 1px solid var(--gold-100);
+  background: var(--gold-50);
+  font-size: 12px;
+}
+
+.tableScroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+  color: var(--ink-900);
+  font-size: 12px;
+}
+
+.table th {
+  padding: 11px 12px;
+  color: var(--slate-700);
+  background: #fafbfc;
+  font-size: 11px;
+  font-weight: 750;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  height: 54px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--slate-100);
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  transition: background 140ms ease;
+}
+
+.table tbody tr:hover {
+  background: #fffdf7;
+}
+
+.checkboxCell {
+  width: 40px;
+  padding-right: 4px !important;
+  text-align: center !important;
+}
+
+.checkboxCell input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--gold-500);
+  cursor: pointer;
+}
+
+.rowNumber {
+  width: 32px;
+  color: var(--slate-500);
+}
+
+.dateCell,
+.amount {
+  font-variant-numeric: tabular-nums;
+}
+
+.invoiceLink {
+  padding: 0;
+  color: #265797;
+  background: transparent;
+  font-size: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.invoiceLink:hover {
+  text-decoration: underline;
+}
+
+.customer {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.mobile {
+  display: none;
+  margin-top: 3px;
+  color: var(--slate-500);
+  font-size: 10px;
+}
+
+.amount {
+  font-weight: 650;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.actions button,
+.actions a {
+  width: 29px;
+  height: 29px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  color: var(--slate-600);
+  background: var(--surface);
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.actions button:hover,
+.actions a:hover {
+  color: var(--gold-600);
+  border-color: var(--gold-300);
+  background: var(--gold-50);
+}
+
+.emptyState {
+  height: 260px !important;
+  color: var(--slate-500);
+  text-align: center;
+}
+
+.emptyState svg,
+.emptyState strong,
+.emptyState span {
+  display: block;
+  margin: 0 auto 7px;
+}
+
+.emptyState strong {
+  color: var(--ink-900);
+  font-size: 14px;
+}
+
+.tableFooter {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.tableFooter p {
+  margin: 0;
+  color: var(--slate-600);
+  font-size: 11px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination button {
+  min-width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--slate-700);
+  background: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--gold-100);
+  background: var(--gold-50);
+}
+
+.pagination button:disabled {
+  color: var(--slate-300);
+  cursor: not-allowed;
+}
+
+.pagination .currentPage {
+  color: white;
+  border-color: var(--gold-500);
+  background: var(--gold-500);
+  box-shadow: 0 4px 10px rgba(200, 148, 36, 0.2);
+}
+
+.ellipsis {
+  width: 24px;
+  color: var(--slate-500);
+  text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .toolbar {
+    grid-template-columns: minmax(240px, 1fr) repeat(2, auto);
+  }
+
+  .toolbar .toolButton:nth-of-type(1) {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    gap: 17px;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .searchField {
+    grid-column: 1 / -1;
+  }
+
+  .toolButton {
+    width: 100%;
+    padding-inline: 10px;
+    font-size: 11px;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .tableFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 430px) {
+  .tabs {
+    gap: 20px;
+  }
+
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .searchField {
+    grid-column: auto;
+  }
+}

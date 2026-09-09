@@ -1,0 +1,562 @@
+.dashboard {
+  display: grid;
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.dateRange {
+  min-height: 41px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  color: var(--ink-800);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: 0 3px 12px rgba(21, 26, 35, 0.03);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dateRange:hover {
+  border-color: var(--gold-300);
+}
+
+.dateControl {
+  position: relative;
+}
+
+.dateMenu {
+  position: absolute;
+  z-index: 12;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 238px;
+  display: grid;
+  padding: 7px;
+  border: 1px solid var(--slate-200);
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 14px 38px rgba(21, 26, 35, 0.14);
+}
+
+.dateMenu button {
+  min-height: 37px;
+  padding: 0 10px;
+  color: var(--slate-700);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 11px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dateMenu button:hover,
+.dateMenu button[aria-current="date"] {
+  color: var(--gold-600);
+  background: var(--gold-50);
+}
+
+.feedback {
+  position: fixed;
+  z-index: 80;
+  right: 22px;
+  bottom: 22px;
+  max-width: min(360px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 15px;
+  color: #225e39;
+  border: 1px solid #b8e3c7;
+  border-radius: 9px;
+  background: #edf9f1;
+  box-shadow: 0 12px 32px rgba(21, 26, 35, 0.12);
+  font-size: 12px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.summaryCard {
+  min-width: 0;
+  padding: 18px;
+}
+
+.metricHeading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--slate-700);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.iconTile,
+.quickIcon,
+.stockIcon {
+  display: inline-grid;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+.iconTile {
+  width: 39px;
+  height: 39px;
+  border-radius: 10px;
+}
+
+.green {
+  color: #18a64e;
+  background: #ddf8e7;
+}
+
+.blue {
+  color: #198fcd;
+  background: #e1f3fc;
+}
+
+.gold {
+  color: #bd8314;
+  background: #fff1c9;
+}
+
+.purple {
+  color: #7656d6;
+  background: #eee8ff;
+}
+
+.metricValue {
+  display: block;
+  margin-top: 13px;
+  overflow: hidden;
+  font-size: clamp(20px, 1.6vw, 27px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metricMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--slate-500);
+  font-size: 10px;
+}
+
+.trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  color: var(--success);
+  font-weight: 750;
+}
+
+.insightsGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(310px, 0.88fr);
+  gap: 17px;
+}
+
+.sideStack {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 17px;
+}
+
+.chartCard,
+.goldRateCard,
+.quickCard,
+.tableCard,
+.stockCard {
+  min-width: 0;
+  padding: 18px;
+}
+
+.cardHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.cardHeading h2,
+.goldRateCard h2,
+.quickCard h2 {
+  margin: 0;
+  color: var(--ink-900);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--slate-600);
+  font-size: 10px;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend i {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.salesKey,
+.salesBar {
+  background: linear-gradient(180deg, #d7a83b, #bd8314);
+}
+
+.purchaseKey,
+.purchaseBar {
+  background: linear-gradient(180deg, #43ade8, #218dc8);
+}
+
+.chartScroller {
+  margin-top: 17px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.chart {
+  min-width: 470px;
+  height: 202px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.yAxis {
+  height: 176px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1px;
+  color: var(--slate-500);
+  font-size: 9px;
+  text-align: right;
+}
+
+.plot {
+  height: 193px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(45px, 1fr));
+  gap: 12px;
+  background: repeating-linear-gradient(
+    to top,
+    transparent 0,
+    transparent calc(25% - 1px),
+    var(--slate-100) calc(25% - 1px),
+    var(--slate-100) 25%
+  );
+}
+
+.barGroup {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 176px 17px;
+}
+
+.barArea {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  padding-inline: 6px;
+}
+
+.bar {
+  width: min(14px, 34%);
+  min-height: 2px;
+  display: block;
+  border-radius: 3px 3px 0 0;
+}
+
+.month {
+  align-self: end;
+  color: var(--slate-600);
+  font-size: 9px;
+  text-align: center;
+}
+
+.goldRateCard {
+  padding-bottom: 15px;
+}
+
+.rateRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.rateIcon {
+  width: 43px;
+  height: 43px;
+  margin-right: 3px;
+}
+
+.rateRow strong {
+  font-size: clamp(22px, 2vw, 29px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.perUnit {
+  align-self: flex-end;
+  margin-bottom: 3px;
+  color: var(--slate-700);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.rateTrend {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.goldRateCard p {
+  margin: 9px 0 0 52px;
+  color: var(--slate-500);
+  font-size: 9px;
+}
+
+.quickCard {
+  padding-bottom: 16px;
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.quickAction {
+  min-width: 0;
+  min-height: 71px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 8px 4px;
+  color: var(--slate-700);
+  border: 1px solid var(--slate-100);
+  border-radius: 8px;
+  background: var(--slate-50);
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1.15;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.quickAction:hover {
+  border-color: var(--gold-300);
+  box-shadow: 0 6px 14px rgba(21, 26, 35, 0.06);
+  transform: translateY(-1px);
+}
+
+.quickIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.activityGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(285px, 0.72fr);
+  gap: 17px;
+}
+
+.tableCard,
+.stockCard {
+  padding-bottom: 12px;
+}
+
+.tableHeading a,
+.tableHeading button {
+  padding: 3px;
+  color: var(--gold-600);
+  background: transparent;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.tableScroller {
+  margin: 12px -5px 0;
+  overflow-x: auto;
+}
+
+.tableScroller table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.tableScroller th,
+.tableScroller td {
+  height: 31px;
+  padding: 4px 9px;
+  border-bottom: 1px solid var(--slate-100);
+  text-align: left;
+}
+
+.tableScroller th {
+  height: 29px;
+  color: var(--slate-700);
+  background: var(--slate-50);
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.tableScroller th:first-child,
+.tableScroller td:first-child {
+  width: 30px;
+  color: var(--slate-500);
+  text-align: center;
+}
+
+.invoiceNo {
+  color: #315a91;
+  font-weight: 650;
+}
+
+.tableScroller tr:last-child td {
+  border-bottom: 0;
+}
+
+.stockList {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 10px 0 0;
+  list-style: none;
+}
+
+.stockList li {
+  min-height: 38px;
+  display: grid;
+  grid-template-columns: 27px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-700);
+  font-size: 10px;
+}
+
+.stockList li:last-child {
+  border-bottom: 0;
+}
+
+.stockIcon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.stockList strong {
+  color: var(--ink-900);
+  font-size: 10px;
+}
+
+@media (max-width: 1240px) {
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .insightsGrid,
+  .activityGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sideStack {
+    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard {
+    gap: 16px;
+  }
+
+  .summaryGrid,
+  .insightsGrid,
+  .activityGrid,
+  .sideStack {
+    gap: 14px;
+  }
+
+  .sideStack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .summaryGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dateRange {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dateControl {
+    width: 100%;
+  }
+
+  .dateMenu {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+
+  .feedback {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .summaryCard,
+  .chartCard,
+  .goldRateCard,
+  .quickCard,
+  .tableCard,
+  .stockCard {
+    padding: 15px;
+  }
+
+  .quickGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .goldRateCard p {
+    margin-left: 0;
+  }
+}

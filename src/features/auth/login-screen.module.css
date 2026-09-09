@@ -1,0 +1,534 @@
+.page {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(420px, 49%) minmax(440px, 51%);
+  overflow: hidden;
+  background: #fff;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  color: #fff;
+  background: #080705;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 53%;
+  transform: scale(1.015);
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 2, 1, 0.42) 0%, rgba(3, 3, 2, 0.05) 42%, rgba(2, 2, 1, 0.74) 100%),
+    linear-gradient(90deg, rgba(4, 3, 1, 0.28), transparent 55%, rgba(4, 3, 1, 0.17));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(44px, 6.3vh, 72px) clamp(34px, 5vw, 74px) clamp(30px, 4vh, 48px);
+}
+
+.heroBrand {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.heroBrandMark,
+.authBrandMark {
+  color: var(--gold-400);
+  filter: drop-shadow(0 5px 12px rgba(200, 148, 36, 0.18));
+}
+
+.heroBrand strong {
+  margin-top: 13px;
+  font-size: clamp(24px, 2.1vw, 33px);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+.heroBrand span {
+  margin-top: 4px;
+  color: #e6bf62;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.heroCopy {
+  max-width: 490px;
+  margin-top: auto;
+}
+
+.heroCopy p {
+  max-width: 410px;
+  margin: 0 0 18px;
+  font-size: clamp(30px, 3vw, 46px);
+  font-weight: 720;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.heroCopy span {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+  line-height: 1.65;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.68);
+}
+
+.trustBar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: clamp(34px, 5vh, 60px);
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  font-weight: 520;
+  text-align: center;
+}
+
+.trustItem svg {
+  width: 29px;
+  height: 29px;
+  color: #f0c84e;
+  stroke-width: 1.9;
+}
+
+.trustItem:nth-child(2) svg,
+.trustItem:nth-child(3) svg {
+  color: #fff5d3;
+}
+
+.authPanel {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 32px clamp(28px, 5vw, 82px);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.98), rgba(250, 250, 249, 0.96) 68%),
+    #fafaf9;
+}
+
+.authContent {
+  width: min(100%, 470px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authBrandMark {
+  margin-bottom: 21px;
+}
+
+.loginCard {
+  width: 100%;
+  padding: 26px 28px 25px;
+  border: 1px solid rgba(227, 230, 235, 0.72);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 17px 46px rgba(24, 27, 33, 0.09);
+}
+
+.cardHeading {
+  margin-bottom: 27px;
+  text-align: center;
+}
+
+.cardHeading h1 {
+  margin: 0;
+  color: var(--ink-950);
+  font-size: clamp(27px, 2.1vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.cardHeading p {
+  margin: 8px 0 0;
+  color: var(--slate-600);
+  font-size: 13px;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+}
+
+.formField {
+  display: grid;
+  gap: 8px;
+}
+
+.formField label {
+  color: var(--ink-950);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrap > svg {
+  position: absolute;
+  left: 14px;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  color: var(--slate-600);
+  pointer-events: none;
+}
+
+.inputWrap input {
+  width: 100%;
+  height: 48px;
+  padding: 0 44px;
+  color: var(--ink-950);
+  border: 1px solid var(--slate-300);
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-size: 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.inputWrap input::placeholder {
+  color: #9298a2;
+}
+
+.inputWrap input:focus {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, 0.13);
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 5px;
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  color: var(--slate-600);
+  border-radius: 6px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.passwordToggle:hover {
+  color: var(--ink-900);
+  background: var(--slate-50);
+}
+
+.passwordToggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.formOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: -2px;
+  font-size: 13px;
+}
+
+.remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-800);
+  cursor: pointer;
+}
+
+.remember input {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--gold-500);
+}
+
+.formOptions a,
+.contact a {
+  color: #174a94;
+  font-weight: 530;
+}
+
+.formOptions a:hover,
+.contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.loginButton,
+.googleButton {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.loginButton {
+  color: #fff;
+  background: linear-gradient(105deg, #b67d13, #ddb647);
+  box-shadow: 0 8px 20px rgba(170, 115, 18, 0.2);
+}
+
+.loginButton:hover:not(:disabled) {
+  background: linear-gradient(105deg, #a66f0f, #d3a83a);
+  box-shadow: 0 10px 25px rgba(170, 115, 18, 0.25);
+}
+
+.loginButton:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
+.loginButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.loginButton:active:not(:disabled),
+.googleButton:active {
+  transform: translateY(1px);
+}
+
+.divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 15px;
+  margin: 1px 0;
+}
+
+.divider span {
+  height: 1px;
+  background: var(--slate-200);
+}
+
+.divider b {
+  color: var(--slate-600);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.googleButton {
+  color: var(--ink-950);
+  border: 1px solid var(--slate-300);
+  background: #fff;
+}
+
+.googleButton:hover {
+  border-color: var(--slate-400);
+  background: var(--slate-50);
+}
+
+.googleMark {
+  color: #4285f4;
+  font-size: 21px;
+  font-weight: 800;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+.contact {
+  margin: 25px 0 0;
+  color: var(--slate-700);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .page {
+    grid-template-columns: minmax(370px, 45%) minmax(430px, 55%);
+  }
+
+  .heroContent {
+    padding-inline: 36px;
+  }
+
+  .heroCopy p {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    min-height: 100svh;
+    display: block;
+    overflow: visible;
+  }
+
+  .hero {
+    min-height: 172px;
+    height: 172px;
+  }
+
+  .heroImage {
+    object-position: 50% 62%;
+  }
+
+  .heroShade {
+    background: linear-gradient(180deg, rgba(3, 2, 1, 0.46), rgba(3, 2, 1, 0.58));
+  }
+
+  .heroContent {
+    min-height: 172px;
+    justify-content: center;
+    padding: 18px;
+  }
+
+  .heroBrandMark {
+    width: 43px;
+    height: auto;
+  }
+
+  .heroBrand strong {
+    margin-top: 7px;
+    font-size: 22px;
+  }
+
+  .heroBrand span {
+    font-size: 11px;
+  }
+
+  .heroCopy,
+  .trustBar,
+  .authBrandMark {
+    display: none;
+  }
+
+  .authPanel {
+    min-height: calc(100svh - 172px);
+    place-items: start center;
+    overflow: visible;
+    padding: 30px 18px 36px;
+  }
+
+  .authContent {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 144px;
+    height: 144px;
+  }
+
+  .heroContent {
+    min-height: 144px;
+  }
+
+  .authPanel {
+    min-height: calc(100svh - 144px);
+    padding: 22px 14px 28px;
+  }
+
+  .loginCard {
+    padding: 22px 18px;
+    border-radius: 12px;
+  }
+
+  .cardHeading {
+    margin-bottom: 23px;
+  }
+
+  .cardHeading h1 {
+    font-size: 27px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .formOptions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .contact {
+    max-width: 260px;
+    line-height: 1.6;
+  }
+}
+
+@media (min-width: 821px) and (max-height: 720px) {
+  .heroContent {
+    padding-top: 30px;
+    padding-bottom: 26px;
+  }
+
+  .heroBrandMark {
+    width: 45px;
+    height: auto;
+  }
+
+  .heroBrand strong {
+    margin-top: 8px;
+    font-size: 24px;
+  }
+
+  .heroCopy p {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  .trustBar {
+    margin-top: 24px;
+  }
+
+  .authPanel {
+    padding-block: 20px;
+  }
+
+  .authBrandMark {
+    width: 55px;
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+  .loginCard {
+    padding-block: 20px;
+  }
+
+  .cardHeading {
+    margin-bottom: 19px;
+  }
+
+  .form {
+    gap: 13px;
+  }
+
+  .contact {
+    margin-top: 15px;
+  }
+}

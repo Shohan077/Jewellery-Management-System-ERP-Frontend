@@ -1,0 +1,271 @@
+.topbar {
+  position: sticky;
+  z-index: 30;
+  top: 0;
+  height: 72px;
+  display: grid;
+  grid-template-columns: minmax(205px, 1fr) minmax(250px, 420px) minmax(205px, 1fr);
+  align-items: center;
+  gap: 24px;
+  padding: 0 26px;
+  border-bottom: 1px solid var(--slate-200);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.menuButton {
+  display: none;
+}
+
+.branch {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.branchMark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #6a5222;
+  border: 1px solid #d7c89f;
+  border-radius: 50%;
+  background: #fffdf6;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.branch strong,
+.branch small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.branch strong {
+  font-size: 12px;
+}
+
+.branch small {
+  margin-top: 2px;
+  color: var(--slate-600);
+  font-size: 9px;
+}
+
+.search {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  color: var(--slate-500);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--slate-50);
+}
+
+.search:focus-within {
+  border-color: var(--gold-300);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, 0.1);
+}
+
+.search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--ink-950);
+  background: transparent;
+  font-size: 12px;
+}
+
+.searchSubmit {
+  width: 25px;
+  height: 30px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  color: var(--slate-500);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.searchSubmit:hover {
+  color: var(--gold-600);
+  background: var(--gold-50);
+}
+
+.search kbd {
+  padding: 3px 6px;
+  color: var(--slate-500);
+  border: 1px solid var(--slate-200);
+  border-radius: 5px;
+  background: white;
+  font-family: inherit;
+  font-size: 9px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 13px;
+}
+
+.popoverWrap {
+  position: relative;
+}
+
+.iconButton,
+.profile,
+.menuButton {
+  color: var(--ink-950);
+  background: transparent;
+  cursor: pointer;
+}
+
+.iconButton {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.iconButton:hover,
+.profile:hover,
+.menuButton:hover {
+  background: var(--slate-50);
+}
+
+.notificationDot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #ed3a42;
+  box-sizing: content-box;
+}
+
+.profile {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 7px 4px 4px;
+  border-radius: 24px;
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 244px;
+  padding: 15px;
+  color: var(--ink-950);
+  border: 1px solid var(--slate-200);
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 16px 40px rgba(22, 26, 34, 0.14);
+}
+
+.popover strong {
+  display: block;
+  font-size: 12px;
+}
+
+.popover p {
+  margin: 6px 0 12px;
+  color: var(--slate-600);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.popover button,
+.popover a {
+  display: inline-flex;
+  padding: 0;
+  color: var(--gold-600);
+  background: transparent;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profilePopover {
+  width: 226px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #443377, #7763ac);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .topbar {
+    grid-template-columns: minmax(180px, 1fr) minmax(210px, 320px) auto;
+    padding-inline: 20px;
+  }
+
+  .search kbd,
+  .admin,
+  .chevron {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar {
+    height: 64px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+    padding-inline: 12px;
+  }
+
+  .menuButton {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .branch strong {
+    font-size: 11px;
+  }
+
+  .actions {
+    gap: 2px;
+  }
+
+  .avatar {
+    width: 31px;
+    height: 31px;
+  }
+}

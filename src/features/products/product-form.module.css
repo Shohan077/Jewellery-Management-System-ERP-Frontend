@@ -1,0 +1,401 @@
+.page {
+  display: grid;
+  gap: 20px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.backButton {
+  min-height: 38px;
+  padding-inline: 13px;
+  font-size: 12px;
+}
+
+.formCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  padding: 0 16px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--slate-200);
+  scrollbar-width: thin;
+}
+
+.tab {
+  position: relative;
+  min-height: 48px;
+  flex: 1 0 auto;
+  padding: 0 16px;
+  color: var(--slate-600);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tab::after {
+  position: absolute;
+  right: 8px;
+  bottom: -1px;
+  left: 8px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: transparent;
+  content: "";
+}
+
+.tab:hover,
+.activeTab {
+  color: var(--gold-600);
+}
+
+.activeTab::after {
+  background: var(--gold-500);
+}
+
+.panel {
+  min-height: 510px;
+  padding: 22px;
+}
+
+.basicPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 330px);
+  align-items: start;
+  gap: 34px;
+}
+
+.basicPanel[hidden],
+.secondaryPanel[hidden] {
+  display: none;
+}
+
+.primaryFields,
+.mediaFields {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 15px;
+}
+
+.fieldGroup {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.fieldGroup label,
+.fieldLabel,
+.radioGroup legend {
+  color: var(--ink-900);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.required {
+  color: #dc3f48;
+}
+
+.description {
+  min-height: 145px;
+}
+
+.radioGroup {
+  min-width: 0;
+  padding: 0;
+  margin: 1px 0 0;
+  border: 0;
+}
+
+.radioRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  margin-top: 10px;
+}
+
+.radioRow label,
+.checkOptions label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-800);
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.radioRow input,
+.checkOptions input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--gold-500);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadArea {
+  position: relative;
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed var(--slate-300);
+  border-radius: var(--radius-sm);
+  background: #fafbfc;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.uploadArea:hover {
+  border-color: var(--gold-400);
+  background: var(--gold-50);
+}
+
+.uploadPrompt {
+  width: 100%;
+  min-height: 228px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px;
+  color: var(--slate-500);
+  background: transparent;
+  cursor: pointer;
+}
+
+.uploadPrompt svg {
+  margin-bottom: 4px;
+  color: var(--slate-400);
+}
+
+.uploadPrompt strong {
+  color: var(--slate-700);
+  font-size: 11px;
+}
+
+.uploadPrompt span {
+  font-size: 9px;
+}
+
+.hasPreview {
+  background: #f2f3f5;
+}
+
+.hasPreview :global(img) {
+  object-fit: contain;
+}
+
+.removeImage {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  right: 9px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: rgba(21, 24, 30, 0.76);
+  cursor: pointer;
+}
+
+.imageName {
+  position: absolute;
+  z-index: 2;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  overflow: hidden;
+  padding: 7px 9px;
+  color: white;
+  border-radius: 5px;
+  background: rgba(21, 24, 30, 0.68);
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.checkOptions {
+  display: grid;
+  gap: 14px;
+  padding-top: 3px;
+}
+
+.secondaryPanel {
+  display: block;
+}
+
+.sectionIntro {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.sectionIntro h2,
+.sectionIntro p {
+  margin: 0;
+}
+
+.sectionIntro h2 {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.sectionIntro p {
+  margin-top: 5px;
+  color: var(--slate-600);
+  font-size: 11px;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+  max-width: 900px;
+  margin-top: 22px;
+}
+
+.notesField {
+  max-width: 900px;
+  margin-top: 20px;
+}
+
+.notesField :global(.textarea) {
+  min-height: 110px;
+}
+
+.galleryButton {
+  width: min(100%, 520px);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  color: var(--slate-500);
+  border: 1px dashed var(--slate-300);
+  border-radius: var(--radius-md);
+  background: #fafbfc;
+  cursor: pointer;
+}
+
+.galleryButton:hover {
+  color: var(--gold-600);
+  border-color: var(--gold-400);
+  background: var(--gold-50);
+}
+
+.galleryButton strong {
+  color: var(--ink-800);
+  font-size: 13px;
+}
+
+.galleryButton span {
+  font-size: 10px;
+}
+
+.feedback {
+  margin: 0;
+  padding: 10px 22px;
+  color: #745412;
+  border-top: 1px solid var(--gold-100);
+  background: var(--gold-50);
+  font-size: 12px;
+}
+
+.formFooter {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 11px 22px;
+  border-top: 1px solid var(--slate-100);
+  background: #fff;
+}
+
+@media (max-width: 920px) {
+  .basicPanel {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 0.7fr);
+    gap: 24px;
+  }
+
+  .tab {
+    padding-inline: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    gap: 17px;
+  }
+
+  .backButton {
+    width: 100%;
+  }
+
+  .tabs {
+    padding-inline: 8px;
+  }
+
+  .panel {
+    min-height: auto;
+    padding: 17px;
+  }
+
+  .basicPanel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mediaFields {
+    padding-top: 20px;
+    border-top: 1px solid var(--slate-100);
+  }
+
+  .uploadArea {
+    min-height: 250px;
+  }
+
+  .fieldGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formFooter {
+    position: sticky;
+    z-index: 5;
+    bottom: 0;
+    padding-inline: 17px;
+    box-shadow: 0 -8px 24px rgba(21, 26, 35, 0.05);
+  }
+}
+
+@media (max-width: 430px) {
+  .radioRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .formFooter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .formFooter button {
+    width: 100%;
+    padding-inline: 10px;
+  }
+}
