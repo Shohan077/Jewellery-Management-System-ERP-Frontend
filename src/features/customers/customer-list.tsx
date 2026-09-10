@@ -19,13 +19,11 @@ import { useDeferredValue, useMemo, useState, type FormEvent } from "react";
 import { Card } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
 import {
-  customerStats,
   customers,
   formatCustomerCurrency,
   getInitials,
   type Customer,
   type CustomerGroup,
-  type CustomerStatus,
 } from "./customer-data";
 import styles from "./customer-list.module.css";
 
@@ -34,13 +32,6 @@ const groups = ["All Groups", "VIP", "Regular", "Wholesale"] as const;
 const statuses = ["All Status", "Active", "Inactive"] as const;
 type GroupFilter = (typeof groups)[number];
 type StatusFilter = (typeof statuses)[number];
-
-const summaryCards = [
-  { label: "Total Customers", value: customerStats.total, icon: Users, tone: "blue" },
-  { label: "Active Customers", value: customerStats.active, icon: UserCheck, tone: "green" },
-  { label: "VIP Customers", value: customerStats.vip, icon: Crown, tone: "gold" },
-  { label: "New This Month", value: customerStats.newThisMonth, icon: UserPlus, tone: "purple" },
-] as const;
 
 function getPaginationItems(current: number, pageCount: number): Array<number | "ellipsis"> {
   if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
@@ -59,6 +50,7 @@ function CustomerBadge({ customer }: { customer: Customer }) {
 }
 
 export function CustomerList() {
+  const [records, setRecords] = useState<Customer[]>(customers);
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
   const [groupFilter, setGroupFilter] = useState<GroupFilter>("All Groups");
@@ -73,7 +65,7 @@ export function CustomerList() {
 
   const filteredCustomers = useMemo(() => {
     const searchTerm = deferredQuery.trim().toLowerCase();
-    return customers.filter((customer) => {
+    return records.filter((customer) => {
       const matchesGroup = groupFilter === "All Groups" || customer.group === groupFilter;
       const matchesStatus = statusFilter === "All Status" || customer.status === statusFilter;
       const matchesSearch =
@@ -84,7 +76,14 @@ export function CustomerList() {
         customer.email.toLowerCase().includes(searchTerm);
       return matchesGroup && matchesStatus && matchesSearch;
     });
-  }, [deferredQuery, groupFilter, statusFilter]);
+  }, [deferredQuery, groupFilter, records, statusFilter]);
+
+  const summaryCards = useMemo(() => [
+    { label: "Total Customers", value: records.length, icon: Users, tone: "blue" },
+    { label: "Active Customers", value: records.filter((customer) => customer.status === "Active").length, icon: UserCheck, tone: "green" },
+    { label: "VIP Customers", value: records.filter((customer) => customer.group === "VIP").length, icon: Crown, tone: "gold" },
+    { label: "New This Month", value: records.filter((customer) => customer.joinedThisMonth).length, icon: UserPlus, tone: "purple" },
+  ] as const, [records]);
 
   const pageCount = Math.max(1, Math.ceil(filteredCustomers.length / PAGE_SIZE));
   const safeCurrentPage = Math.min(currentPage, pageCount);
@@ -122,7 +121,24 @@ export function CustomerList() {
 
   function saveNewCustomer(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setActivityMessage(`${newCustomerName} is ready to be added as a ${newCustomerGroup.toLowerCase()} customer.`);
+    const customerNumber = 126 + (records.length - customers.length);
+    const newRecord: Customer = {
+      id: records.reduce((largest, customer) => Math.max(largest, customer.id), 0) + 1,
+      customerId: `C-${String(customerNumber).padStart(6, "0")}`,
+      name: newCustomerName.trim(),
+      phone: newCustomerPhone.trim(),
+      email: `${newCustomerName.trim().toLowerCase().replaceAll(" ", ".")}@example.com`,
+      totalPurchase: 0,
+      status: "Active",
+      group: newCustomerGroup,
+      joinedThisMonth: true,
+    };
+    setRecords((current) => [newRecord, ...current]);
+    setQuery("");
+    setGroupFilter("All Groups");
+    setStatusFilter("All Status");
+    setCurrentPage(1);
+    setActivityMessage(`${newRecord.name} was added as ${newRecord.customerId}.`);
     setNewCustomerOpen(false);
     setNewCustomerName("");
     setNewCustomerPhone("");
@@ -248,7 +264,7 @@ export function CustomerList() {
                     <div className={styles.actions}>
                       <Link aria-label={`View ${customer.name}`} href={`/customers/${customer.customerId}`} title="View customer"><Eye size={15} /></Link>
                       <button aria-label={`Edit ${customer.name}`} onClick={() => showAction("Editing", customer)} title="Edit customer" type="button"><FilePenLine size={15} /></button>
-                      <button aria-label={`Create invoice for ${customer.name}`} onClick={() => showAction("New invoice for", customer)} title="Create invoice" type="button"><Plus size={15} /></button>
+                      <Link aria-label={`Create invoice for ${customer.name}`} href={`/sales/invoices/new?customer=${encodeURIComponent(customer.name)}`} title="Create invoice"><Plus size={15} /></Link>
                     </div>
                   </td>
                 </tr>

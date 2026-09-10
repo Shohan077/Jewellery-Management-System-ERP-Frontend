@@ -24,6 +24,16 @@ const PAGE_SIZE = 10;
 const statuses = ["All", "Paid", "Due", "Returned"] as const;
 type StatusFilter = (typeof statuses)[number];
 
+const monthNumbers: Record<string, string> = {
+  Jan: "01", Feb: "02", Mar: "03", Apr: "04", May: "05", Jun: "06",
+  Jul: "07", Aug: "08", Sep: "09", Oct: "10", Nov: "11", Dec: "12",
+};
+
+function toIsoDate(value: string) {
+  const [day, month, year] = value.split(" ");
+  return `${year}-${monthNumbers[month] ?? "01"}-${day}`;
+}
+
 function getPaginationItems(current: number, pageCount: number): Array<number | "ellipsis"> {
   if (pageCount <= 7) return Array.from({ length: pageCount }, (_, index) => index + 1);
 
@@ -58,6 +68,10 @@ export function InvoiceList() {
   const [query, setQuery] = useState(() => searchParams.get("search") ?? "");
   const deferredQuery = useDeferredValue(query);
   const [status, setStatus] = useState<StatusFilter>("All");
+  const [dateFrom, setDateFrom] = useState("2025-04-01");
+  const [dateTo, setDateTo] = useState("2025-04-30");
+  const [dateFilterActive, setDateFilterActive] = useState(false);
+  const [datePanelOpen, setDatePanelOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selected, setSelected] = useState<Set<number>>(() => new Set());
   const [activityMessage, setActivityMessage] = useState("");
@@ -72,14 +86,16 @@ export function InvoiceList() {
     const searchTerm = deferredQuery.trim().toLowerCase();
     return invoices.filter((invoice) => {
       const matchesStatus = status === "All" || invoice.status === status;
+      const invoiceDate = toIsoDate(invoice.date);
+      const matchesDate = !dateFilterActive || ((!dateFrom || invoiceDate >= dateFrom) && (!dateTo || invoiceDate <= dateTo));
       const matchesSearch =
         searchTerm.length === 0 ||
         invoice.invoiceNo.toLowerCase().includes(searchTerm) ||
         invoice.customer.toLowerCase().includes(searchTerm) ||
         invoice.mobile.replaceAll(" ", "").includes(searchTerm.replaceAll(" ", ""));
-      return matchesStatus && matchesSearch;
+      return matchesStatus && matchesDate && matchesSearch;
     });
-  }, [deferredQuery, status]);
+  }, [dateFilterActive, dateFrom, dateTo, deferredQuery, status]);
 
   const pageCount = Math.max(1, Math.ceil(filteredInvoices.length / PAGE_SIZE));
   const safeCurrentPage = Math.min(currentPage, pageCount);
@@ -119,6 +135,17 @@ export function InvoiceList() {
   function showAction(action: string, invoice: InvoiceRecord) {
     setActivityMessage(`${action}: ${invoice.invoiceNo} for ${invoice.customer}`);
   }
+
+  function cycleStatusFilter() {
+    const currentIndex = statuses.indexOf(status);
+    const nextStatus = statuses[(currentIndex + 1) % statuses.length];
+    changeStatus(nextStatus);
+    setActivityMessage(nextStatus === "All" ? "Payment filter cleared." : `Showing ${nextStatus.toLowerCase()} invoices.`);
+  }
+
+  const dateLabel = dateFilterActive
+    ? `${dateFrom || "Any date"} – ${dateTo || "Any date"}`
+    : "01 Apr 2025 - 30 Apr 2025";
 
   return (
     <div className={styles.page}>
@@ -166,14 +193,36 @@ export function InvoiceList() {
               value={query}
             />
           </label>
-          <button className={`button ${styles.toolButton}`} onClick={() => setActivityMessage("Payment status tabs are ready to filter invoices.")} type="button">
+          <button className={`button ${styles.toolButton}`} onClick={cycleStatusFilter} type="button">
             <Filter aria-hidden="true" size={16} />
-            Filter
+            {status === "All" ? "Filter" : status}
           </button>
-          <button className={`button ${styles.toolButton}`} onClick={() => setActivityMessage("Showing invoices from 01 Apr 2025 to 30 Apr 2025.")} type="button">
-            <CalendarDays aria-hidden="true" size={16} />
-            <span>01 Apr 2025 - 30 Apr 2025</span>
-          </button>
+          <div className={styles.dateControl}>
+            <button aria-expanded={datePanelOpen} className={`button ${styles.toolButton}`} onClick={() => setDatePanelOpen((open) => !open)} type="button">
+              <CalendarDays aria-hidden="true" size={16} />
+              <span>{dateLabel}</span>
+            </button>
+            {datePanelOpen ? (
+              <div className={styles.datePanel}>
+                <label><span>From</span><input className="field" max={dateTo || undefined} onChange={(event) => setDateFrom(event.target.value)} type="date" value={dateFrom} /></label>
+                <label><span>To</span><input className="field" min={dateFrom || undefined} onChange={(event) => setDateTo(event.target.value)} type="date" value={dateTo} /></label>
+                <div className={styles.datePanelActions}>
+                  <button className="button button--ghost" onClick={() => {
+                    setDateFilterActive(false);
+                    setDatePanelOpen(false);
+                    setCurrentPage(1);
+                    setActivityMessage("Date filter cleared.");
+                  }} type="button">Clear</button>
+                  <button className="button button--primary" onClick={() => {
+                    setDateFilterActive(true);
+                    setDatePanelOpen(false);
+                    setCurrentPage(1);
+                    setActivityMessage(`Date range applied: ${dateLabel}.`);
+                  }} type="button">Apply</button>
+                </div>
+              </div>
+            ) : null}
+          </div>
           <button className={`button ${styles.toolButton}`} onClick={() => exportInvoices(filteredInvoices)} type="button">
             <Download aria-hidden="true" size={16} />
             Export

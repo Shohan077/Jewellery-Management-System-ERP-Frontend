@@ -101,6 +101,53 @@
   white-space: nowrap;
 }
 
+.dateControl {
+  position: relative;
+}
+
+.datePanel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 286px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+}
+
+.datePanel label {
+  display: grid;
+  gap: 5px;
+  color: var(--slate-600);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.datePanel :global(.field) {
+  height: 36px;
+  padding-inline: 8px;
+  font-size: 10px;
+}
+
+.datePanelActions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.datePanelActions :global(.button) {
+  min-height: 32px;
+  padding-inline: 10px;
+  font-size: 10px;
+}
+
 .activity {
   margin: 0;
   padding: 8px 14px;
@@ -311,7 +358,7 @@
     grid-template-columns: minmax(240px, 1fr) repeat(2, auto);
   }
 
-  .toolbar .toolButton:nth-of-type(1) {
+  .toolbar > .toolButton:first-of-type {
     display: none;
   }
 }
@@ -333,6 +380,15 @@
     width: 100%;
     padding-inline: 10px;
     font-size: 11px;
+  }
+
+  .dateControl .toolButton {
+    width: 100%;
+  }
+
+  .datePanel {
+    right: auto;
+    left: 0;
   }
 
   .mobile {
@@ -360,6 +416,15 @@
   }
 
   .searchField {
+    grid-column: auto;
+  }
+
+  .datePanel {
+    width: min(286px, calc(100vw - 54px));
+    grid-template-columns: 1fr;
+  }
+
+  .datePanelActions {
     grid-column: auto;
   }
 }

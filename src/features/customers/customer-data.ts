@@ -19,7 +19,7 @@ const featuredCustomers: Customer[] = [
   { id: 3, customerId: "C-000123", name: "Tanvir Ahmed", phone: "01611-223344", email: "tanvir.ahmed@gmail.com", totalPurchase: 345_200, status: "Active", group: "Regular", joinedThisMonth: true },
   { id: 4, customerId: "C-000122", name: "Farzana Akter", phone: "01898-776655", email: "farzana.akter@gmail.com", totalPurchase: 280_500, status: "Active", group: "Regular", joinedThisMonth: false },
   { id: 5, customerId: "C-000121", name: "Md. Selim", phone: "01755-667788", email: "selim@gmail.com", totalPurchase: 195_000, status: "Active", group: "Wholesale", joinedThisMonth: false },
-  { id: 6, customerId: "C-000120", name: "Salma Begum", phone: "01311-998877", email: "salma.begum@gmail.com", totalPurchase: 162_300, status: "Inactive", group: "Regular", joinedThisMonth: false },
+  { id: 6, customerId: "C-000120", name: "Salma Begum", phone: "01311-988877", email: "salma.begum@gmail.com", totalPurchase: 162_300, status: "Inactive", group: "Regular", joinedThisMonth: false },
   { id: 7, customerId: "C-000119", name: "Arif Hossain", phone: "01922-334455", email: "arif.hossain@gmail.com", totalPurchase: 125_000, status: "Active", group: "Regular", joinedThisMonth: false },
   { id: 8, customerId: "C-000118", name: "Laila Khan", phone: "01844-556677", email: "laila.khan@gmail.com", totalPurchase: 98_500, status: "Active", group: "VIP", joinedThisMonth: false },
   { id: 9, customerId: "C-000117", name: "Jahid Hasan", phone: "01677-889900", email: "jahid.hasan@gmail.com", totalPurchase: 75_200, status: "Active", group: "Regular", joinedThisMonth: false },

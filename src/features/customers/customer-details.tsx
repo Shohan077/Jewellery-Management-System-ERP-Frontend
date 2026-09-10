@@ -14,14 +14,12 @@ import {
   Mail,
   MapPin,
   MessageSquareText,
-  MoreHorizontal,
   Phone,
   ReceiptText,
   Send,
   Star,
   StickyNote,
   UserRound,
-  UsersRound,
   WalletCards,
   X,
 } from "lucide-react";
@@ -150,7 +148,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
           <dl className={styles.profileDetails}>
             <div><Phone aria-hidden="true" size={15} /><dt className="sr-only">Phone</dt><dd>{profile.phone}</dd></div>
             <div><Mail aria-hidden="true" size={15} /><dt className="sr-only">Email</dt><dd>{profile.email}</dd></div>
-            <div><MapPin aria-hidden="true" size={15} /><dt className="sr-only">Address</dt><dd>Dhaka, Bangladesh</dd></div>
+            <div><MapPin aria-hidden="true" size={15} /><dt className="sr-only">Address</dt><dd>Dhanmondi, Dhaka, Bangladesh</dd></div>
           </dl>
 
           <dl className={styles.accountDetails}>
@@ -174,7 +172,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
           {composeMode ? (
             <div className={styles.composer}>
               <div className={styles.composerHeader}>
-                <strong>{composeMode === "sms" ? "Message Rahim" : "Add a private note"}</strong>
+                <strong>{composeMode === "sms" ? `Message ${profile.name.split(" ")[0]}` : "Add a private note"}</strong>
                 <button aria-label="Close composer" onClick={() => setComposeMode(null)} type="button"><X size={15} /></button>
               </div>
               <textarea
@@ -264,7 +262,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
                 </div>
                 <div className={styles.tableScroller}>
                   <table className={styles.purchaseTable}>
-                    <thead><tr><th>#</th><th>Date</th><th>Invoice No</th><th>Amount</th><th>Payment Status</th><th>Action</th></tr></thead>
+                    <thead><tr><th scope="col">#</th><th scope="col">Date</th><th scope="col">Invoice No</th><th scope="col">Amount</th><th scope="col">Payment Status</th><th scope="col">Action</th></tr></thead>
                     <tbody>
                       {recentPurchases.map((purchase, index) => (
                         <tr key={purchase.id}>
@@ -296,7 +294,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
         <div className={styles.modalBackdrop} onMouseDown={(event) => {
           if (event.target === event.currentTarget) setEditOpen(false);
         }}>
-          <Card aria-labelledby="edit-customer-title" as="div" className={styles.modal} role="dialog">
+          <Card aria-labelledby="edit-customer-title" aria-modal="true" as="div" className={styles.modal} role="dialog">
             <div className={styles.modalHeader}>
               <div><h2 id="edit-customer-title">Edit Customer</h2><p>Update the customer’s contact information.</p></div>
               <button aria-label="Close edit dialog" onClick={() => setEditOpen(false)} type="button"><X size={19} /></button>

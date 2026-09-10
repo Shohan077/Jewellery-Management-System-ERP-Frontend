@@ -12,6 +12,7 @@ import {
   Hammer,
   LayoutDashboard,
   LockKeyhole,
+  PackageSearch,
   ReceiptText,
   Settings,
   ShoppingBag,
@@ -29,6 +30,7 @@ type NavigationItem = {
   label: string;
   icon: LucideIcon;
   href?: string;
+  activePrefixes?: ReadonlyArray<string>;
   children?: ReadonlyArray<{ label: string; href?: string }>;
 };
 
@@ -39,8 +41,10 @@ const navigation: NavigationItem[] = [
     label: "Purchase",
     icon: ShoppingBag,
     href: "/purchases",
+    activePrefixes: ["/purchases", "/purchase-orders"],
     children: [
       { label: "Purchase Invoice", href: "/purchases" },
+      { label: "Purchase Orders", href: "/purchase-orders" },
       { label: "Supplier Invoice" },
       { label: "Supplier" },
       { label: "Purchase Return" },
@@ -49,8 +53,11 @@ const navigation: NavigationItem[] = [
   {
     label: "Inventory",
     icon: Boxes,
-    href: "/products",
+    href: "/inventory/stock",
+    activePrefixes: ["/inventory", "/products"],
     children: [
+      { label: "Stock Overview", href: "/inventory/stock" },
+      { label: "Stock List", href: "/inventory/stock-list" },
       { label: "Product List", href: "/products" },
       { label: "Category" },
       { label: "Brand" },
@@ -58,10 +65,41 @@ const navigation: NavigationItem[] = [
       { label: "Stock Transfer" },
     ],
   },
-  { label: "Gold Management", icon: CircleDollarSign },
+  {
+    label: "Product Management",
+    icon: PackageSearch,
+    href: "/product-management/products",
+    children: [
+      { label: "Product List", href: "/product-management/products" },
+    ],
+  },
+  {
+    label: "Gold Management",
+    icon: CircleDollarSign,
+    href: "/gold-rates",
+    children: [
+      { label: "Gold Rate", href: "/gold-rates" },
+      { label: "Purity & Karat" },
+      { label: "Unit Conversion" },
+      { label: "Gold Purchase" },
+      { label: "Old Gold / Exchange" },
+    ],
+  },
   { label: "Diamond Management", icon: Gem },
   { label: "Manufacturing", icon: Hammer },
-  { label: "Karigar Management", icon: UserRoundCog },
+  {
+    label: "Karigar Management",
+    icon: UserRoundCog,
+    href: "/karigars",
+    children: [
+      { label: "Karigar List", href: "/karigars" },
+      { label: "Work Order" },
+      { label: "Material Issue" },
+      { label: "Material Return" },
+      { label: "Labour Payment" },
+      { label: "Karigar Ledger" },
+    ],
+  },
   {
     label: "Customer Management",
     icon: UsersRound,
@@ -84,11 +122,68 @@ const navigation: NavigationItem[] = [
       { label: "Supplier Ledger" },
     ],
   },
-  { label: "Accounts", icon: WalletCards },
-  { label: "Reports", icon: BarChart3 },
-  { label: "Branch Management", icon: Building2 },
+  {
+    label: "Mortgage / Pawn",
+    icon: CircleDollarSign,
+    href: "/mortgages/new",
+    children: [
+      { label: "New Mortgage", href: "/mortgages/new" },
+      { label: "Mortgage List" },
+      { label: "Payment / Release" },
+      { label: "Overdue List" },
+    ],
+  },
+  {
+    label: "Accounts",
+    icon: WalletCards,
+    href: "/expenses",
+    children: [
+      { label: "Expense", href: "/expenses" },
+      { label: "Cashbook" },
+      { label: "Income" },
+      { label: "Payment" },
+      { label: "Journal" },
+      { label: "Ledger" },
+    ],
+  },
+  {
+    label: "Reports",
+    icon: BarChart3,
+    href: "/reports/sales",
+    children: [
+      { label: "Sales Report", href: "/reports/sales" },
+      { label: "Purchase Report" },
+      { label: "Stock Report" },
+      { label: "Customer Report" },
+      { label: "Financial Report" },
+      { label: "Profit & Loss" },
+      { label: "Tax Report" },
+    ],
+  },
+  {
+    label: "Branch Management",
+    icon: Building2,
+    href: "/branches",
+    children: [
+      { label: "Branch List", href: "/branches" },
+      { label: "Branch Stock" },
+      { label: "Stock Transfer" },
+    ],
+  },
   { label: "Users & Security", icon: LockKeyhole },
-  { label: "System Settings", icon: Settings },
+  {
+    label: "System Settings",
+    icon: Settings,
+    href: "/settings",
+    children: [
+      { label: "General Settings", href: "/settings" },
+      { label: "Invoice Settings" },
+      { label: "Units & Conversion" },
+      { label: "Tax & VAT" },
+      { label: "Backup & Restore" },
+      { label: "Notifications" },
+    ],
+  },
 ];
 
 type SidebarProps = {
@@ -124,7 +219,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
             const active = item.href
               ? item.href === "/dashboard"
                 ? pathname === item.href
-                : pathname.startsWith(item.href)
+                : (item.activePrefixes ?? [item.href]).some((prefix) => pathname.startsWith(prefix))
               : false;
             const content = (
               <>
@@ -155,19 +250,24 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                 )}
                 {active && item.children ? (
                   <div aria-label={`${item.label} navigation`} className={styles.subnav}>
-                    {item.children.map((child, index) => child.href ? (
-                      <Link
-                        aria-current={index === 0 ? "page" : undefined}
-                        className={index === 0 ? styles.subnavActive : ""}
-                        href={child.href}
-                        key={child.label}
-                        onClick={onClose}
-                      >
-                        {child.label}
-                      </Link>
-                    ) : (
-                      <span aria-disabled="true" key={child.label}>{child.label}</span>
-                    ))}
+                    {item.children.map((child) => {
+                      const childActive = child.href
+                        ? pathname === child.href || pathname.startsWith(`${child.href}/`)
+                        : false;
+                      return child.href ? (
+                        <Link
+                          aria-current={childActive ? "page" : undefined}
+                          className={childActive ? styles.subnavActive : ""}
+                          href={child.href}
+                          key={child.label}
+                          onClick={onClose}
+                        >
+                          {child.label}
+                        </Link>
+                      ) : (
+                        <span aria-disabled="true" key={child.label}>{child.label}</span>
+                      );
+                    })}
                   </div>
                 ) : null}
               </div>

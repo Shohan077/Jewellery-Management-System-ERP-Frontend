@@ -22,6 +22,19 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/purchases` — purchase invoice list
 - `/purchases/new` — create purchase invoice
 
+- `/purchases/new/materials` — create raw-material purchase invoice
+- `/customers` — customer list and create dialog
+- `/customers/C-000125` — customer profile and purchase history
+- `/suppliers` — supplier list and create dialog
+- `/inventory/stock` — stock overview and adjustments
+- `/gold-rates` — gold rate management
+- `/karigars` — craftsman management
+- `/reports/sales` — interactive sales report
+- `/purchase-orders` — purchase order list
+- `/purchase-orders/new` — create purchase order
+- `/inventory/stock-list` — operational stock list
+- `/product-management/products` — product management catalogue
+
 ## Architecture
 
 - `src/app` contains route layouts and page entry points.

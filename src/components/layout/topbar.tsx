@@ -10,6 +10,7 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [openPanel, setOpenPanel] = useState<"notifications" | "profile" | null>(null);
+  const [hasUnreadNotification, setHasUnreadNotification] = useState(true);
 
   function submitSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -49,19 +50,26 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
         <div className={styles.popoverWrap}>
           <button
             aria-expanded={openPanel === "notifications"}
-            aria-label="Notifications, 1 unread"
+            aria-label={hasUnreadNotification ? "Notifications, 1 unread" : "Notifications, no unread items"}
             className={styles.iconButton}
             onClick={() => setOpenPanel((current) => current === "notifications" ? null : "notifications")}
             type="button"
           >
             <Bell size={20} strokeWidth={1.8} />
-            <span className={styles.notificationDot} />
+            {hasUnreadNotification ? <span className={styles.notificationDot} /> : null}
           </button>
           {openPanel === "notifications" ? (
             <div className={styles.popover} role="status">
               <strong>Notifications</strong>
               <p>Invoice S-000123 has a payment due.</p>
-              <button onClick={() => setOpenPanel(null)} type="button">Mark as read</button>
+              {hasUnreadNotification ? (
+                <button onClick={() => {
+                  setHasUnreadNotification(false);
+                  setOpenPanel(null);
+                }} type="button">Mark as read</button>
+              ) : (
+                <span className={styles.allRead}>All caught up</span>
+              )}
             </div>
           ) : null}
         </div>

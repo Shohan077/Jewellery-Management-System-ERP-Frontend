@@ -95,7 +95,7 @@ const quickActions = [
   { label: "New Sale", icon: ReceiptText, accent: "green", href: "/sales/invoices/new" },
   { label: "New Purchase", icon: ShoppingCart, accent: "blue", href: "/purchases/new" },
   { label: "Add Product", icon: PackagePlus, accent: "gold", href: "/products/new" },
-  { label: "Quick Customer", icon: UserRoundPlus, accent: "purple", href: "/customers?create=1" },
+  { label: "Quick Customer", icon: UserRoundPlus, accent: "purple", href: "/customers" },
 ] as const;
 
 const stockItems = [
@@ -196,7 +196,7 @@ function GoldRateCard() {
   );
 }
 
-function QuickActionsCard({ onAction }: { onAction: (message: string) => void }) {
+function QuickActionsCard() {
   return (
     <Card aria-labelledby="quick-actions-title" className={styles.quickCard}>
       <h2 id="quick-actions-title">Quick Actions</h2>
@@ -212,19 +212,10 @@ function QuickActionsCard({ onAction }: { onAction: (message: string) => void })
             </>
           );
 
-          return "href" in action ? (
+          return (
             <Link className={styles.quickAction} href={action.href} key={action.label}>
               {content}
             </Link>
-          ) : (
-            <button
-              className={styles.quickAction}
-              key={action.label}
-              onClick={() => onAction(`${action.label} is ready for your next workflow.`)}
-              type="button"
-            >
-              {content}
-            </button>
           );
         })}
       </div>
@@ -355,7 +346,7 @@ export function DashboardOverview() {
         <SalesChart />
         <div className={styles.sideStack}>
           <GoldRateCard />
-          <QuickActionsCard onAction={setFeedback} />
+          <QuickActionsCard />
         </div>
       </section>
 
