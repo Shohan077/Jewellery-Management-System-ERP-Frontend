@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BarChart3,
+  Barcode,
   Boxes,
   Building2,
   CircleDollarSign,
@@ -36,15 +37,26 @@ type NavigationItem = {
 
 const navigation: NavigationItem[] = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
-  { label: "POS & Sales", icon: ReceiptText, href: "/sales/invoices" },
+  {
+    label: "POS & Sales",
+    icon: ReceiptText,
+    href: "/sales/invoices",
+    activePrefixes: ["/sales", "/pos"],
+    children: [
+      { label: "POS (New Sale)", href: "/pos/new" },
+      { label: "Sales Invoice", href: "/sales/invoices" },
+      { label: "Sales Return", href: "/sales/returns/new" },
+    ],
+  },
   {
     label: "Purchase",
     icon: ShoppingBag,
     href: "/purchases",
-    activePrefixes: ["/purchases", "/purchase-orders"],
+    activePrefixes: ["/purchases", "/purchase-orders", "/purchase-management"],
     children: [
       { label: "Purchase Invoice", href: "/purchases" },
       { label: "Purchase Orders", href: "/purchase-orders" },
+      { label: "New Purchase", href: "/purchase-management/new" },
       { label: "Supplier Invoice" },
       { label: "Supplier" },
       { label: "Purchase Return" },
@@ -69,8 +81,10 @@ const navigation: NavigationItem[] = [
     label: "Product Management",
     icon: PackageSearch,
     href: "/product-management/products",
+    activePrefixes: ["/product-management"],
     children: [
       { label: "Product List", href: "/product-management/products" },
+      { label: "Product Catalogue", href: "/product-management/catalog" },
     ],
   },
   {
@@ -85,7 +99,31 @@ const navigation: NavigationItem[] = [
       { label: "Old Gold / Exchange" },
     ],
   },
-  { label: "Diamond Management", icon: Gem },
+  {
+    label: "Diamond Management",
+    icon: Gem,
+    href: "/diamonds",
+    children: [
+      { label: "Diamond List", href: "/diamonds" },
+      { label: "Diamond Purchase" },
+      { label: "Certificate Management" },
+      { label: "Diamond Stock" },
+      { label: "Diamond Sale" },
+      { label: "Reports" },
+    ],
+  },
+  {
+    label: "Old Gold / Exchange",
+    icon: CircleDollarSign,
+    href: "/old-gold/new",
+    children: [
+      { label: "Old Gold Purchase", href: "/old-gold/new" },
+      { label: "Exchange Entry" },
+      { label: "Valuation" },
+      { label: "Purity Test" },
+      { label: "Adjustment" },
+    ],
+  },
   { label: "Manufacturing", icon: Hammer },
   {
     label: "Karigar Management",
@@ -104,8 +142,10 @@ const navigation: NavigationItem[] = [
     label: "Customer Management",
     icon: UsersRound,
     href: "/customers",
+    activePrefixes: ["/customers", "/customer-dues"],
     children: [
       { label: "Customer List", href: "/customers" },
+      { label: "Customer Due", href: "/customer-dues" },
       { label: "Add Customer" },
       { label: "Customer Group" },
       { label: "Loyalty Program" },
@@ -126,6 +166,7 @@ const navigation: NavigationItem[] = [
     label: "Mortgage / Pawn",
     icon: CircleDollarSign,
     href: "/mortgages/new",
+    activePrefixes: ["/mortgages"],
     children: [
       { label: "New Mortgage", href: "/mortgages/new" },
       { label: "Mortgage List" },
@@ -150,13 +191,14 @@ const navigation: NavigationItem[] = [
     label: "Reports",
     icon: BarChart3,
     href: "/reports/sales",
+    activePrefixes: ["/reports"],
     children: [
       { label: "Sales Report", href: "/reports/sales" },
+      { label: "Profit & Loss", href: "/reports/profit-loss" },
       { label: "Purchase Report" },
       { label: "Stock Report" },
       { label: "Customer Report" },
       { label: "Financial Report" },
-      { label: "Profit & Loss" },
       { label: "Tax Report" },
     ],
   },
@@ -164,10 +206,23 @@ const navigation: NavigationItem[] = [
     label: "Branch Management",
     icon: Building2,
     href: "/branches",
+    activePrefixes: ["/branches", "/stock-transfers"],
     children: [
       { label: "Branch List", href: "/branches" },
       { label: "Branch Stock" },
-      { label: "Stock Transfer" },
+      { label: "Stock Transfer", href: "/stock-transfers/new" },
+    ],
+  },
+  {
+    label: "Barcode & Printing",
+    icon: Barcode,
+    href: "/barcodes",
+    children: [
+      { label: "Generate Barcode", href: "/barcodes" },
+      { label: "Label Print" },
+      { label: "Invoice Print" },
+      { label: "QR Code" },
+      { label: "Print Settings" },
     ],
   },
   { label: "Users & Security", icon: LockKeyhole },

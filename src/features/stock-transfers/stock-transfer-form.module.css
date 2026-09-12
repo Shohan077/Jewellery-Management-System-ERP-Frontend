@@ -1,0 +1,466 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 15px;
+  margin: 0 auto;
+}
+
+.printButton {
+  min-height: 38px;
+  padding-inline: 14px;
+  font-size: 11px;
+}
+
+.feedback {
+  display: flex;
+  align-items: center;
+  min-height: 37px;
+  margin: -3px 0 0;
+  padding: 8px 12px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.feedback.success {
+  color: #14763a;
+  border-color: #bfe8cb;
+  background: var(--success-soft);
+}
+
+.feedback.error {
+  color: #aa2f3a;
+  border-color: #f4c5c9;
+  background: var(--danger-soft);
+}
+
+.form {
+  min-width: 0;
+}
+
+.transferCard,
+.recentCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.transferCard {
+  padding: 16px;
+}
+
+.branchFields {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 38px minmax(180px, 1fr) minmax(180px, .74fr);
+  align-items: end;
+  gap: 11px;
+}
+
+.control {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  color: var(--ink-900);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.control > span b {
+  color: var(--danger);
+}
+
+.control :global(.select),
+.control :global(.field) {
+  height: 39px;
+  padding-inline: 11px;
+  font-size: 11px;
+}
+
+.control [aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(228, 86, 86, .09);
+}
+
+.swapButton {
+  width: 38px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-200);
+  border-radius: 8px;
+  background: var(--slate-50);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.swapButton:hover {
+  color: var(--gold-600);
+  border-color: var(--gold-300);
+  background: var(--gold-50);
+}
+
+.fieldError {
+  margin: 7px 0 0;
+  color: var(--danger);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.productsSection {
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.productsSection h2,
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: -.015em;
+}
+
+.productToolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 11px;
+  margin-top: 9px;
+}
+
+.searchField {
+  min-width: 0;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  color: var(--slate-500);
+  border: 1px solid var(--slate-200);
+  border-radius: 8px;
+  background: var(--surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.searchField:focus-within {
+  color: var(--gold-600);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, .11);
+}
+
+.searchField input {
+  min-width: 0;
+  height: 100%;
+  flex: 1;
+  padding: 0;
+  color: var(--ink-950);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 11px;
+}
+
+.searchField input::placeholder {
+  color: var(--slate-400);
+}
+
+.searchField input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.addButton {
+  min-width: 134px;
+  min-height: 39px;
+  font-size: 11px;
+}
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.productsSection > .tableScroller {
+  margin: 10px -16px 0;
+}
+
+.productTable,
+.recentTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--ink-900);
+  font-size: 11px;
+}
+
+.productTable {
+  min-width: 730px;
+}
+
+.recentTable {
+  min-width: 670px;
+}
+
+.productTable th,
+.recentTable th {
+  height: 35px;
+  padding: 8px 10px;
+  color: var(--ink-900);
+  background: #fafbfc;
+  font-size: 10px;
+  font-weight: 750;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.productTable td,
+.recentTable td {
+  height: 40px;
+  padding: 6px 10px;
+  border-top: 1px solid var(--slate-100);
+  vertical-align: middle;
+}
+
+.productTable tbody tr:hover,
+.recentTable tbody tr:hover {
+  background: #fffdf8;
+}
+
+.productTable th:first-child,
+.productTable td:first-child,
+.recentTable th:first-child,
+.recentTable td:first-child {
+  width: 42px;
+  padding-left: 16px;
+  text-align: center;
+}
+
+.productTable th:last-child,
+.productTable td:last-child {
+  width: 44px;
+  padding-right: 16px;
+  text-align: center;
+}
+
+.productTable td:nth-child(3),
+.productTable td:nth-child(4),
+.productTable td:nth-child(6),
+.recentTable td:nth-child(5) {
+  font-variant-numeric: tabular-nums;
+}
+
+.quantityInput {
+  width: 82px;
+  height: 30px;
+  padding: 0 9px;
+  color: var(--ink-950);
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  outline: 0;
+  background: white;
+  font-size: 11px;
+}
+
+.quantityInput:focus {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, .11);
+}
+
+.quantityInput[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.quantityError {
+  display: block;
+  max-width: 160px;
+  margin-top: 3px;
+  color: var(--danger);
+  font-size: 8px;
+  line-height: 1.25;
+}
+
+.removeButton {
+  width: 27px;
+  height: 27px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--danger);
+  border-radius: 6px;
+  background: var(--danger-soft);
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.removeButton:hover {
+  background: #fbd2d5;
+}
+
+.removeButton:active {
+  transform: translateY(1px);
+}
+
+.emptyState {
+  height: 78px !important;
+  color: var(--slate-500);
+  text-align: center !important;
+}
+
+.emptyState svg {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.transferFooter {
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) 1fr;
+  align-items: end;
+  gap: 22px;
+  padding-top: 13px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.remarks :global(.textarea) {
+  min-height: 60px;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.actions :global(.button) {
+  min-height: 38px;
+  font-size: 11px;
+}
+
+.submitButton {
+  min-width: 148px;
+}
+
+.recentCard {
+  padding-top: 14px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 16px 10px;
+}
+
+.viewAllButton {
+  padding: 3px 0;
+  color: var(--gold-600);
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.status {
+  min-width: 78px;
+  min-height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.completed {
+  color: #14763a;
+  background: var(--success-soft);
+}
+
+.pending {
+  color: #a25817;
+  background: var(--warning-soft);
+}
+
+@media (max-width: 900px) {
+  .branchFields {
+    grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr);
+  }
+
+  .branchFields .control:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .transferCard {
+    padding: 14px;
+  }
+
+  .branchFields {
+    grid-template-columns: 1fr;
+  }
+
+  .branchFields .control:last-child {
+    grid-column: auto;
+  }
+
+  .swapButton {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+  .productToolbar,
+  .transferFooter {
+    grid-template-columns: 1fr;
+  }
+
+  .productsSection > .tableScroller {
+    margin-inline: -14px;
+  }
+
+  .addButton {
+    width: 100%;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actions :global(.button),
+  .submitButton {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .printButton,
+  .feedback,
+  .productToolbar,
+  .removeButton,
+  .actions,
+  .viewAllButton {
+    display: none !important;
+  }
+
+  .page {
+    gap: 10px;
+  }
+
+  .transferCard,
+  .recentCard {
+    border-color: #d7d7d7;
+    box-shadow: none;
+  }
+}

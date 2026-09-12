@@ -1,0 +1,446 @@
+.page {
+  display: grid;
+  gap: 18px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.backButton {
+  min-height: 38px;
+  padding-inline: 13px;
+  font-size: 12px;
+}
+
+.purchaseCard {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.purchaseFields {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.3fr) auto minmax(185px, 0.75fr) minmax(190px, 0.78fr);
+  align-items: end;
+  gap: 11px;
+  padding: 18px;
+}
+
+.fieldLabel,
+.notesField {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  color: var(--ink-900);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.fieldLabel em {
+  color: var(--danger);
+  font-style: normal;
+}
+
+.fieldLabel :global(.field),
+.fieldLabel :global(.select) {
+  height: 40px;
+  font-size: 11px;
+}
+
+.newSupplierButton {
+  min-height: 40px;
+  padding-inline: 14px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.tableScroller {
+  overflow-x: auto;
+  border-top: 1px solid var(--slate-100);
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.productTable {
+  width: 100%;
+  min-width: 830px;
+  border-collapse: collapse;
+  color: var(--ink-900);
+  font-size: 11px;
+}
+
+.productTable th {
+  height: 43px;
+  padding: 9px 12px;
+  color: var(--ink-900);
+  background: #fbfbfc;
+  font-size: 10px;
+  font-weight: 780;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.productTable td {
+  height: 51px;
+  padding: 7px 12px;
+  border-top: 1px solid var(--slate-100);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.productTable th:first-child,
+.productTable td:first-child {
+  width: 42px;
+  text-align: center;
+}
+
+.productTable th:last-child,
+.productTable td:last-child {
+  width: 62px;
+  text-align: center;
+}
+
+.productSelect,
+.tableSelect,
+.tableInput {
+  height: 34px;
+  color: var(--ink-900);
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 10px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.productSelect:focus,
+.tableSelect:focus,
+.tableInput:focus,
+.chargeInput:focus-within {
+  outline: none;
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, 0.11);
+}
+
+.productSelect {
+  width: 100%;
+  min-width: 210px;
+  padding: 0 9px;
+  font-weight: 650;
+}
+
+.tableSelect {
+  width: 78px;
+  padding: 0 7px;
+}
+
+.tableInput {
+  width: 92px;
+  padding: 0 8px;
+}
+
+.amount {
+  font-weight: 750;
+}
+
+.removeButton,
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.removeButton {
+  width: 28px;
+  height: 28px;
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.removeButton:hover {
+  background: #fbd1d4;
+}
+
+.emptyRow {
+  height: 84px !important;
+  color: var(--slate-500);
+  text-align: center !important;
+}
+
+.addItemButton {
+  min-height: 38px;
+  margin: 12px 18px 0;
+  padding-inline: 14px;
+  font-size: 11px;
+}
+
+.checkoutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(315px, 0.72fr);
+  gap: 26px;
+  padding: 18px;
+}
+
+.notesField :global(.textarea) {
+  min-height: 126px;
+  font-size: 11px;
+}
+
+.summary {
+  min-width: 0;
+  align-self: stretch;
+  padding: 8px 0 0;
+}
+
+.summary dl {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+}
+
+.summary dl > div {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 5px 10px;
+  color: var(--ink-900);
+  font-size: 11px;
+}
+
+.summary dt,
+.summary dd {
+  margin: 0;
+}
+
+.summary dd {
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.chargeInput {
+  height: 29px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding-inline: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.chargeInput span {
+  color: var(--slate-500);
+}
+
+.chargeInput input {
+  width: 74px;
+  padding: 0;
+  color: var(--ink-900);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-weight: 750;
+  text-align: right;
+}
+
+.summary .totalRow {
+  min-height: 42px;
+  margin-top: 4px;
+  background: linear-gradient(90deg, var(--gold-50), #fbf5e4);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.totalRow dd {
+  font-size: 15px;
+}
+
+.footer {
+  min-height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--slate-100);
+  background: #fbfbfc;
+}
+
+.feedback {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #247443;
+  font-size: 11px;
+}
+
+.feedback[data-tone="error"] {
+  color: var(--danger);
+}
+
+.feedback svg {
+  flex: 0 0 auto;
+}
+
+.actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.actions :global(.button) {
+  min-height: 39px;
+  padding-inline: 15px;
+  font-size: 11px;
+}
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 17, 21, 0.56);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(100%, 470px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+}
+
+.modal header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.modal h2,
+.modal p {
+  margin: 0;
+}
+
+.modal h2 {
+  font-size: 18px;
+}
+
+.modal p {
+  margin-top: 4px;
+  color: var(--slate-600);
+  font-size: 11px;
+}
+
+.closeButton {
+  width: 32px;
+  height: 32px;
+  color: var(--slate-600);
+  background: var(--slate-50);
+}
+
+.modalFields {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.modal footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 13px 18px;
+  border-top: 1px solid var(--slate-100);
+  background: var(--slate-50);
+}
+
+.modal footer :global(.button) {
+  min-height: 38px;
+  font-size: 11px;
+}
+
+@media (max-width: 1020px) {
+  .purchaseFields {
+    grid-template-columns: minmax(220px, 1fr) auto minmax(180px, 0.8fr);
+  }
+
+  .purchaseFields > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .purchaseFields {
+    grid-template-columns: 1fr auto;
+  }
+
+  .purchaseFields > :nth-child(3),
+  .purchaseFields > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .checkoutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    padding-top: 14px;
+    border-top: 1px solid var(--slate-100);
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    gap: 14px;
+  }
+
+  .purchaseFields {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .purchaseFields > :nth-child(3),
+  .purchaseFields > :last-child {
+    grid-column: auto;
+  }
+
+  .newSupplierButton {
+    width: 100%;
+  }
+
+  .addItemButton {
+    width: calc(100% - 28px);
+    margin-inline: 14px;
+  }
+
+  .checkoutGrid {
+    gap: 18px;
+    padding: 14px;
+  }
+
+  .footer {
+    align-items: stretch;
+    flex-direction: column;
+    padding-inline: 14px;
+  }
+
+  .actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .modal footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

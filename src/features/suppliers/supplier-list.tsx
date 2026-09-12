@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ChevronLeft,
   ChevronRight,
@@ -237,7 +238,7 @@ export function SupplierList() {
                   <td><SupplierStatusBadge status={supplier.status} /></td>
                   <td>
                     <div className={styles.rowActions}>
-                      <button aria-label={`View ${supplier.name}`} onClick={() => showRowAction("Viewing", supplier)} title="View supplier" type="button"><Eye aria-hidden="true" size={15} /></button>
+                      <Link aria-label={`View ${supplier.name}`} href={`/suppliers/S-${String(supplier.id).padStart(5, "0")}`} title="View supplier"><Eye aria-hidden="true" size={15} /></Link>
                       <button aria-label={`Edit ${supplier.name}`} onClick={() => showRowAction("Editing", supplier)} title="Edit supplier" type="button"><FilePenLine aria-hidden="true" size={15} /></button>
                     </div>
                   </td>

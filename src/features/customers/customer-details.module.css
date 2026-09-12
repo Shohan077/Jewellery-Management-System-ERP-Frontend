@@ -145,6 +145,20 @@
   font-weight: 650;
 }
 
+.vipButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 9px;
+  padding: 6px 9px;
+  color: white;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--gold-600), var(--gold-400));
+  font-size: 9px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
 .profileDetails,
 .accountDetails {
   margin: 18px 0 0;

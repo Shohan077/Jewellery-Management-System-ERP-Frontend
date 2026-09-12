@@ -237,6 +237,7 @@
 }
 
 .rowActions button,
+.rowActions a,
 .pagination button,
 .closeButton {
   display: inline-flex;
@@ -245,7 +246,8 @@
   cursor: pointer;
 }
 
-.rowActions button {
+.rowActions button,
+.rowActions a {
   width: 29px;
   height: 29px;
   color: var(--slate-600);
@@ -255,7 +257,8 @@
   transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
 }
 
-.rowActions button:hover {
+.rowActions button:hover,
+.rowActions a:hover {
   color: var(--gold-600);
   border-color: var(--gold-300);
   background: var(--gold-50);

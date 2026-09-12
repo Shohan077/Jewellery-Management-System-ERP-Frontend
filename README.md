@@ -34,6 +34,22 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/purchase-orders/new` — create purchase order
 - `/inventory/stock-list` — operational stock list
 - `/product-management/products` — product management catalogue
+- `/mortgages/new` — create a mortgage or pawn entry
+- `/expenses` — cash and expense management
+- `/branches` — branch management and performance
+- `/settings` — shop and system settings
+- `/diamonds` — diamond inventory management
+- `/old-gold/new` — record an old-gold purchase
+- `/customer-dues` — customer receivables and collections
+- `/reports/profit-loss` — interactive profit and loss report
+- `/customers/C-000125/profile` — detailed customer profile variant
+- `/suppliers/S-00001` — supplier profile, history, and products
+- `/barcodes` — barcode generation and label printing
+- `/stock-transfers/new` — transfer inventory between branches
+- `/product-management/catalog` — full product management catalogue
+- `/purchase-management/new` — create a purchase entry with live totals
+- `/pos/new` — point-of-sale invoice workflow
+- `/sales/returns/new` — find an invoice and process a sales return
 
 ## Architecture
 

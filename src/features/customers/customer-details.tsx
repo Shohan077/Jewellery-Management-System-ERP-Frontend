@@ -46,7 +46,7 @@ const tabDescriptions: Record<Exclude<DetailTab, "Overview">, string> = {
   Documents: "Store identity records, receipts, and customer attachments.",
 };
 
-export function CustomerDetails({ customerId }: { customerId: string }) {
+export function CustomerDetails({ customerId, profileVariant = false }: { customerId: string; profileVariant?: boolean }) {
   const initialCustomer = getCustomer(customerId);
   const [profile, setProfile] = useState(() => ({
     name: initialCustomer.name,
@@ -144,11 +144,17 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
           </div>
           <h1>{profile.name}</h1>
           <p className={styles.customerCode}>{initialCustomer.customerId}</p>
+          {profileVariant ? (
+            <button className={styles.vipButton} onClick={() => setActivityMessage(`${profile.name} is enrolled in the VIP customer group.`)} type="button">
+              <Crown aria-hidden="true" size={14} /> VIP Customer
+            </button>
+          ) : null}
 
           <dl className={styles.profileDetails}>
             <div><Phone aria-hidden="true" size={15} /><dt className="sr-only">Phone</dt><dd>{profile.phone}</dd></div>
+            {profileVariant ? <div><Phone aria-hidden="true" size={15} /><dt className="sr-only">Secondary phone</dt><dd>01711-233510</dd></div> : null}
             <div><Mail aria-hidden="true" size={15} /><dt className="sr-only">Email</dt><dd>{profile.email}</dd></div>
-            <div><MapPin aria-hidden="true" size={15} /><dt className="sr-only">Address</dt><dd>Dhanmondi, Dhaka, Bangladesh</dd></div>
+            <div><MapPin aria-hidden="true" size={15} /><dt className="sr-only">Address</dt><dd>{profileVariant ? "House 12, Road 5, Dhanmondi, Dhaka, Bangladesh" : "Dhanmondi, Dhaka, Bangladesh"}</dd></div>
           </dl>
 
           <dl className={styles.accountDetails}>
@@ -158,7 +164,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
             <div><dt>Loyalty Points</dt><dd>2,450</dd></div>
           </dl>
 
-          <div className={styles.profileActions}>
+          {!profileVariant ? <div className={styles.profileActions}>
             <button className="button button--primary" onClick={() => {
               setComposeMode("sms");
               setComposeText("");
@@ -167,7 +173,7 @@ export function CustomerDetails({ customerId }: { customerId: string }) {
               setComposeMode("note");
               setComposeText("");
             }} type="button"><StickyNote size={15} /> Add Note</button>
-          </div>
+          </div> : null}
 
           {composeMode ? (
             <div className={styles.composer}>

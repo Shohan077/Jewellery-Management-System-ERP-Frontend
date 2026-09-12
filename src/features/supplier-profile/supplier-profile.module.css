@@ -1,0 +1,884 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topActions :global(.button) {
+  min-height: 38px;
+  padding-inline: 12px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.backLink {
+  color: var(--slate-700);
+}
+
+.moreControl {
+  position: relative;
+}
+
+.moreMenu {
+  position: absolute;
+  z-index: 25;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 176px;
+  display: grid;
+  padding: 6px;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-raised);
+}
+
+.moreMenu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px;
+  color: var(--slate-700);
+  border-radius: 6px;
+  background: transparent;
+  font-size: 11px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.moreMenu button:hover {
+  color: var(--gold-600);
+  background: var(--gold-50);
+}
+
+.activity {
+  position: fixed;
+  z-index: 90;
+  right: 22px;
+  bottom: 22px;
+  max-width: min(390px, calc(100vw - 32px));
+  margin: 0;
+  padding: 11px 14px;
+  color: #6e4d0e;
+  border: 1px solid var(--gold-300);
+  border-radius: var(--radius-sm);
+  background: var(--gold-50);
+  box-shadow: var(--shadow-raised);
+  font-size: 11px;
+}
+
+.detailGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(230px, 0.72fr) minmax(0, 2.28fr);
+  align-items: start;
+  gap: 14px;
+}
+
+.profileCard {
+  position: sticky;
+  top: 88px;
+  min-width: 0;
+  padding: 19px 17px 18px;
+  text-align: center;
+}
+
+.supplierLogo {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+  color: #d4a12b;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #25282d, #0f1114 68%);
+  box-shadow: 0 7px 19px rgba(17, 18, 21, 0.2);
+}
+
+.supplierLogo::before,
+.supplierLogo::after {
+  position: absolute;
+  background: linear-gradient(90deg, #a66e0d, #e6be50, #a66e0d);
+  content: "";
+}
+
+.supplierLogo::before {
+  width: 4px;
+  height: 52px;
+  transform: rotate(31deg);
+}
+
+.supplierLogo::after {
+  width: 45px;
+  height: 4px;
+  bottom: 23px;
+  transform: rotate(-3deg);
+}
+
+.supplierLogo span {
+  position: relative;
+  z-index: 1;
+  transform: translateX(5px);
+  font-family: Georgia, serif;
+  font-size: 50px;
+  font-style: italic;
+  line-height: 1;
+}
+
+.profileCard h1 {
+  margin: 12px 0 4px;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.identityLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--slate-500);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.profileStatus,
+.receivedBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.profileStatus {
+  min-height: 18px;
+  padding: 3px 7px;
+  font-size: 8px;
+}
+
+.activeStatus,
+.receivedBadge {
+  color: #16713a;
+  background: var(--success-soft);
+}
+
+.inactiveStatus {
+  color: #b53642;
+  background: var(--danger-soft);
+}
+
+.contactDetails,
+.accountDetails,
+.invoiceDetails {
+  margin: 0;
+  padding: 0;
+}
+
+.contactDetails {
+  display: grid;
+  gap: 9px;
+  margin-top: 17px;
+  text-align: left;
+}
+
+.contactDetails > div {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--slate-600);
+}
+
+.contactDetails svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--slate-500);
+}
+
+.contactDetails dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--slate-700);
+  font-size: 10px;
+  line-height: 1.42;
+  white-space: pre-line;
+}
+
+.accountDetails {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 14px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.accountDetails > div,
+.invoiceDetails > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+}
+
+.accountDetails dt,
+.accountDetails dd {
+  margin: 0;
+  font-size: 9px;
+}
+
+.accountDetails dt {
+  color: var(--slate-500);
+}
+
+.accountDetails dd {
+  color: var(--ink-900);
+  font-weight: 700;
+  text-align: right;
+}
+
+.dueText,
+.dueValue {
+  color: var(--danger) !important;
+}
+
+.content {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.tabs {
+  display: flex;
+  gap: clamp(16px, 2.3vw, 32px);
+  overflow-x: auto;
+  padding-inline: 14px;
+  scrollbar-width: none;
+}
+
+.tabs button {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 13px 2px 11px;
+  color: var(--slate-600);
+  background: transparent;
+  font-size: 10px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tabs button::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: transparent;
+  content: "";
+}
+
+.tabs button:hover,
+.tabs .activeTab {
+  color: var(--gold-600);
+}
+
+.tabs .activeTab::after {
+  background: var(--gold-500);
+}
+
+.overview {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.summaryCard {
+  min-width: 0;
+  min-height: 83px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.summaryCard p {
+  margin: 0 0 6px;
+  color: var(--slate-600);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.summaryCard strong {
+  display: block;
+  overflow: hidden;
+  color: var(--ink-950);
+  font-size: clamp(14px, 1.35vw, 19px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.summaryCard .dateValue {
+  font-size: clamp(12px, 1.15vw, 16px);
+}
+
+.chartCard,
+.purchasesCard,
+.tabPanel {
+  min-width: 0;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.cardHeader,
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.cardHeader h2,
+.panelHeader h2 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.panelHeader p {
+  margin: 4px 0 0;
+  color: var(--slate-500);
+  font-size: 9px;
+}
+
+.cardHeader :global(.select) {
+  width: 128px;
+  height: 31px;
+  padding-inline: 8px;
+  font-size: 9px;
+}
+
+.chart {
+  height: 220px;
+  display: grid;
+  grid-template-columns: 37px minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.yAxis {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 24px;
+  color: var(--slate-500);
+  font-size: 8px;
+  text-align: right;
+}
+
+.plotArea {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 24px;
+}
+
+.graphPlane {
+  position: relative;
+  min-width: 0;
+  border-bottom: 1px solid var(--slate-200);
+  background: repeating-linear-gradient(to bottom, var(--slate-100) 0, var(--slate-100) 1px, transparent 1px, transparent 33.33%);
+}
+
+.chartSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.monthLabels {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: var(--slate-500);
+  font-size: 8px;
+}
+
+.viewAll {
+  padding: 3px;
+  color: var(--gold-600);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.tableScroller {
+  margin: 11px -14px -14px;
+  overflow-x: auto;
+}
+
+.purchaseTable {
+  width: 100%;
+  min-width: 570px;
+  border-collapse: collapse;
+  color: var(--ink-900);
+  font-size: 9px;
+}
+
+.purchaseTable th {
+  height: 31px;
+  padding: 7px 10px;
+  color: var(--slate-600);
+  background: #fafbfc;
+  font-size: 8px;
+  font-weight: 750;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.purchaseTable td {
+  height: 37px;
+  padding: 7px 10px;
+  border-top: 1px solid var(--slate-100);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.purchaseTable tbody tr:hover {
+  background: #fffdf8;
+}
+
+.invoiceNo {
+  color: #245a9e;
+  font-weight: 700;
+}
+
+.receivedBadge {
+  min-height: 20px;
+  padding: 4px 8px;
+  font-size: 8px;
+}
+
+.invoiceAction {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  color: var(--danger);
+  border: 1px solid var(--danger-soft);
+  border-radius: 6px;
+  background: #fffafa;
+  cursor: pointer;
+}
+
+.invoiceAction:hover {
+  border-color: #f2a8ad;
+  background: var(--danger-soft);
+}
+
+.tabPanel {
+  min-height: 420px;
+}
+
+.panelHeader :global(.button) {
+  min-height: 34px;
+  padding-inline: 10px;
+  font-size: 10px;
+}
+
+.tabPanel > .tableScroller {
+  margin-top: 14px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.productCard {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 10px;
+  padding: 13px;
+  color: var(--ink-900);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.productCard > span {
+  grid-row: 1 / 3;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--gold-600);
+  border-radius: 8px;
+  background: var(--gold-50);
+}
+
+.productCard strong,
+.productCard small,
+.productCard b {
+  min-width: 0;
+}
+
+.productCard strong {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.productCard small {
+  color: var(--slate-500);
+  font-size: 9px;
+}
+
+.productCard b {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  color: var(--gold-600);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.productCard:hover {
+  border-color: var(--gold-300);
+  background: #fffdf8;
+}
+
+.documentList {
+  display: grid;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.documentList button {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+  padding: 11px;
+  color: var(--ink-900);
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.documentList button > span:first-child {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--danger);
+  border-radius: 7px;
+  background: var(--danger-soft);
+}
+
+.documentList button > span:nth-child(2) {
+  display: grid;
+  gap: 3px;
+}
+
+.documentList strong {
+  font-size: 10px;
+}
+
+.documentList small {
+  color: var(--slate-500);
+  font-size: 9px;
+}
+
+.documentList button > svg {
+  color: var(--slate-400);
+}
+
+.documentList button:hover {
+  border-color: var(--gold-300);
+}
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(14, 17, 22, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(570px, 100%);
+  max-height: calc(100vh - 36px);
+  padding: 19px;
+  overflow-y: auto;
+}
+
+.purchaseModal {
+  width: min(440px, 100%);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.modalHeader p {
+  margin: 4px 0 0;
+  color: var(--slate-500);
+  font-size: 10px;
+}
+
+.modalHeader > button {
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  color: var(--slate-500);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal form {
+  display: grid;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.formGrid label {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  color: var(--slate-700);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.formGrid :global(.field),
+.formGrid :global(.select),
+.formGrid :global(.textarea) {
+  font-size: 11px;
+}
+
+.fullField {
+  grid-column: 1 / -1;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.modalActions :global(.button) {
+  min-height: 38px;
+  font-size: 11px;
+}
+
+.invoiceDetails {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: var(--slate-50);
+}
+
+.invoiceDetails dt,
+.invoiceDetails dd {
+  margin: 0;
+  font-size: 10px;
+}
+
+.invoiceDetails dt {
+  color: var(--slate-500);
+}
+
+.invoiceDetails dd {
+  font-weight: 700;
+  text-align: right;
+}
+
+.purchaseModal .modalActions {
+  margin-top: 16px;
+}
+
+@media (max-width: 1120px) {
+  .detailGrid {
+    grid-template-columns: 225px minmax(0, 1fr);
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .profileCard {
+    position: static;
+  }
+
+  .contactDetails,
+  .accountDetails {
+    width: min(520px, 100%);
+    margin-inline: auto;
+  }
+
+  .contactDetails {
+    margin-top: 17px;
+  }
+}
+
+@media (max-width: 680px) {
+  .topActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .topActions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .moreControl,
+  .moreControl > :global(.button) {
+    width: 100%;
+  }
+
+  .moreMenu {
+    right: auto;
+    left: 0;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summaryCard {
+    min-height: 79px;
+    padding: 10px;
+  }
+
+  .chartCard,
+  .purchasesCard,
+  .tabPanel {
+    padding: 12px;
+  }
+
+  .tableScroller {
+    margin-right: -12px;
+    margin-bottom: -12px;
+    margin-left: -12px;
+  }
+
+  .chart {
+    height: 185px;
+  }
+
+  .cardHeader {
+    align-items: flex-start;
+  }
+
+  .cardHeader :global(.select) {
+    width: 116px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullField {
+    grid-column: auto;
+  }
+
+  .productCard {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .productCard b {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 5px;
+  }
+}
+
+@media print {
+  .topActions,
+  .tabs,
+  .activity,
+  .viewAll,
+  .invoiceAction {
+    display: none !important;
+  }
+
+  .profileCard {
+    position: static;
+  }
+
+  .page,
+  .detailGrid,
+  .content,
+  .overview {
+    gap: 8px;
+  }
+}
