@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   BarChart3,
   Barcode,
+  BadgeCheck,
   Boxes,
   Building2,
   CircleDollarSign,
@@ -45,6 +46,7 @@ const navigation: NavigationItem[] = [
     children: [
       { label: "POS (New Sale)", href: "/pos/new" },
       { label: "Sales Invoice", href: "/sales/invoices" },
+      { label: "Quotation", href: "/sales/quotations/new" },
       { label: "Sales Return", href: "/sales/returns/new" },
     ],
   },
@@ -69,6 +71,7 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/inventory", "/products"],
     children: [
       { label: "Stock Overview", href: "/inventory/stock" },
+      { label: "Stock View", href: "/inventory/stock-view" },
       { label: "Stock List", href: "/inventory/stock-list" },
       { label: "Product List", href: "/products" },
       { label: "Category" },
@@ -93,6 +96,7 @@ const navigation: NavigationItem[] = [
     href: "/gold-rates",
     children: [
       { label: "Gold Rate", href: "/gold-rates" },
+      { label: "Gold Rate Manager", href: "/gold-rates/manage" },
       { label: "Purity & Karat" },
       { label: "Unit Conversion" },
       { label: "Gold Purchase" },
@@ -124,13 +128,25 @@ const navigation: NavigationItem[] = [
       { label: "Adjustment" },
     ],
   },
-  { label: "Manufacturing", icon: Hammer },
+  {
+    label: "Manufacturing",
+    icon: Hammer,
+    href: "/manufacturing/orders",
+    activePrefixes: ["/manufacturing"],
+    children: [
+      { label: "Production Order", href: "/manufacturing/orders" },
+      { label: "Work in Progress" },
+      { label: "Finished Products" },
+      { label: "Production Report" },
+    ],
+  },
   {
     label: "Karigar Management",
     icon: UserRoundCog,
     href: "/karigars",
     children: [
       { label: "Karigar List", href: "/karigars" },
+      { label: "Karigar Management", href: "/karigars/manage" },
       { label: "Work Order" },
       { label: "Material Issue" },
       { label: "Material Return" },
@@ -178,11 +194,13 @@ const navigation: NavigationItem[] = [
     label: "Accounts",
     icon: WalletCards,
     href: "/expenses",
+    activePrefixes: ["/expenses", "/accounts"],
     children: [
       { label: "Expense", href: "/expenses" },
+      { label: "Expense Ledger", href: "/accounts/expenses" },
       { label: "Cashbook" },
       { label: "Income" },
-      { label: "Payment" },
+      { label: "Payment", href: "/accounts/payments" },
       { label: "Journal" },
       { label: "Ledger" },
     ],
@@ -193,6 +211,7 @@ const navigation: NavigationItem[] = [
     href: "/reports/sales",
     activePrefixes: ["/reports"],
     children: [
+      { label: "Reports Dashboard", href: "/reports/dashboard" },
       { label: "Sales Report", href: "/reports/sales" },
       { label: "Profit & Loss", href: "/reports/profit-loss" },
       { label: "Purchase Report" },
@@ -203,12 +222,23 @@ const navigation: NavigationItem[] = [
     ],
   },
   {
+    label: "Certificate Management",
+    icon: BadgeCheck,
+    href: "/certificates",
+    children: [
+      { label: "Certificate List", href: "/certificates" },
+      { label: "Add Certificate" },
+      { label: "Hallmark Verification" },
+    ],
+  },
+  {
     label: "Branch Management",
     icon: Building2,
     href: "/branches",
     activePrefixes: ["/branches", "/stock-transfers"],
     children: [
       { label: "Branch List", href: "/branches" },
+      { label: "Branch Overview", href: "/branches/overview" },
       { label: "Branch Stock" },
       { label: "Stock Transfer", href: "/stock-transfers/new" },
     ],
@@ -225,7 +255,19 @@ const navigation: NavigationItem[] = [
       { label: "Print Settings" },
     ],
   },
-  { label: "Users & Security", icon: LockKeyhole },
+  {
+    label: "Users & Security",
+    icon: LockKeyhole,
+    href: "/users",
+    activePrefixes: ["/users"],
+    children: [
+      { label: "User List", href: "/users" },
+      { label: "Roles & Permissions" },
+      { label: "Activity Log", href: "/users/activity-log" },
+      { label: "Login History" },
+      { label: "Password Policy" },
+    ],
+  },
   {
     label: "System Settings",
     icon: Settings,
@@ -276,6 +318,10 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                 ? pathname === item.href
                 : (item.activePrefixes ?? [item.href]).some((prefix) => pathname.startsWith(prefix))
               : false;
+            const activeChildHref = item.children
+              ?.map((child) => child.href)
+              .filter((href): href is string => Boolean(href) && (pathname === href || pathname.startsWith(`${href}/`)))
+              .sort((first, second) => second.length - first.length)[0];
             const content = (
               <>
                 <Icon aria-hidden="true" size={17} strokeWidth={1.8} />
@@ -306,9 +352,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                 {active && item.children ? (
                   <div aria-label={`${item.label} navigation`} className={styles.subnav}>
                     {item.children.map((child) => {
-                      const childActive = child.href
-                        ? pathname === child.href || pathname.startsWith(`${child.href}/`)
-                        : false;
+                      const childActive = child.href === activeChildHref;
                       return child.href ? (
                         <Link
                           aria-current={childActive ? "page" : undefined}

@@ -50,6 +50,18 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/purchase-management/new` — create a purchase entry with live totals
 - `/pos/new` — point-of-sale invoice workflow
 - `/sales/returns/new` — find an invoice and process a sales return
+- `/inventory/stock-view` — current stock valuation and availability
+- `/gold-rates/manage` — gold-rate update and seven-day history
+- `/karigars/manage` — craftsman status and workload management
+- `/reports/dashboard` — consolidated reports and analytics dashboard
+- `/users` — user, role, branch, and status management
+- `/sales/quotations/new` — create, preview, save, and send quotations
+- `/accounts/payments` — record customer and supplier payments
+- `/users/activity-log` — filter and export system activity history
+- `/certificates` — jewellery certificate and hallmark registry
+- `/manufacturing/orders` — production order and karigar workflow
+- `/accounts/expenses` — expense ledger and voucher management
+- `/branches/overview` — branch stock analytics and transfers
 
 ## Architecture
 
