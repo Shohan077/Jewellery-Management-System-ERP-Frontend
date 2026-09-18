@@ -62,6 +62,14 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/manufacturing/orders` — production order and karigar workflow
 - `/accounts/expenses` — expense ledger and voucher management
 - `/branches/overview` — branch stock analytics and transfers
+- `/loyalty` — customer membership tiers, loyalty points, and rewards
+- `/branches/sales-dashboard` — multi-branch sales comparison and performance
+- `/inventory/alerts` — low-stock and out-of-stock alerts
+- `/settings/system` — general company and system preferences
+- `/manufacturing/work-orders` — manufacturing order list and filters
+- `/manufacturing/work-orders/new` — create a manufacturing order
+- `/manufacturing/material-issues` — material issue records and filters
+- `/manufacturing/material-issues/new` — issue materials to a karigar
 
 ## Architecture
 

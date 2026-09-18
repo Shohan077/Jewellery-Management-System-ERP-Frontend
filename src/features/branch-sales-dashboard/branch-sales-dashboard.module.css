@@ -1,0 +1,496 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.periodSelect {
+  min-width: 220px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-200);
+  border-radius: 8px;
+  background: white;
+}
+
+.periodSelect select {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background: transparent;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.activity {
+  position: fixed;
+  z-index: 90;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(390px, calc(100vw - 30px));
+  margin: 0;
+  padding: 10px 13px;
+  color: #6f4d0f;
+  border: 1px solid var(--gold-300);
+  border-radius: 8px;
+  background: var(--gold-50);
+  box-shadow: var(--shadow-raised);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metricCard {
+  min-width: 0;
+  min-height: 92px;
+  padding: 13px;
+}
+
+.metricCard p {
+  margin: 0 0 8px;
+  color: var(--slate-600);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.metricCard strong {
+  display: block;
+  overflow: hidden;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trend,
+.growth {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #159344;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.metricCard .trend {
+  margin-top: 6px;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(330px, .88fr);
+  gap: 11px;
+}
+
+.chartCard {
+  min-width: 0;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.chartCard h2,
+.performanceCard h2 {
+  margin: 0;
+  font-size: 12px;
+}
+
+.barChart {
+  height: 230px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.yAxis {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 25px;
+  color: var(--slate-500);
+  font-size: 8px;
+  text-align: right;
+}
+
+.plot {
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 16px;
+  border-bottom: 1px solid var(--slate-200);
+  background: repeating-linear-gradient(to bottom, var(--slate-100) 0, var(--slate-100) 1px, transparent 1px, transparent 33.333%);
+}
+
+.barColumn {
+  position: relative;
+  width: min(100px, 25%);
+  height: calc(100% - 25px);
+}
+
+.barVisual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.barVisual > strong {
+  margin-bottom: 5px;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.bar {
+  width: 50%;
+  min-height: 7px;
+  display: block;
+  flex: 0 0 auto;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(#d8a638, #ad7410);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .22);
+}
+
+.barColumn small {
+  position: absolute;
+  top: calc(100% + 8px);
+  color: var(--slate-600);
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.distribution {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: minmax(145px, 1fr) minmax(125px, .72fr);
+  align-items: center;
+  gap: 17px;
+}
+
+.donut {
+  position: relative;
+  width: min(175px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  border-radius: 50%;
+  background: conic-gradient(#bd8215 0 65%, #347bdd 65% 89%, #1eb96c 89% 100%);
+}
+
+.donut::after {
+  position: absolute;
+  width: 56%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: white;
+  content: "";
+}
+
+.donut span {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.distribution ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.distribution li {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  color: var(--slate-700);
+  font-size: 9px;
+}
+
+.distribution li i {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.distribution li strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.performanceCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.performanceCard h2 {
+  padding: 13px 14px 9px;
+}
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.performanceCard table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  font-size: 9px;
+}
+
+.performanceCard th {
+  height: 34px;
+  padding: 7px 10px;
+  background: #fafbfc;
+  font-size: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.performanceCard td {
+  height: 42px;
+  padding: 7px 10px;
+  border-top: 1px solid var(--slate-100);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.performanceCard tbody tr:hover {
+  background: #fffdf8;
+}
+
+.performanceCard th:first-child,
+.performanceCard td:first-child {
+  width: 42px;
+  padding-left: 14px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.actions button {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.actions button:hover,
+.actions button:focus-visible {
+  color: var(--gold-600);
+  border-color: var(--gold-300);
+  background: var(--gold-50);
+}
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(12, 17, 25, .56);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(520px, 100%);
+  max-height: calc(100vh - 36px);
+  padding: 19px;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.modalHeader h2,
+.modalHeader p {
+  margin: 0;
+}
+
+.modalHeader h2 {
+  font-size: 18px;
+}
+
+.modalHeader p {
+  margin-top: 4px;
+  color: var(--slate-500);
+  font-size: 10px;
+}
+
+.modalHeader > button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--slate-500);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal form {
+  display: grid;
+  gap: 16px;
+  margin-top: 17px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.formGrid label {
+  display: grid;
+  gap: 5px;
+  color: var(--slate-700);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 17px 0 0;
+}
+
+.details > div {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  border: 1px solid var(--slate-100);
+  border-radius: 8px;
+  background: var(--slate-50);
+}
+
+.details dt,
+.details dd {
+  margin: 0;
+}
+
+.details dt {
+  color: var(--slate-500);
+  font-size: 9px;
+}
+
+.details dd {
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+@media (max-width: 900px) {
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .periodSelect {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metricCard {
+    min-height: 82px;
+    padding: 11px;
+  }
+
+  .metricCard strong {
+    font-size: 16px;
+  }
+
+  .distribution {
+    grid-template-columns: 1fr;
+  }
+
+  .distribution ul {
+    width: min(260px, 100%);
+    margin: auto;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .modalBackdrop {
+    align-items: end;
+    padding: 10px;
+  }
+
+  .modal {
+    max-height: calc(100vh - 20px);
+  }
+}
+
+@media (max-width: 390px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .barChart {
+    height: 200px;
+  }
+
+  .modalActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

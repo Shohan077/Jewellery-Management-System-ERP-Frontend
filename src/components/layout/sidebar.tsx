@@ -73,6 +73,7 @@ const navigation: NavigationItem[] = [
       { label: "Stock Overview", href: "/inventory/stock" },
       { label: "Stock View", href: "/inventory/stock-view" },
       { label: "Stock List", href: "/inventory/stock-list" },
+      { label: "Stock Alerts", href: "/inventory/alerts" },
       { label: "Product List", href: "/products" },
       { label: "Category" },
       { label: "Brand" },
@@ -135,6 +136,10 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/manufacturing"],
     children: [
       { label: "Production Order", href: "/manufacturing/orders" },
+      { label: "Manufacturing Orders", href: "/manufacturing/work-orders" },
+      { label: "Create Manufacturing Order", href: "/manufacturing/work-orders/new" },
+      { label: "Material Issue", href: "/manufacturing/material-issues" },
+      { label: "Create Material Issue", href: "/manufacturing/material-issues/new" },
       { label: "Work in Progress" },
       { label: "Finished Products" },
       { label: "Production Report" },
@@ -158,13 +163,13 @@ const navigation: NavigationItem[] = [
     label: "Customer Management",
     icon: UsersRound,
     href: "/customers",
-    activePrefixes: ["/customers", "/customer-dues"],
+    activePrefixes: ["/customers", "/customer-dues", "/loyalty"],
     children: [
       { label: "Customer List", href: "/customers" },
       { label: "Customer Due", href: "/customer-dues" },
       { label: "Add Customer" },
       { label: "Customer Group" },
-      { label: "Loyalty Program" },
+      { label: "Loyalty Program", href: "/loyalty" },
     ],
   },
   {
@@ -239,6 +244,7 @@ const navigation: NavigationItem[] = [
     children: [
       { label: "Branch List", href: "/branches" },
       { label: "Branch Overview", href: "/branches/overview" },
+      { label: "Multi-Branch Dashboard", href: "/branches/sales-dashboard" },
       { label: "Branch Stock" },
       { label: "Stock Transfer", href: "/stock-transfers/new" },
     ],
@@ -274,6 +280,7 @@ const navigation: NavigationItem[] = [
     href: "/settings",
     children: [
       { label: "General Settings", href: "/settings" },
+      { label: "System Preferences", href: "/settings/system" },
       { label: "Invoice Settings" },
       { label: "Units & Conversion" },
       { label: "Tax & VAT" },

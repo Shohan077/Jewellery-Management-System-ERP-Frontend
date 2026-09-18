@@ -1,0 +1,221 @@
+.createPage,
+.listPage {
+  width: 100%;
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.createPage { max-width: 1120px; }
+.listPage { max-width: 1480px; }
+
+.feedback {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.feedback.success { color: #14763a; border-color: #bfe8cb; background: var(--success-soft); }
+.feedback.error { color: #aa2f3a; border-color: #f4c5c9; background: var(--danger-soft); }
+
+.issueFormCard,
+.listCard { min-width: 0; overflow: hidden; }
+
+.issueFormCard { padding: 17px; }
+
+.cardHeader { padding-bottom: 15px; border-bottom: 1px solid var(--slate-100); }
+.cardHeader h2,
+.cardHeader p,
+.sectionHeader h2,
+.sectionHeader p { margin: 0; }
+.cardHeader h2 { font-size: 17px; letter-spacing: -.025em; }
+.cardHeader p { margin-top: 4px; color: var(--slate-600); font-size: 11px; }
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 18px;
+  padding: 18px 0;
+}
+
+.control {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  color: var(--ink-900);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.control > span b { color: var(--danger); }
+.control :global(.field),
+.control :global(.select) { height: 42px; font-size: 12px; }
+
+.materialsSection { border-top: 1px solid var(--slate-100); }
+.sectionHeader {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.sectionHeader h2 { font-size: 14px; }
+.sectionHeader p { margin-top: 4px; color: var(--slate-500); font-size: 9px; }
+.sectionHeader :global(.button) { min-height: 36px; padding-inline: 13px; font-size: 11px; }
+
+.tableScroller { min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+
+.materialTable,
+.issueTable { width: 100%; border-collapse: collapse; color: var(--ink-900); font-size: 11px; }
+.materialTable { min-width: 690px; border: 1px solid var(--slate-100); }
+.issueTable { min-width: 910px; }
+
+.materialTable th,
+.issueTable th { height: 38px; padding: 8px 10px; color: var(--ink-900); background: #fafbfc; font-size: 10px; font-weight: 750; text-align: left; white-space: nowrap; }
+.materialTable td,
+.issueTable td { height: 47px; padding: 8px 10px; border-top: 1px solid var(--slate-100); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.materialTable tbody tr:hover,
+.issueTable tbody tr:hover { background: #fffdf8; }
+.materialTable th:first-child,
+.materialTable td:first-child,
+.issueTable th:first-child,
+.issueTable td:first-child { width: 44px; text-align: center; }
+.materialTable th:last-child,
+.materialTable td:last-child { width: 52px; text-align: center; }
+
+.deleteButton {
+  width: 29px;
+  height: 29px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--danger);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.deleteButton:hover { background: var(--danger-soft); }
+.emptyMaterials { height: 92px !important; color: var(--slate-500); text-align: center !important; }
+
+.noteField { max-width: 100%; margin-top: 18px; }
+.noteField :global(.textarea) { min-height: 100px; font-size: 12px; }
+
+.formActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.formActions :global(.button) { min-width: 112px; }
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 140;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(12, 17, 25, .58);
+  backdrop-filter: blur(3px);
+}
+.modal { width: min(560px, 100%); max-height: calc(100svh - 36px); overflow-y: auto; }
+.modalHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; padding: 18px; border-bottom: 1px solid var(--slate-100); }
+.modalHeader h2,
+.modalHeader p { margin: 0; }
+.modalHeader h2 { font-size: 18px; }
+.modalHeader p { margin-top: 4px; color: var(--slate-500); font-size: 10px; }
+.modalHeader > button { width: 32px; height: 32px; display: grid; place-items: center; color: var(--slate-600); border: 1px solid var(--slate-200); border-radius: 7px; background: white; cursor: pointer; }
+.modalHeader > button:hover { color: var(--gold-700); border-color: var(--gold-300); background: var(--gold-50); }
+.modalForm { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; }
+.modalActions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 9px; margin-top: 4px; }
+
+.listFilters {
+  display: grid;
+  grid-template-columns: minmax(155px, .75fr) minmax(155px, .75fr) minmax(165px, .8fr) auto auto;
+  align-items: end;
+  gap: 11px;
+  padding: 15px;
+  border-bottom: 1px solid var(--slate-100);
+}
+.listFilters :global(.button) { min-height: 42px; padding-inline: 18px; }
+.clearButton { width: 42px; height: 42px; display: grid; place-items: center; color: var(--slate-600); border: 1px solid var(--slate-200); border-radius: 8px; background: white; cursor: pointer; }
+.clearButton:hover { color: var(--gold-700); border-color: var(--gold-300); background: var(--gold-50); }
+.listFeedback { margin: 0; border-width: 0 0 1px; border-radius: 0; }
+
+.issueTable th:last-child,
+.issueTable td:last-child { width: 68px; text-align: center; }
+.issueTable strong { font-weight: 720; }
+.issueStatus { min-width: 66px; display: inline-flex; align-items: center; justify-content: center; padding: 5px 9px; border-radius: 6px; font-size: 9px; font-weight: 730; line-height: 1; }
+.issued { color: #176e39; background: #ccefd8; }
+.returned { color: #b62d36; background: #ffd4d7; }
+
+.actionCell { position: relative; }
+.actionMenu { position: relative; display: inline-block; }
+.actionMenu summary { width: 30px; height: 30px; display: grid; place-items: center; color: var(--slate-600); border: 1px solid transparent; border-radius: 7px; background: transparent; cursor: pointer; list-style: none; }
+.actionMenu summary::-webkit-details-marker { display: none; }
+.actionMenu summary:hover,
+.actionMenu[open] summary { color: var(--gold-700); border-color: var(--gold-200); background: var(--gold-50); }
+.actionMenu > div { position: absolute; z-index: 20; top: calc(100% + 4px); right: 0; width: 164px; padding: 5px; border: 1px solid var(--slate-200); border-radius: 8px; background: white; box-shadow: 0 14px 35px rgba(20, 24, 32, .16); text-align: left; }
+.actionMenu button { width: 100%; min-height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 9px; color: var(--slate-700); border-radius: 5px; background: transparent; font-size: 10px; cursor: pointer; text-align: left; }
+.actionMenu button:hover { color: var(--gold-700); background: var(--gold-50); }
+.actionMenu .menuDelete { color: #c9353e; }
+.actionMenu .menuDelete:hover { color: #b3232d; background: var(--danger-soft); }
+
+.noRecords { height: 230px !important; color: var(--slate-500); text-align: center !important; }
+.noRecords strong,
+.noRecords span { display: block; margin-bottom: 7px; }
+.noRecords strong { color: var(--ink-900); font-size: 14px; }
+.noRecords :global(.button) { margin: 12px auto 0; }
+
+.listFooter { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 15px; border-top: 1px solid var(--slate-100); }
+.listFooter p { margin: 0; color: var(--ink-900); font-size: 10px; }
+.pagination { display: flex; align-items: center; gap: 5px; }
+.pagination button { min-width: 34px; height: 34px; display: grid; place-items: center; padding: 0 8px; color: var(--ink-900); border: 1px solid var(--slate-200); border-radius: 7px; background: white; font-size: 11px; cursor: pointer; }
+.pagination button:hover:not(:disabled) { border-color: var(--gold-300); background: var(--gold-50); }
+.pagination button:disabled { color: var(--slate-300); cursor: not-allowed; }
+.pagination .currentPage { color: white; border-color: var(--gold-600); background: linear-gradient(135deg, var(--gold-400), var(--gold-600)); }
+
+.issueDetails { padding: 18px; }
+.detailsHero { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px; border: 1px solid var(--gold-100); border-radius: 9px; background: var(--gold-50); }
+.detailsHero span,
+.detailsHero strong { display: block; }
+.detailsHero span { color: var(--slate-500); font-size: 9px; }
+.detailsHero strong { margin-top: 4px; font-size: 14px; }
+.issueDetails dl { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 14px 0; }
+.issueDetails dl div { padding: 11px; border: 1px solid var(--slate-100); border-radius: 7px; background: #fafbfc; }
+.issueDetails dt,
+.issueDetails dd { margin: 0; }
+.issueDetails dt { color: var(--slate-500); font-size: 9px; }
+.issueDetails dd { margin-top: 5px; color: var(--ink-900); font-size: 11px; font-weight: 700; }
+.detailsNote { display: grid; gap: 5px; margin: 0 0 16px; padding: 11px; color: var(--slate-700); border-radius: 7px; background: var(--slate-50); font-size: 10px; }
+
+@media (max-width: 820px) {
+  .listFilters { grid-template-columns: 1fr 1fr; }
+  .listFilters > :nth-child(3) { grid-column: 1 / -1; }
+  .listFilters :global(.button) { width: 100%; }
+}
+
+@media (max-width: 620px) {
+  .issueFormCard { padding: 14px; }
+  .fieldGrid,
+  .modalForm,
+  .issueDetails dl { grid-template-columns: 1fr; }
+  .sectionHeader { align-items: stretch; flex-direction: column; padding: 13px 0; }
+  .sectionHeader :global(.button) { width: 100%; }
+  .noteField { margin-top: 14px; }
+  .formActions { display: grid; grid-template-columns: 1fr 1fr; }
+  .formActions :global(.button) { min-width: 0; width: 100%; }
+  .listFooter { align-items: flex-start; flex-direction: column; }
+  .modalActions { grid-column: auto; display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 440px) {
+  .listFilters,
+  .formActions { grid-template-columns: 1fr; }
+  .listFilters > :nth-child(3) { grid-column: auto; }
+  .clearButton { width: 100%; }
+  .pagination { width: 100%; overflow-x: auto; }
+  .modalBackdrop { align-items: end; padding: 9px; }
+  .modal { max-height: calc(100svh - 18px); }
+}
