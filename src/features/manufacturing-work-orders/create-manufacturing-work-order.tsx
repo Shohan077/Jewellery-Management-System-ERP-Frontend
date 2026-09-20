@@ -11,6 +11,7 @@ import {
   karigarOptions,
   priorities,
   productOptions,
+  WORK_ORDER_STORAGE_EVENT,
   WORK_ORDER_STORAGE_KEY,
   workOrderStatuses,
   type ManufacturingWorkOrder,
@@ -85,6 +86,7 @@ export function CreateManufacturingWorkOrder() {
       const existing = Array.isArray(parsed) ? parsed.filter(isManufacturingWorkOrder) : [];
       const next = [order, ...existing.filter((item) => item.orderNo !== order.orderNo)];
       window.localStorage.setItem(WORK_ORDER_STORAGE_KEY, JSON.stringify(next));
+      window.dispatchEvent(new Event(WORK_ORDER_STORAGE_EVENT));
     } catch {
       // The route hand-off still works if storage is blocked by the browser.
     }

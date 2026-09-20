@@ -12,9 +12,9 @@ import {
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 
 import { Card } from "@/components/ui/card";
-import { PageHeader } from "@/components/ui/page-header";
 
 import {
+  MATERIAL_ISSUES_DELETED_STORAGE_KEY,
   MATERIAL_ISSUES_STORAGE_EVENT,
   MATERIAL_ISSUES_STORAGE_KEY,
   formatIssueDate,
@@ -152,6 +152,11 @@ export function MaterialIssueCreate() {
       const stored = readStoredIssues();
       const next = [record, ...stored.filter((item) => item.issueNo !== record.issueNo)];
       window.localStorage.setItem(MATERIAL_ISSUES_STORAGE_KEY, JSON.stringify(next));
+      const deletedValue: unknown = JSON.parse(window.localStorage.getItem(MATERIAL_ISSUES_DELETED_STORAGE_KEY) ?? "[]");
+      const deletedIds = Array.isArray(deletedValue)
+        ? deletedValue.filter((value): value is string => typeof value === "string" && value !== record.id)
+        : [];
+      window.localStorage.setItem(MATERIAL_ISSUES_DELETED_STORAGE_KEY, JSON.stringify(deletedIds));
       window.dispatchEvent(new Event(MATERIAL_ISSUES_STORAGE_EVENT));
       setFeedback({ tone: "success", message: `${record.issueNo} saved successfully for ${record.karigar}.` });
     } catch {
@@ -161,10 +166,10 @@ export function MaterialIssueCreate() {
 
   return (
     <div className={styles.createPage}>
-      <PageHeader
-        description="Issue raw materials to karigar for manufacturing"
-        title="Material Issue to Karigar"
-      />
+      <header className={styles.createHeader}>
+        <h1>Material Issue to Karigar</h1>
+        <nav aria-label="Breadcrumb"><span>Manufacturing</span><b aria-hidden="true">›</b><span aria-current="page">Material Issue</span></nav>
+      </header>
 
       <p
         aria-live="polite"

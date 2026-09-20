@@ -1,4 +1,5 @@
 export const WORK_ORDER_STORAGE_KEY = "jewellery-erp.manufacturing-work-orders";
+export const WORK_ORDER_STORAGE_EVENT = "jewellery-erp:manufacturing-work-orders-changed";
 
 export const workOrderStatuses = ["Draft", "Pending", "In Progress", "On Hold", "Completed"] as const;
 export type WorkOrderStatus = (typeof workOrderStatuses)[number];
@@ -53,7 +54,7 @@ const featuredWorkOrders: ManufacturingWorkOrder[] = [
   { id: 3, orderNo: "MO-2025-003", orderDate: "2025-04-05", product: "Gold Bangle (22K)", productKind: "ring", designNo: "DR-003", quantity: 8, unit: "Pcs", estimatedWeight: 64, karigar: "Kalim Uddin", expectedDate: "2025-04-15", priority: "Normal", status: "In Progress", remarks: "Bangle batch for showroom stock." },
   { id: 4, orderNo: "MO-2025-004", orderDate: "2025-04-06", product: "Diamond Ring (18K)", productKind: "diamond", designNo: "DR-004", quantity: 3, unit: "Pcs", estimatedWeight: 15.75, karigar: "Jabbar Hossain", expectedDate: "2025-04-14", priority: "High", status: "On Hold", remarks: "Awaiting stone approval." },
   { id: 5, orderNo: "MO-2025-005", orderDate: "2025-04-03", product: "Gold Chain (22K)", productKind: "chain", designNo: "DR-005", quantity: 12, unit: "Pcs", estimatedWeight: 90, karigar: "Selim Mia", expectedDate: "2025-04-14", priority: "Normal", status: "Pending", remarks: "Standard chain batch." },
-  { id: 6, orderNo: "MO-2025-006", orderDate: "2025-04-02", product: "Gold Earrings (22K)", productKind: "earrings", designNo: "DR-006", quantity: 12, unit: "Pcs", estimatedWeight: 45.25, karigar: "Rahin Khan", expectedDate: "2025-04-14", priority: "Normal", status: "Completed", remarks: "Earrings production batch." },
+  { id: 6, orderNo: "MO-2025-006", orderDate: "2025-04-02", product: "Gold Earrings (22K)", productKind: "earrings", designNo: "DR-006", quantity: 18, unit: "Pcs", estimatedWeight: 45.25, karigar: "Rahin Khan", expectedDate: "2025-04-14", priority: "Normal", status: "Completed", remarks: "Earrings production batch." },
   { id: 7, orderNo: "MO-2025-007", orderDate: "2025-04-01", product: "Gold Pendant (22K)", productKind: "pendant", designNo: "DR-007", quantity: 20, unit: "Pcs", estimatedWeight: 58.5, karigar: "Kalim Uddin", expectedDate: "2025-04-18", priority: "Normal", status: "In Progress", remarks: "Pendant batch for branch distribution." },
 ];
 
@@ -103,9 +104,21 @@ export function formatWorkOrderDate(isoDate: string) {
 export function isManufacturingWorkOrder(value: unknown): value is ManufacturingWorkOrder {
   if (!value || typeof value !== "object") return false;
   const record = value as Partial<ManufacturingWorkOrder>;
-  return typeof record.orderNo === "string"
+  return typeof record.id === "number"
+    && Number.isFinite(record.id)
+    && typeof record.orderNo === "string"
     && typeof record.product === "string"
+    && productOptions.some((product) => product.kind === record.productKind)
     && typeof record.designNo === "string"
     && typeof record.orderDate === "string"
-    && typeof record.expectedDate === "string";
+    && typeof record.quantity === "number"
+    && Number.isFinite(record.quantity)
+    && (record.unit === "Pcs" || record.unit === "Set")
+    && typeof record.estimatedWeight === "number"
+    && Number.isFinite(record.estimatedWeight)
+    && typeof record.karigar === "string"
+    && typeof record.expectedDate === "string"
+    && priorities.some((priority) => priority === record.priority)
+    && workOrderStatuses.some((status) => status === record.status)
+    && typeof record.remarks === "string";
 }

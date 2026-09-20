@@ -23,6 +23,7 @@ export type MaterialIssueRecord = {
 };
 
 export const MATERIAL_ISSUES_STORAGE_KEY = "jewellery-erp:material-issues:v1";
+export const MATERIAL_ISSUES_DELETED_STORAGE_KEY = "jewellery-erp:material-issues-deleted:v1";
 export const MATERIAL_ISSUES_STORAGE_EVENT = "jewellery-erp:material-issues-updated";
 
 export const karigarOptions = [

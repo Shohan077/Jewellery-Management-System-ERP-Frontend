@@ -1,25 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
   Eye,
   MoreHorizontal,
-  Plus,
   RotateCcw,
   Search,
   Trash2,
   Undo2,
   X,
 } from "lucide-react";
-import { useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 
 import { Card } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
 
 import {
+  MATERIAL_ISSUES_DELETED_STORAGE_KEY,
   MATERIAL_ISSUES_STORAGE_EVENT,
   MATERIAL_ISSUES_STORAGE_KEY,
   initialMaterialIssues,
@@ -32,6 +31,8 @@ import styles from "./material-issues.module.css";
 
 const PAGE_SIZE = 8;
 const EMPTY_SAVED_ISSUES = "[]";
+const EMPTY_DELETED_ISSUES = "[]";
+const EMPTY_STORAGE_SNAPSHOT = JSON.stringify([EMPTY_SAVED_ISSUES, EMPTY_DELETED_ISSUES]);
 
 type AppliedFilters = { from: string; to: string; karigar: string } | null;
 type Feedback = { tone: "error" | "success"; message: string } | null;
@@ -48,9 +49,12 @@ function subscribeToSavedIssues(onStoreChange: () => void) {
 
 function readSavedIssuesSnapshot() {
   try {
-    return window.localStorage.getItem(MATERIAL_ISSUES_STORAGE_KEY) ?? EMPTY_SAVED_ISSUES;
+    return JSON.stringify([
+      window.localStorage.getItem(MATERIAL_ISSUES_STORAGE_KEY) ?? EMPTY_SAVED_ISSUES,
+      window.localStorage.getItem(MATERIAL_ISSUES_DELETED_STORAGE_KEY) ?? EMPTY_DELETED_ISSUES,
+    ]);
   } catch {
-    return EMPTY_SAVED_ISSUES;
+    return EMPTY_STORAGE_SNAPSHOT;
   }
 }
 
@@ -58,6 +62,33 @@ function parseSavedIssues(snapshot: string) {
   try {
     const parsed: unknown = JSON.parse(snapshot);
     return Array.isArray(parsed) ? parsed.filter(isMaterialIssueRecord) : [];
+  } catch {
+    return [];
+  }
+}
+
+function parseStorageSnapshot(snapshot: string) {
+  try {
+    const pair: unknown = JSON.parse(snapshot);
+    if (!Array.isArray(pair) || typeof pair[0] !== "string" || typeof pair[1] !== "string") {
+      return { records: [] as MaterialIssueRecord[], deletedIds: [] as string[] };
+    }
+    const deletedValue: unknown = JSON.parse(pair[1]);
+    return {
+      records: parseSavedIssues(pair[0]),
+      deletedIds: Array.isArray(deletedValue)
+        ? deletedValue.filter((value): value is string => typeof value === "string")
+        : [],
+    };
+  } catch {
+    return { records: [] as MaterialIssueRecord[], deletedIds: [] as string[] };
+  }
+}
+
+function readDeletedIssueIds() {
+  try {
+    const value: unknown = JSON.parse(window.localStorage.getItem(MATERIAL_ISSUES_DELETED_STORAGE_KEY) ?? EMPTY_DELETED_ISSUES);
+    return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
   } catch {
     return [];
   }
@@ -79,12 +110,20 @@ function StatusBadge({ status }: { status: MaterialIssueStatus }) {
 }
 
 function DetailsDialog({ issue, onClose }: { issue: MaterialIssueRecord; onClose: () => void }) {
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [onClose]);
+
   return (
     <div className={styles.modalBackdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <Card aria-describedby="issue-details-description" aria-labelledby="issue-details-title" aria-modal="true" as="section" className={styles.modal} role="dialog">
         <header className={styles.modalHeader}>
           <div><h2 id="issue-details-title">{issue.issueNo}</h2><p id="issue-details-description">Material issue record details</p></div>
-          <button aria-label="Close material issue details" onClick={onClose} type="button"><X aria-hidden="true" size={18} /></button>
+          <button aria-label="Close material issue details" autoFocus onClick={onClose} type="button"><X aria-hidden="true" size={18} /></button>
         </header>
         <div className={styles.issueDetails}>
           <div className={styles.detailsHero}><div><span>Karigar</span><strong>{issue.karigar}</strong></div><StatusBadge status={issue.status} /></div>
@@ -103,11 +142,11 @@ function DetailsDialog({ issue, onClose }: { issue: MaterialIssueRecord; onClose
 }
 
 export function MaterialIssueList() {
-  const savedSnapshot = useSyncExternalStore(subscribeToSavedIssues, readSavedIssuesSnapshot, () => EMPTY_SAVED_ISSUES);
-  const storedRecords = useMemo(() => parseSavedIssues(savedSnapshot), [savedSnapshot]);
-  const baseRecords = useMemo(() => mergeSavedIssues(storedRecords), [storedRecords]);
+  const savedSnapshot = useSyncExternalStore(subscribeToSavedIssues, readSavedIssuesSnapshot, () => EMPTY_STORAGE_SNAPSHOT);
+  const storedState = useMemo(() => parseStorageSnapshot(savedSnapshot), [savedSnapshot]);
+  const baseRecords = useMemo(() => mergeSavedIssues(storedState.records), [storedState.records]);
   const [statusOverrides, setStatusOverrides] = useState<Record<string, MaterialIssueStatus>>({});
-  const [deletedIds, setDeletedIds] = useState<Set<string>>(() => new Set());
+  const [sessionDeletedIds, setSessionDeletedIds] = useState<Set<string>>(() => new Set());
   const [fromDate, setFromDate] = useState("2025-04-01");
   const [toDate, setToDate] = useState("2025-04-12");
   const [karigar, setKarigar] = useState("All Karigar");
@@ -118,9 +157,9 @@ export function MaterialIssueList() {
 
   const allRecords = useMemo(
     () => baseRecords
-      .filter((issue) => !deletedIds.has(issue.id))
+      .filter((issue) => !storedState.deletedIds.includes(issue.id) && !sessionDeletedIds.has(issue.id))
       .map((issue) => ({ ...issue, status: statusOverrides[issue.id] ?? issue.status })),
-    [baseRecords, deletedIds, statusOverrides],
+    [baseRecords, sessionDeletedIds, statusOverrides, storedState.deletedIds],
   );
 
   const filteredRecords = useMemo(() => {
@@ -163,18 +202,36 @@ export function MaterialIssueList() {
   function toggleStatus(issue: MaterialIssueRecord) {
     const status: MaterialIssueStatus = issue.status === "Issued" ? "Returned" : "Issued";
     setStatusOverrides((current) => ({ ...current, [issue.id]: status }));
-    setFeedback({ tone: "success", message: `${issue.issueNo} marked as ${status.toLowerCase()}.` });
+    try {
+      const stored = parseSavedIssues(window.localStorage.getItem(MATERIAL_ISSUES_STORAGE_KEY) ?? EMPTY_SAVED_ISSUES);
+      const updated = { ...issue, status };
+      window.localStorage.setItem(MATERIAL_ISSUES_STORAGE_KEY, JSON.stringify([updated, ...stored.filter((item) => item.issueNo !== issue.issueNo)]));
+      window.dispatchEvent(new Event(MATERIAL_ISSUES_STORAGE_EVENT));
+      setSelectedIssue((current) => current?.id === issue.id ? updated : current);
+      setFeedback({ tone: "success", message: `${issue.issueNo} marked as ${status.toLowerCase()}.` });
+    } catch {
+      setFeedback({ tone: "error", message: `${issue.issueNo} changed for this session, but browser storage is unavailable.` });
+    }
   }
 
   function deleteIssue(issue: MaterialIssueRecord) {
-    setDeletedIds((current) => new Set(current).add(issue.id));
-    setFeedback({ tone: "success", message: `${issue.issueNo} removed from the material issue list.` });
+    setSessionDeletedIds((current) => new Set(current).add(issue.id));
+    try {
+      const stored = parseSavedIssues(window.localStorage.getItem(MATERIAL_ISSUES_STORAGE_KEY) ?? EMPTY_SAVED_ISSUES);
+      const deletedIds = new Set(readDeletedIssueIds());
+      deletedIds.add(issue.id);
+      window.localStorage.setItem(MATERIAL_ISSUES_STORAGE_KEY, JSON.stringify(stored.filter((item) => item.issueNo !== issue.issueNo)));
+      window.localStorage.setItem(MATERIAL_ISSUES_DELETED_STORAGE_KEY, JSON.stringify([...deletedIds]));
+      window.dispatchEvent(new Event(MATERIAL_ISSUES_STORAGE_EVENT));
+      setFeedback({ tone: "success", message: `${issue.issueNo} removed from the material issue list.` });
+    } catch {
+      setFeedback({ tone: "error", message: `${issue.issueNo} was hidden for this session, but browser storage is unavailable.` });
+    }
   }
 
   return (
     <div className={styles.listPage}>
       <PageHeader
-        action={<Link className="button button--primary" href="/manufacturing/material-issues/new"><Plus aria-hidden="true" size={16} />New Issue</Link>}
         description="View all material issue records"
         title="Material Issue List"
       />

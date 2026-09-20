@@ -273,6 +273,7 @@
   cursor: pointer;
 }
 .actionMenu button:hover { color: var(--gold-700); background: var(--gold-50); }
+.ordersTable tbody tr:nth-last-child(-n + 2) .actionMenu { top: auto; bottom: 50%; transform: translateY(50%); }
 
 .emptyState { height: 250px !important; color: var(--slate-500); text-align: center; }
 .emptyState strong,

@@ -1,0 +1,429 @@
+.page {
+  width: 100%;
+  max-width: 1500px;
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+.primaryAction {
+  min-width: 126px;
+}
+
+.tableCard {
+  min-width: 0;
+  overflow: visible;
+}
+
+.toolbar {
+  display: grid;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.directoryToolbar {
+  grid-template-columns: minmax(240px, 320px) 1fr;
+}
+
+.directoryToolbar .filterControl {
+  justify-self: end;
+}
+
+.managementToolbar {
+  grid-template-columns: minmax(260px, 1fr) minmax(150px, 0.35fr) minmax(150px, 0.42fr) auto;
+}
+
+.searchField,
+.selectField {
+  height: 42px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--slate-200);
+  border-radius: 7px;
+  color: var(--slate-500);
+  background: #fff;
+}
+
+.searchField {
+  padding: 0 11px;
+}
+
+.searchField:focus-within,
+.selectField:focus-within {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(200, 148, 36, 0.1);
+}
+
+.searchField input,
+.selectField select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--ink-900);
+  background: transparent;
+  font-size: 12px;
+}
+
+.selectField select {
+  padding: 0 10px;
+}
+
+.filterControl {
+  position: relative;
+  z-index: 4;
+}
+
+.filterMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(270px, calc(100vw - 40px));
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--slate-200);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow-raised);
+}
+
+.filterMenu label,
+.dialogForm label {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-800);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.message {
+  margin: 0;
+  padding: 8px 14px;
+  color: #775813;
+  border-bottom: 1px solid var(--gold-100);
+  background: var(--gold-50);
+  font-size: 12px;
+}
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 1040px;
+  border-collapse: collapse;
+  color: var(--ink-900);
+  font-size: 11px;
+}
+
+.managementTable {
+  min-width: 1120px;
+}
+
+.table th {
+  height: 43px;
+  padding: 8px 11px;
+  color: var(--ink-800);
+  background: #f7f8fa;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  height: 50px;
+  padding: 8px 11px;
+  border-top: 1px solid var(--slate-100);
+  white-space: nowrap;
+}
+
+.table tbody tr:hover {
+  background: #fafbfc;
+}
+
+.table td:first-child,
+.table th:first-child {
+  width: 40px;
+  text-align: center;
+}
+
+.money {
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  min-width: 58px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.active {
+  color: #11743b;
+  background: #d9f4e4;
+}
+
+.inactive {
+  color: #ac3443;
+  background: #fde0e2;
+}
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rowActions a,
+.rowActions button,
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.rowActions a,
+.rowActions button {
+  width: 29px;
+  height: 29px;
+  color: #3c45b9;
+  border-radius: 6px;
+  background: transparent;
+}
+
+.rowActions a:hover,
+.rowActions button:hover {
+  background: var(--purple-soft);
+}
+
+.rowActions .deleteAction {
+  color: var(--danger);
+}
+
+.empty {
+  height: 220px !important;
+  color: var(--slate-500);
+  text-align: center;
+}
+
+.tableFooter {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 14px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.tableFooter p {
+  margin: 0;
+  color: var(--ink-800);
+  font-size: 11px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.pagination button {
+  min-width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0 9px;
+  color: var(--slate-600);
+  border: 1px solid var(--slate-200);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  color: var(--slate-300);
+  cursor: not-allowed;
+}
+
+.pagination .currentPage {
+  color: #fff;
+  border-color: #4b36dd;
+  background: linear-gradient(135deg, #654cf3, #3f2bd2);
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(13, 18, 27, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.dialog {
+  width: min(620px, 100%);
+  max-height: calc(100svh - 44px);
+  overflow-y: auto;
+  border: 1px solid var(--slate-200);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 28px 90px rgba(8, 12, 20, 0.25);
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 22px 17px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.dialogHeader h2,
+.dialogHeader p {
+  margin: 0;
+}
+
+.dialogHeader h2 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.dialogHeader p {
+  margin-top: 5px;
+  color: var(--slate-600);
+  font-size: 12px;
+}
+
+.iconButton {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  color: var(--slate-600);
+  border-radius: 7px;
+  background: var(--slate-50);
+}
+
+.dialogForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding: 20px 22px 22px;
+}
+
+.fullField,
+.dialogActions {
+  grid-column: 1 / -1;
+}
+
+.dialogActions,
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding-top: 15px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.confirmActions {
+  padding: 18px 22px 22px;
+}
+
+.dangerButton {
+  color: #fff;
+  border-color: #cf3f4e;
+  background: #df4b59;
+}
+
+.dangerButton:hover {
+  color: #fff;
+  border-color: #bd3442;
+  background: #ce3d4b;
+}
+
+@media (max-width: 1020px) {
+  .managementToolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .managementToolbar .searchField {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .directoryToolbar,
+  .managementToolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .directoryToolbar .filterControl,
+  .managementToolbar .searchField {
+    width: 100%;
+    grid-column: auto;
+    justify-self: stretch;
+  }
+
+  .filterControl > button,
+  .searchButton {
+    width: 100%;
+  }
+
+  .filterMenu {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+
+  .tableFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dialogForm {
+    grid-template-columns: 1fr;
+  }
+
+  .fullField,
+  .dialogActions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .backdrop {
+    align-items: end;
+    padding: 0;
+  }
+
+  .dialog {
+    width: 100%;
+    max-height: 92svh;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .dialogActions,
+  .confirmActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

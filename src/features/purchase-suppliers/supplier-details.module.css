@@ -1,0 +1,479 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.message {
+  margin: -4px 0 0;
+  padding: 9px 12px;
+  color: #765711;
+  border: 1px solid var(--gold-100);
+  border-radius: 7px;
+  background: var(--gold-50);
+  font-size: 12px;
+}
+
+.identityCard {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 18px;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7156f3, #4c33dd);
+}
+
+.identityCopy {
+  min-width: 0;
+}
+
+.identityCopy > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.identityCopy h2,
+.identityCopy p {
+  margin: 0;
+}
+
+.identityCopy h2 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.identityCopy p {
+  margin-top: 4px;
+  color: var(--slate-600);
+  font-size: 12px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.active {
+  color: #14763b;
+  background: #d9f4e3;
+}
+
+.inactive {
+  color: #ae3442;
+  background: #fde0e2;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr);
+  gap: 14px;
+}
+
+.rightColumn {
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.infoCard,
+.financialCard,
+.quickCard,
+.historyCard {
+  min-width: 0;
+  padding: 16px;
+}
+
+.infoCard h2,
+.financialCard h2,
+.quickCard h2,
+.historyCard h2 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.infoCard dl,
+.financialCard dl,
+.purchaseDetails {
+  margin: 0;
+}
+
+.infoCard dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 22px;
+}
+
+.infoCard dl > div,
+.financialCard dl > div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(105px, 0.55fr) minmax(0, 1fr);
+  gap: 10px;
+}
+
+.infoCard dt,
+.infoCard dd,
+.financialCard dt,
+.financialCard dd,
+.purchaseDetails dt,
+.purchaseDetails dd {
+  margin: 0;
+  font-size: 11px;
+}
+
+.infoCard dt,
+.financialCard dt,
+.purchaseDetails dt {
+  color: var(--slate-600);
+}
+
+.infoCard dd,
+.financialCard dd,
+.purchaseDetails dd {
+  color: var(--ink-950);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.financialCard dl {
+  display: grid;
+  gap: 10px;
+}
+
+.financialCard dl > div {
+  grid-template-columns: 1fr auto;
+}
+
+.financialCard dd {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.financialCard .dueRow dt,
+.financialCard .dueRow dd,
+.dueText {
+  color: var(--danger);
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quickGrid a,
+.quickGrid button {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.greenAction { background: #0eb568; }
+.blueAction { background: #2588ef; }
+.orangeAction { background: #efa80c; }
+.grayAction { background: #747b86; }
+
+.historyCard {
+  overflow: hidden;
+  padding: 0;
+}
+
+.historyCard h2 {
+  margin: 0;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.tableScroller {
+  overflow-x: auto;
+}
+
+.historyCard table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.historyCard th {
+  height: 40px;
+  padding: 8px 12px;
+  background: #f7f8fa;
+  color: var(--ink-800);
+  font-size: 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.historyCard td {
+  height: 47px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--slate-100);
+  font-variant-numeric: tabular-nums;
+}
+
+.linkText {
+  color: #294caf;
+  font-weight: 700;
+}
+
+.viewButton,
+.modalHeader button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.viewButton {
+  width: 30px;
+  height: 30px;
+  color: #4e3cdc;
+  border-radius: 6px;
+  background: var(--purple-soft);
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 130;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(14, 18, 26, 0.58);
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: min(620px, 100%);
+  max-height: calc(100svh - 44px);
+  overflow-y: auto;
+  border-radius: 14px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px 17px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.modalHeader h2,
+.modalHeader p {
+  margin: 0;
+}
+
+.modalHeader h2 {
+  font-size: 20px;
+}
+
+.modalHeader p {
+  margin-top: 4px;
+  color: var(--slate-600);
+  font-size: 11px;
+}
+
+.modalHeader button {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  color: var(--slate-600);
+  border-radius: 7px;
+  background: var(--slate-50);
+}
+
+.editForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding: 20px 22px 22px;
+}
+
+.editForm label {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-800);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.fullField,
+.modalActions {
+  grid-column: 1 / -1;
+}
+
+.modalActions,
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modalActions {
+  padding-top: 15px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.modalFooter {
+  padding: 16px 22px 20px;
+  border-top: 1px solid var(--slate-100);
+}
+
+.purchaseDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding: 20px 22px;
+}
+
+.purchaseDetails > div {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  border-radius: 7px;
+  background: var(--slate-50);
+}
+
+.quickPanelBody {
+  display: grid;
+  gap: 8px;
+  padding: 18px 22px;
+}
+
+.ledgerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 12px;
+  border: 1px solid var(--slate-100);
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+.ledgerRow span,
+.ledgerRow small {
+  display: block;
+}
+
+.ledgerRow small {
+  margin-top: 3px;
+  color: #294caf;
+}
+
+.reportSummary {
+  padding: 22px;
+  color: var(--slate-600);
+  text-align: center;
+}
+
+.reportSummary svg {
+  color: var(--gold-500);
+}
+
+.reportSummary h3 {
+  margin: 10px 0 5px;
+  color: var(--ink-950);
+}
+
+.reportSummary p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .headerActions,
+  .headerActions > * {
+    width: 100%;
+  }
+
+  .headerActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .infoCard dl,
+  .editForm,
+  .purchaseDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .fullField,
+  .modalActions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerActions,
+  .quickGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .identityCard {
+    align-items: flex-start;
+  }
+
+  .identityCopy > div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .infoCard dl > div {
+    grid-template-columns: 95px 1fr;
+  }
+
+  .backdrop {
+    align-items: end;
+    padding: 0;
+  }
+
+  .modal {
+    width: 100%;
+    max-height: 92svh;
+    border-radius: 16px 16px 0 0;
+  }
+}

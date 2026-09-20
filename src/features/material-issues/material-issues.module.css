@@ -9,6 +9,25 @@
 .createPage { max-width: 1120px; }
 .listPage { max-width: 1480px; }
 
+.createHeader h1 {
+  margin: 0;
+  font-size: clamp(24px, 2.2vw, 31px);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.createHeader nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 7px;
+  color: var(--slate-600);
+  font-size: 11px;
+}
+
+.createHeader nav span[aria-current="page"] { color: var(--ink-900); }
+.createHeader nav b { color: var(--slate-400); font-size: 15px; }
+
 .feedback {
   min-height: 38px;
   display: flex;
@@ -157,6 +176,7 @@
 .actionMenu summary:hover,
 .actionMenu[open] summary { color: var(--gold-700); border-color: var(--gold-200); background: var(--gold-50); }
 .actionMenu > div { position: absolute; z-index: 20; top: calc(100% + 4px); right: 0; width: 164px; padding: 5px; border: 1px solid var(--slate-200); border-radius: 8px; background: white; box-shadow: 0 14px 35px rgba(20, 24, 32, .16); text-align: left; }
+.issueTable tbody tr:nth-last-child(-n + 3) .actionMenu > div { top: auto; bottom: calc(100% + 4px); }
 .actionMenu button { width: 100%; min-height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 9px; color: var(--slate-700); border-radius: 5px; background: transparent; font-size: 10px; cursor: pointer; text-align: left; }
 .actionMenu button:hover { color: var(--gold-700); background: var(--gold-50); }
 .actionMenu .menuDelete { color: #c9353e; }

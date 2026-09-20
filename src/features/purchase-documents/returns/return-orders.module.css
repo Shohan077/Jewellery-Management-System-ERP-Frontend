@@ -1,0 +1,46 @@
+.page { width: 100%; max-width: 1480px; display: grid; gap: 16px; margin: 0 auto; }
+.pageHeader h1, .pageHeader nav, .listHeader h1, .listHeader nav { margin: 0; }
+.pageHeader h1, .listHeader h1 { font-size: clamp(24px, 2.1vw, 31px); line-height: 1.12; letter-spacing: -.035em; }
+.pageHeader nav, .listHeader nav { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; color: var(--slate-600); font-size: 11px; }
+.pageHeader nav a:hover, .listHeader nav a:hover { color: #4b31db; }
+.listHeader { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.violetButton { color: #fff; border-color: #4c2fe2; background: linear-gradient(135deg, #6548f0, #3924d1); box-shadow: 0 7px 18px rgba(68, 42, 215, .18); }
+.violetButton:hover { color: #fff; border-color: #3f25ca; background: linear-gradient(135deg, #593ee1, #321fc2); }
+.createCard, .listCard { min-width: 0; overflow: hidden; }
+.createCard { padding: 17px; }
+.message, .listMessage { display: flex; align-items: center; gap: 7px; margin: -17px -17px 16px; padding: 9px 14px; color: #4430b7; border-bottom: 1px solid #ded8ff; background: #f4f2ff; font-size: 11px; }
+.listMessage { margin: 0; }
+.detailsGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 16px; padding-bottom: 18px; }
+.detailsGrid label, .bottomGrid label, .modalForm label { min-width: 0; display: grid; gap: 6px; color: var(--ink-900); font-size: 11px; font-weight: 700; }
+.detailsGrid b { color: var(--danger); }
+.detailsGrid :global(.field), .detailsGrid :global(.select), .filters :global(.field), .filters :global(.select) { height: 42px; font-size: 11px; }
+.sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 0 -17px; padding: 11px 17px; border-top: 1px solid var(--slate-100); }
+.sectionHeading h2 { margin: 0; font-size: 14px; }
+.sectionHeading :global(.button) { min-height: 36px; }
+.tableScroller { min-width: 0; overflow-x: auto; border: 1px solid var(--slate-100); border-radius: 8px; }
+.itemsTable, .listTable { width: 100%; min-width: 880px; border-collapse: collapse; color: var(--ink-900); font-size: 11px; }
+.itemsTable th, .listTable th { height: 40px; padding: 8px 11px; color: var(--ink-900); background: #f5f6f8; font-size: 10px; font-weight: 800; text-align: left; white-space: nowrap; }
+.itemsTable td, .listTable td { height: 49px; padding: 8px 11px; border-top: 1px solid var(--slate-100); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.itemsTable tbody tr:hover, .listTable tbody tr:hover { background: #fbfaff; }
+.itemsTable th:first-child, .itemsTable td:first-child, .listTable th:first-child, .listTable td:first-child { width: 48px; text-align: center; }
+.itemsTable th:last-child, .itemsTable td:last-child, .listTable th:last-child, .listTable td:last-child { text-align: center; }
+.deleteButton, .rowActions button { width: 29px; height: 29px; display: inline-grid; place-items: center; color: #4d32db; border-radius: 6px; background: transparent; cursor: pointer; }
+.deleteButton { color: var(--danger) !important; }
+.deleteButton:hover { background: var(--danger-soft) !important; }
+.rowActions { display: inline-flex; gap: 2px; }.rowActions button:hover { background: #efecff; }
+.empty { height: 150px !important; color: var(--slate-500); text-align: center !important; }
+.bottomGrid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, .65fr); gap: 28px; padding: 16px 0; }
+.bottomGrid :global(.textarea) { min-height: 88px; font-size: 11px; }
+.totals { display: grid; align-content: center; gap: 9px; margin: 0; }.totals div { display: flex; justify-content: space-between; gap: 18px; }.totals dt, .totals dd { margin: 0; font-size: 11px; }.totals dd { font-weight: 800; font-variant-numeric: tabular-nums; }.totals div:last-child { padding-top: 9px; border-top: 1px dashed var(--slate-300); font-size: 13px; }
+.formActions { display: flex; justify-content: flex-end; gap: 10px; padding-top: 14px; border-top: 1px solid var(--slate-100); }.formActions :global(.button) { min-width: 140px; }
+.filters { display: grid; grid-template-columns: minmax(210px, 1.4fr) minmax(150px, .9fr) minmax(145px, .8fr) minmax(145px, .8fr) auto; align-items: center; gap: 10px; padding: 15px; border-bottom: 1px solid var(--slate-100); }
+.searchField { height: 42px; display: flex; align-items: center; gap: 8px; padding: 0 11px; color: var(--slate-500); border: 1px solid var(--slate-200); border-radius: 8px; background: #fff; }.searchField:focus-within { color: #4c31dc; border-color: #6a50ec; box-shadow: 0 0 0 3px rgba(80, 52, 221, .1); }.searchField input { width: 100%; min-width: 0; height: 100%; padding: 0; border: 0; outline: 0; background: transparent; font-size: 11px; }
+.status { min-width: 70px; display: inline-flex; justify-content: center; padding: 5px 9px; border-radius: 999px; font-size: 9px; font-weight: 750; }.completed { color: #146a38; background: #caefd7; }.pending { color: #875a08; background: #ffedaf; }.cancelled { color: #aa3038; background: #ffd3d6; }
+.listFooter { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 15px; border-top: 1px solid var(--slate-100); }.listFooter p { margin: 0; font-size: 10px; }.listFooter nav { display: flex; gap: 5px; }.listFooter button { width: 34px; height: 34px; display: grid; place-items: center; color: var(--slate-600); border: 1px solid var(--slate-200); border-radius: 7px; background: #fff; }.listFooter button:disabled { color: var(--slate-300); }.listFooter .currentPage { color: #fff; border-color: #4b2edc; background: linear-gradient(#6446ec, #3824cf); }
+.modalBackdrop { position: fixed; z-index: 150; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(12, 17, 25, .58); backdrop-filter: blur(3px); }
+.modal { width: min(620px, 100%); max-height: calc(100svh - 36px); overflow-y: auto; }
+.modalHeader { display: flex; justify-content: space-between; gap: 14px; padding: 18px; border-bottom: 1px solid var(--slate-100); }.modalHeader h2, .modalHeader p { margin: 0; }.modalHeader h2 { font-size: 18px; }.modalHeader p { margin-top: 4px; color: var(--slate-500); font-size: 11px; }.modalHeader button { width: 32px; height: 32px; display: grid; place-items: center; color: var(--slate-600); border-radius: 7px; background: var(--slate-50); cursor: pointer; }
+.modalForm, .viewGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; }.fullSpan, .modalActions { grid-column: 1 / -1; }.modalActions { display: flex; justify-content: flex-end; gap: 9px; padding-top: 3px; }.viewGrid { margin: 0; }.viewGrid div { padding: 10px; border: 1px solid var(--slate-100); border-radius: 7px; }.viewGrid dt { color: var(--slate-500); font-size: 10px; }.viewGrid dd { margin: 4px 0 0; font-size: 12px; font-weight: 700; }
+@media (max-width: 1000px) { .filters { grid-template-columns: 1fr 1fr 1fr; }.searchField { grid-column: 1 / -1; } }
+@media (max-width: 760px) { .detailsGrid { grid-template-columns: 1fr 1fr; }.bottomGrid { grid-template-columns: 1fr; }.listHeader { align-items: flex-start; flex-direction: column; }.filters { grid-template-columns: 1fr 1fr; }.searchField { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .createCard { padding: 13px; }.detailsGrid, .filters, .modalForm, .viewGrid { grid-template-columns: 1fr; }.searchField, .fullSpan, .modalActions { grid-column: auto; }.sectionHeading { margin-inline: -13px; padding-inline: 13px; }.bottomGrid { gap: 16px; }.formActions, .modalActions { display: grid; grid-template-columns: 1fr; }.formActions :global(.button), .modalActions :global(.button) { width: 100%; }.listFooter { align-items: flex-start; flex-direction: column; }.modalBackdrop { align-items: end; padding: 8px; } }

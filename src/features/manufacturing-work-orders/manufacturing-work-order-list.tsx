@@ -12,7 +12,7 @@ import {
   Search,
   X,
 } from "lucide-react";
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 
 import { Card } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/page-header";
@@ -21,6 +21,7 @@ import {
   formatWorkOrderDate,
   initialManufacturingWorkOrders,
   isManufacturingWorkOrder,
+  WORK_ORDER_STORAGE_EVENT,
   WORK_ORDER_STORAGE_KEY,
   type ManufacturingWorkOrder,
   type WorkOrderStatus,
@@ -28,6 +29,7 @@ import {
 import styles from "./manufacturing-work-orders.module.css";
 
 const PAGE_SIZE = 7;
+const EMPTY_SAVED_ORDERS = "[]";
 const filterStatuses = ["All Status", "Pending", "In Progress", "On Hold", "Completed", "Draft"] as const;
 type StatusFilter = (typeof filterStatuses)[number];
 
@@ -59,6 +61,38 @@ function ProductThumb({ kind }: { kind: ManufacturingWorkOrder["productKind"] })
   return <span aria-hidden="true" className={`${styles.productThumb} ${styles[kind]}`} />;
 }
 
+function subscribeToSavedOrders(onStoreChange: () => void) {
+  const handleChange = () => onStoreChange();
+  window.addEventListener("storage", handleChange);
+  window.addEventListener(WORK_ORDER_STORAGE_EVENT, handleChange);
+  return () => {
+    window.removeEventListener("storage", handleChange);
+    window.removeEventListener(WORK_ORDER_STORAGE_EVENT, handleChange);
+  };
+}
+
+function readSavedOrdersSnapshot() {
+  try {
+    return window.localStorage.getItem(WORK_ORDER_STORAGE_KEY) ?? EMPTY_SAVED_ORDERS;
+  } catch {
+    return EMPTY_SAVED_ORDERS;
+  }
+}
+
+function parseSavedOrders(snapshot: string) {
+  try {
+    const parsed: unknown = JSON.parse(snapshot);
+    return Array.isArray(parsed) ? parsed.filter(isManufacturingWorkOrder) : [];
+  } catch {
+    return [];
+  }
+}
+
+function mergeSavedOrders(saved: ManufacturingWorkOrder[]) {
+  const savedNumbers = new Set(saved.map((order) => order.orderNo));
+  return [...saved, ...initialManufacturingWorkOrders.filter((order) => !savedNumbers.has(order.orderNo))];
+}
+
 function Modal({ children, onClose, title }: { children: ReactNode; onClose: () => void; title: string }) {
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -71,7 +105,7 @@ function Modal({ children, onClose, title }: { children: ReactNode; onClose: () 
   return (
     <div className={styles.modalBackdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <Card aria-labelledby="work-order-dialog-title" aria-modal="true" as="section" className={styles.modal} role="dialog">
-        <header className={styles.modalHeader}><h2 id="work-order-dialog-title">{title}</h2><button aria-label="Close work order details" onClick={onClose} type="button"><X size={18} /></button></header>
+        <header className={styles.modalHeader}><h2 id="work-order-dialog-title">{title}</h2><button aria-label="Close work order details" autoFocus onClick={onClose} type="button"><X aria-hidden="true" size={18} /></button></header>
         {children}
       </Card>
     </div>
@@ -79,7 +113,10 @@ function Modal({ children, onClose, title }: { children: ReactNode; onClose: () 
 }
 
 export function ManufacturingWorkOrderList() {
-  const [orders, setOrders] = useState<ManufacturingWorkOrder[]>(initialManufacturingWorkOrders);
+  const savedSnapshot = useSyncExternalStore(subscribeToSavedOrders, readSavedOrdersSnapshot, () => EMPTY_SAVED_ORDERS);
+  const savedOrders = useMemo(() => parseSavedOrders(savedSnapshot), [savedSnapshot]);
+  const baseOrders = useMemo(() => mergeSavedOrders(savedOrders), [savedOrders]);
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, WorkOrderStatus>>({});
   const [draftFilters, setDraftFilters] = useState(initialFilters);
   const [appliedFilters, setAppliedFilters] = useState<Filters | null>(null);
   const [page, setPage] = useState(1);
@@ -87,23 +124,26 @@ export function ManufacturingWorkOrderList() {
   const [selectedOrder, setSelectedOrder] = useState<ManufacturingWorkOrder | null>(null);
   const [message, setMessage] = useState("");
 
+  const orders = useMemo(
+    () => baseOrders.map((order) => ({ ...order, status: statusOverrides[order.orderNo] ?? order.status })),
+    [baseOrders, statusOverrides],
+  );
+
   useEffect(() => {
-    try {
-      const storedValue = window.localStorage.getItem(WORK_ORDER_STORAGE_KEY);
-      const parsed: unknown = storedValue ? JSON.parse(storedValue) : [];
-      const stored = Array.isArray(parsed) ? parsed.filter(isManufacturingWorkOrder) : [];
-      if (stored.length) {
-        setOrders((current) => {
-          const storedNumbers = new Set(stored.map((order) => order.orderNo));
-          return [...stored, ...current.filter((order) => !storedNumbers.has(order.orderNo))];
-        });
-      }
-      const saved = new URLSearchParams(window.location.search).get("saved");
-      if (saved) setMessage(`${saved} was saved successfully.`);
-    } catch {
-      // Keep the seeded records when storage is unavailable.
-    }
+    const saved = new URLSearchParams(window.location.search).get("saved");
+    if (!saved) return;
+    const timer = window.setTimeout(() => setMessage(`${saved} was saved successfully.`), 0);
+    return () => window.clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (openMenu === null) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenMenu(null);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [openMenu]);
 
   const filteredOrders = useMemo(() => {
     if (!appliedFilters) return orders;
@@ -138,6 +178,7 @@ export function ManufacturingWorkOrderList() {
       const parsed: unknown = value ? JSON.parse(value) : [];
       const stored = Array.isArray(parsed) ? parsed.filter(isManufacturingWorkOrder) : [];
       window.localStorage.setItem(WORK_ORDER_STORAGE_KEY, JSON.stringify([order, ...stored.filter((item) => item.orderNo !== order.orderNo)]));
+      window.dispatchEvent(new Event(WORK_ORDER_STORAGE_EVENT));
     } catch {
       // The in-memory update remains usable if storage is blocked.
     }
@@ -145,7 +186,7 @@ export function ManufacturingWorkOrderList() {
 
   function updateStatus(order: ManufacturingWorkOrder, status: WorkOrderStatus) {
     const updated = { ...order, status };
-    setOrders((current) => current.map((item) => item.orderNo === order.orderNo ? updated : item));
+    setStatusOverrides((current) => ({ ...current, [order.orderNo]: status }));
     persistOrder(updated);
     setSelectedOrder((current) => current?.orderNo === order.orderNo ? updated : current);
     setOpenMenu(null);

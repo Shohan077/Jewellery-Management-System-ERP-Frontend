@@ -70,6 +70,30 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/manufacturing/work-orders/new` — create a manufacturing order
 - `/manufacturing/material-issues` — material issue records and filters
 - `/manufacturing/material-issues/new` — issue materials to a karigar
+- `/manufacturing/material-returns` — returned-material records and status filters
+- `/manufacturing/material-returns/new` — record materials returned by a karigar
+- `/manufacturing/finished-products` — completed product inventory and QC status
+- `/manufacturing/finished-products/new` — record a finished product completion
+- `/manufacturing/wastage` — manufacturing wastage records and approvals
+- `/manufacturing/wastage/new` — record and validate manufacturing wastage
+- `/manufacturing/karigar-payments` — karigar payment records and balances
+- `/manufacturing/karigar-payments/new` — calculate and record a karigar payment
+- `/purchases/returns` — purchase return records, filters, and statuses
+- `/purchases/returns/new` — create a supplier purchase return
+- `/purchases/supplier-directory` — supplier directory with due balances
+- `/purchases/supplier-directory/SUP-001` — supplier financial and purchase details
+- `/purchases/suppliers` — supplier management and contacts
+- `/purchases/reports` — purchase, return, net, and due report
+- `/purchases/order-management` — purchase order status management
+- `/purchases/expenses` — purchase-related expense tracking
+- `/purchases/orders` — purchase order document list and statuses
+- `/purchases/orders/new` — create a weighted purchase order
+- `/purchases/return-orders` — purchase return order history
+- `/purchases/return-orders/new` — create a purchase return against an order
+- `/suppliers/payments/new` — allocate and save supplier payments
+- `/suppliers/ledger` — supplier purchase, payment, and balance ledger
+- `/purchases/expense-entry` — record purchase-related expenses
+- `/purchases/expense-report` — filter and export purchase expense analytics
 
 ## Architecture
 
