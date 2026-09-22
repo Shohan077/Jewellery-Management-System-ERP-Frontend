@@ -1,0 +1,466 @@
+.page {
+  width: 100%;
+  max-width: 1500px;
+  display: grid;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: #111923;
+  font-size: clamp(23px, 2vw, 30px);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.pageHeader nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: #687383;
+  font-size: 10px;
+}
+
+.pageHeader nav a:hover { color: #0876cf; }
+.pageHeader nav span[aria-current="page"] { color: #17212d; }
+
+.backButton,
+.addButton,
+.clearButton,
+.saveButton,
+.profileButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 680;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.backButton {
+  min-height: 36px;
+  flex: 0 0 auto;
+  padding: 0 14px;
+  color: #26313e;
+  border: 1px solid #dde1e6;
+  background: #e9edf0;
+}
+
+.backButton:hover,
+.clearButton:hover,
+.profileButton:hover { border-color: #c8ced6; background: #dfe4e8; }
+
+.backButton:active,
+.addButton:active,
+.clearButton:active,
+.saveButton:active,
+.profileButton:active { transform: translateY(1px); }
+
+.page > form {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.topGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(470px, 1.58fr);
+  gap: 10px;
+}
+
+.returnCard,
+.karigarCard {
+  min-width: 0;
+  padding: 13px;
+}
+
+.returnCard h2,
+.karigarCard h2,
+.materialsHeader h2,
+.orderDetails h3 {
+  margin: 0;
+  color: #111923;
+}
+
+.returnCard h2,
+.karigarCard h2,
+.materialsHeader h2 { font-size: 12px; line-height: 1.2; }
+
+.returnFields {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.returnFields label,
+.dialogForm label {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.fieldLabel {
+  display: inline-flex;
+  gap: 3px;
+  color: #1d2733;
+  font-size: 9px;
+  font-weight: 720;
+}
+
+.fieldLabel b { color: #e33a45; }
+
+.returnFields :global(.field),
+.returnFields :global(.select) {
+  height: 31px;
+  padding-inline: 8px;
+  border-radius: 4px;
+  font-size: 9px;
+}
+
+.returnFields :global(.textarea) {
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 9px;
+  resize: none;
+}
+
+.karigarCard { display: flex; flex-direction: column; }
+
+.karigarLayout {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(180px, .9fr) minmax(250px, 1.1fr);
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 9px;
+}
+
+.karigarColumn {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 13px;
+  padding: 7px 0 0 8px;
+}
+
+.identity {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3577ef, #4a5fe0);
+  box-shadow: 0 6px 14px rgba(54, 103, 224, .2);
+  font-size: 14px;
+}
+
+.identity > div { min-width: 0; }
+.identity strong,
+.identity small,
+.identity a { display: flex; }
+.identity strong { color: #111923; font-size: 11px; line-height: 1.2; }
+.identity small { margin-top: 4px; color: #424d5a; font-size: 8px; }
+.identity a {
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  color: #414b58;
+  font-size: 8px;
+}
+.identity a:hover { color: #0873cd; }
+
+.profileButton {
+  width: 100%;
+  min-height: 32px;
+  color: #222d39;
+  border: 1px solid #edf0f3;
+  background: #f7f8f9;
+}
+
+.orderDetails {
+  min-width: 0;
+  padding: 13px 14px;
+  border-radius: 7px;
+  background: linear-gradient(145deg, #f4f7fa, #eef2f6);
+}
+
+.orderDetails h3 { font-size: 11px; }
+.orderDetails dl { display: grid; gap: 8px; margin: 12px 0 0; }
+.orderDetails dl > div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; }
+.orderDetails dt,
+.orderDetails dd { margin: 0; color: #1e2834; font-size: 9px; }
+.orderDetails dt { font-weight: 650; }
+.orderDetails dd { overflow-wrap: anywhere; }
+
+.materialsCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.materialsHeader {
+  min-height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 10px 8px 13px;
+}
+
+.addButton {
+  min-height: 34px;
+  padding: 0 12px;
+  color: white;
+  border: 1px solid #0768c9;
+  background: linear-gradient(135deg, #0c83e5, #0465c8);
+  box-shadow: 0 5px 13px rgba(4, 100, 200, .17);
+}
+
+.addButton:hover { background: linear-gradient(135deg, #0877d4, #0557ad); }
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.materialsCard table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  color: #17212d;
+  font-size: 9px;
+}
+
+.materialsCard th {
+  height: 35px;
+  padding: 7px 10px;
+  color: #19232f;
+  background: #f1f3f5;
+  font-size: 8px;
+  font-weight: 760;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.materialsCard td {
+  height: 42px;
+  padding: 7px 10px;
+  border-top: 1px solid #edf0f3;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.materialsCard tbody tr:hover { background: #f8fbff; }
+.materialsCard th:first-child,
+.materialsCard td:first-child { width: 42px; text-align: center; }
+.materialsCard th:last-child,
+.materialsCard td:last-child { width: 64px; text-align: center; }
+
+.materialType { display: inline-flex; align-items: center; gap: 7px; font-weight: 650; }
+.goldIcon { color: #f0a000; fill: #ffd15d; }
+.diamondIcon { color: #0799e8; }
+.otherIcon { color: #5f86aa; }
+
+.deleteButton {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  color: white;
+  border-radius: 6px;
+  background: #f0444c;
+  box-shadow: 0 4px 10px rgba(229, 52, 62, .16);
+  cursor: pointer;
+}
+
+.deleteButton:hover { background: #d92f38; }
+
+.emptyState {
+  height: 112px !important;
+  color: #687383;
+  text-align: center !important;
+}
+
+.emptyState strong,
+.emptyState span { display: block; }
+.emptyState strong { color: #18222e; font-size: 12px; }
+.emptyState span { margin-top: 5px; }
+
+.materialActions {
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 11px;
+  border-top: 1px solid #edf0f3;
+}
+
+.clearButton,
+.saveButton { min-height: 34px; padding: 0 12px; }
+.clearButton { color: #27323e; border: 1px solid #d8dde4; background: #e9ecef; }
+.saveButton {
+  color: white;
+  border: 1px solid #04853f;
+  background: linear-gradient(135deg, #13a553, #07833f);
+  box-shadow: 0 5px 14px rgba(7, 132, 63, .18);
+}
+.saveButton:hover { background: linear-gradient(135deg, #109548, #067438); }
+
+.feedback {
+  position: fixed;
+  z-index: 170;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(390px, calc(100vw - 30px));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 13px;
+  border: 1px solid;
+  border-radius: 8px;
+  box-shadow: 0 14px 38px rgba(20, 28, 39, .17);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.feedback.success { color: #126f38; border-color: #b7e4c5; background: #edfaf1; }
+.feedback.error { color: #a62e38; border-color: #f1bcc1; background: #fff1f2; }
+.feedback.info { color: #155c91; border-color: #b7d9ef; background: #eef8ff; }
+
+.dialogBackdrop {
+  position: fixed;
+  z-index: 160;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(8, 18, 31, .58);
+  backdrop-filter: blur(3px);
+}
+
+.dialog {
+  width: min(620px, 100%);
+  max-height: calc(100svh - 36px);
+  overflow-y: auto;
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 17px;
+  border-bottom: 1px solid #e9edf2;
+}
+
+.dialogHeader h2,
+.dialogHeader p { margin: 0; }
+.dialogHeader h2 { color: #14202e; font-size: 17px; }
+.dialogHeader p { margin-top: 4px; color: #657080; font-size: 10px; }
+.dialogHeader > button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #596575;
+  border: 1px solid #dfe4ea;
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+}
+.dialogHeader > button:hover { color: #096dc9; border-color: #b6d7f5; background: #f2f8fe; }
+
+.dialogForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px 15px;
+  padding: 17px;
+}
+
+.dialogForm :global(.field),
+.dialogForm :global(.select) { height: 38px; font-size: 11px; }
+
+.dialogError {
+  grid-column: 1 / -1;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 8px 10px;
+  color: #a62c37;
+  border: 1px solid #f4c4c9;
+  border-radius: 7px;
+  background: #fff1f2;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.dialogActions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 3px;
+}
+
+.dialogActions :global(.button),
+.dialogActions .addButton { min-height: 38px; }
+
+@media (max-width: 860px) {
+  .topGrid { grid-template-columns: 1fr; }
+  .returnFields { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .returnFields label:last-child { grid-column: 1 / -1; }
+}
+
+@media (max-width: 620px) {
+  .pageHeader { align-items: stretch; flex-direction: column; }
+  .backButton { align-self: flex-start; }
+  .returnFields,
+  .karigarLayout,
+  .dialogForm { grid-template-columns: 1fr; }
+  .returnFields label:last-child { grid-column: auto; }
+  .karigarColumn { padding-left: 0; }
+  .orderDetails dl > div { grid-template-columns: 88px minmax(0, 1fr); }
+  .dialogActions { grid-column: auto; }
+}
+
+@media (max-width: 440px) {
+  .materialsHeader { align-items: stretch; flex-direction: column; padding-block: 11px; }
+  .addButton { width: 100%; }
+  .materialActions { align-items: stretch; flex-direction: column-reverse; }
+  .clearButton,
+  .saveButton { width: 100%; }
+  .dialogBackdrop { align-items: end; padding: 8px; }
+  .dialog { max-height: calc(100svh - 16px); }
+  .dialogActions { display: grid; grid-template-columns: 1fr 1fr; }
+}

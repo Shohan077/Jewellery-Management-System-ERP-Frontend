@@ -175,6 +175,11 @@
   background: #e9f3ff;
 }
 
+.rowActions button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
 .rowActions .deleteButton {
   color: var(--danger);
   border-color: #f5c7ca;

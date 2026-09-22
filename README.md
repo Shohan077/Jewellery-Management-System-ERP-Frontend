@@ -78,6 +78,14 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/manufacturing/wastage/new` — record and validate manufacturing wastage
 - `/manufacturing/karigar-payments` — karigar payment records and balances
 - `/manufacturing/karigar-payments/new` — calculate and record a karigar payment
+- `/production-management/orders` — filter and review production orders
+- `/production-management/material-issues` — material issue totals and issue records
+- `/production-management/finished-items` — completed-item inventory and production value
+- `/production-management/reports` — production summary, item mix, and karigar performance analytics
+- `/production-management/material-returns/new` — record returned production materials with live validation
+- `/production-management/reports/detailed` — filter, inspect, print, and export detailed production reports
+- `/karigar-management/ledger` — karigar work, payment, material, and balance ledger
+- `/karigar-management/payments/new` — record and persist karigar payments
 - `/purchases/returns` — purchase return records, filters, and statuses
 - `/purchases/returns/new` — create a supplier purchase return
 - `/purchases/supplier-directory` — supplier directory with due balances
@@ -94,6 +102,26 @@ Open `http://localhost:3000`. The root route redirects to the login screen.
 - `/suppliers/ledger` — supplier purchase, payment, and balance ledger
 - `/purchases/expense-entry` — record purchase-related expenses
 - `/purchases/expense-report` — filter and export purchase expense analytics
+- `/suppliers/statement` — supplier balance statement and transaction history
+- `/purchases/expense-categories` — purchase expense category management
+- `/purchases/expenses/new` — BDT purchase expense entry with attachment
+- `/purchases/expenses/report` — BDT purchase expense analytics and export
+- `/barcodes/generate` — generate, preview, persist, and print product barcodes
+- `/barcodes/print` — configure and print responsive jewellery barcode labels
+- `/barcodes/invoice-settings` — persist invoice branding and display settings
+- `/barcodes/invoice-templates` — select and save invoice layout templates
+- `/accounts/cash-in` — record incoming cash and review recent receipts
+- `/accounts/cash-out` — record outgoing cash and review recent payments
+- `/accounts/cash-ledger` — filter and export the running cash ledger
+- `/accounts/daily-closing` — verify, print, and confirm daily cash closing
+- `/accounts/receipt-entry` — record receipts with shared cash-ledger updates
+- `/accounts/payment-entry` — record payments with shared cash-ledger updates
+- `/accounts/expense-entry` — record and persist operational expenses
+- `/accounts/expense-report` — filter and export account expense analytics
+- `/accounts/account-ledger` — detailed account transactions and balances
+- `/accounts/journal-entry` — create, balance, save, and post journal entries
+- `/accounts/trial-balance` — filter and export balanced account totals
+- `/accounts/profit-loss` — accounting profit, loss, and monthly trend report
 
 ## Architecture
 

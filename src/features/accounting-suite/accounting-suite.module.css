@@ -1,0 +1,122 @@
+.page { width: 100%; max-width: 1480px; display: grid; gap: 16px; margin: 0 auto; }
+.pageHeader h1, .pageHeader p { margin: 0; }
+.pageHeader h1 { color: var(--ink-950); font-size: clamp(24px, 2.4vw, 31px); line-height: 1.1; letter-spacing: -.035em; }
+.pageHeader p { margin-top: 6px; color: var(--slate-600); font-size: 11px; }
+.filters { display: grid; grid-template-columns: minmax(220px, 1.6fr) repeat(2, minmax(140px, 1fr)) auto auto; align-items: end; gap: 12px; padding: 14px; }
+.filters label { min-width: 0; display: grid; gap: 6px; }
+.filters label span, .journalMeta label span { color: var(--ink-900); font-size: 10px; font-weight: 700; }
+.filters b, .journalMeta b, .journalTable b { color: var(--danger); }
+.filters :global(.field), .filters :global(.select), .journalMeta :global(.field), .journalMeta :global(.select) { height: 39px; font-size: 10px; }
+.primaryButton, .outlineButton, .addRow { min-height: 39px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 15px; border: 1px solid transparent; border-radius: 6px; font-size: 10px; font-weight: 750; cursor: pointer; }
+.primaryButton { color: #fff; background: linear-gradient(135deg, #247df0, #0964dc); box-shadow: 0 6px 14px rgba(15, 104, 221, .16); }
+.outlineButton { color: #1465ce; border-color: #4f8edf; background: #fff; }
+.message { margin: 0; padding: 9px 11px; color: #185f3b; border: 1px solid #c5e8d2; border-radius: 7px; background: #effaf3; font-size: 10px; }
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.metrics > * { min-width: 0; min-height: 86px; display: grid; align-content: center; gap: 8px; padding: 15px 17px; border-left: 4px solid #189351; }
+.metrics > *:nth-child(2) { border-left-color: #1d6ee0; }
+.metrics > *:nth-child(3) { border-left-color: #e2363c; }
+.metrics > *:nth-child(4) { border-left-color: #7d31b4; }
+.metrics span { color: var(--ink-800); font-size: 9px; font-weight: 650; }
+.metrics strong { overflow: hidden; font-size: clamp(15px, 1.3vw, 20px); line-height: 1; text-overflow: ellipsis; white-space: nowrap; }
+.metrics small { display: inline-flex; align-items: center; gap: 4px; color: #16864b; font-size: 8px; }
+.green { color: #128648 !important; }
+.blue { color: #1767dc !important; }
+.red { color: #df3038 !important; }
+.purple { color: #7c2eac !important; }
+.ledgerLayout { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) 245px; gap: 14px; align-items: start; }
+.tableCard { min-width: 0; overflow: hidden; }
+.tableScroller { min-width: 0; overflow-x: auto; }
+.table { width: 100%; min-width: 760px; border-collapse: collapse; color: var(--ink-900); font-size: 9px; }
+.table th, .table td { height: 42px; padding: 8px 10px; border-bottom: 1px solid var(--slate-100); text-align: left; white-space: nowrap; }
+.table th { height: 37px; color: var(--ink-800); background: #f4f5f7; font-size: 8px; font-weight: 800; }
+.table th:nth-child(n + 4), .table td:nth-child(n + 4) { text-align: right; font-variant-numeric: tabular-nums; }
+.table tbody tr:hover { background: #fbfdff; }
+.table tfoot th { text-align: right; }
+.tableFooter { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; color: var(--slate-600); font-size: 9px; }
+.tableFooter nav { display: flex; gap: 5px; }
+.tableFooter button { min-width: 31px; height: 31px; color: var(--slate-600); border: 1px solid var(--slate-200); border-radius: 5px; background: #fff; cursor: pointer; }
+.tableFooter button[aria-current="page"] { color: #fff; border-color: #176fdf; background: #176fdf; }
+.tableFooter button:disabled { opacity: .45; cursor: not-allowed; }
+.accountInfo { padding: 15px; }
+.accountInfo h2, .journalCard h2, .statusCard h2, .trendCard h2, .reportSummary h2 { margin: 0; color: var(--ink-950); font-size: 13px; }
+.accountInfo dl, .statusCard dl, .reportSummary dl { display: grid; gap: 0; margin: 12px 0 0; }
+.accountInfo dl div, .statusCard dl div, .reportSummary dl div { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 7px; padding: 9px 0; border-bottom: 1px solid var(--slate-100); }
+.accountInfo dt, .accountInfo dd, .statusCard dt, .statusCard dd, .reportSummary dt, .reportSummary dd { margin: 0; font-size: 8px; }
+.accountInfo dt, .statusCard dt, .reportSummary dt { color: var(--slate-600); }
+.accountInfo dd, .statusCard dd, .reportSummary dd { overflow-wrap: anywhere; color: var(--ink-900); font-weight: 700; }
+.accountInfo dd span, .statusCard dd span { display: inline-flex; padding: 4px 7px; color: #118044; border-radius: 999px; background: #d9f2e3; }
+.journalLayout { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 16px; align-items: start; }
+.journalMain { min-width: 0; display: grid; gap: 14px; }
+.journalCard { min-width: 0; padding: 15px; overflow: hidden; }
+.journalMeta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.journalMeta label { min-width: 0; display: grid; gap: 6px; }
+.journalMeta .fullSpan { grid-column: 1 / -1; }
+.journalMeta :global(.textarea) { min-height: 74px; font-size: 10px; }
+.journalCard h2 { margin: 17px 0 9px; }
+.journalTable { min-width: 920px; }
+.journalTable th, .journalTable td { padding: 5px; }
+.journalTable th:nth-child(n + 4), .journalTable td:nth-child(n + 4) { text-align: left; }
+.journalTable :global(.field), .journalTable :global(.select) { height: 34px; padding-inline: 7px; font-size: 8px; }
+.journalTable td:nth-child(2) { width: 155px; }
+.journalTable td:nth-child(3) { width: 220px; }
+.journalTable td:nth-child(4), .journalTable td:nth-child(5) { width: 105px; }
+.journalTable td:nth-child(6) { width: 125px; }
+.journalTable td:last-child { width: 45px; text-align: center; }
+.journalTable td:last-child button { width: 28px; height: 28px; display: grid; place-items: center; margin: auto; color: #e23a40; border-radius: 5px; background: transparent; cursor: pointer; }
+.journalTable td:last-child button:disabled { color: var(--slate-300); cursor: not-allowed; }
+.addRow { margin-top: 10px; color: #1b70df; border-color: #3d87e4; background: #fff; }
+.journalTotals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px -15px -15px; padding: 13px 18px; border-top: 1px solid var(--slate-100); font-size: 9px; }
+.journalTotals span { display: flex; justify-content: space-between; gap: 12px; }
+.journalTotals strong { color: #13864a; }
+.journalActions { display: flex; justify-content: center; gap: 18px; }
+.journalActions button { min-width: 170px; }
+.statusCard { min-height: 470px; padding: 15px; }
+.statusCard dl div { grid-template-columns: 1fr 1fr; padding: 13px 0; }
+.statusCard .approved { color: #16874b; background: #dff5e8; }
+.trialFilters, .profitFilters { grid-template-columns: repeat(4, minmax(125px, 1fr)) auto auto; }
+.trialTable { min-width: 850px; }
+.trialTable th:nth-child(n + 3), .trialTable td:nth-child(n + 3) { text-align: right; }
+.profitLayout { min-width: 0; display: grid; grid-template-columns: minmax(400px, .96fr) minmax(410px, 1.04fr); gap: 14px; align-items: start; }
+.statement { overflow: hidden; }
+.statement > header, .statement > div { min-height: 32px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 6px 13px; border-bottom: 1px solid var(--slate-100); }
+.statement > header { color: var(--ink-900); background: #f4f5f7; font-size: 9px; font-weight: 800; }
+.statement > div { color: var(--ink-800); font-size: 8px; }
+.statement > div strong { min-width: 110px; text-align: right; }
+.statementSection { color: #1862c8 !important; font-weight: 800; }
+.statementTotal { color: #16864b !important; font-weight: 800; background: #f8fcfa; }
+.statement > div:last-child { color: #078443 !important; background: #eaf8f0; font-size: 10px; }
+.profitRight { min-width: 0; display: grid; gap: 14px; }
+.trendCard, .reportSummary { padding: 15px; }
+.chart { position: relative; height: 235px; margin-top: 13px; padding: 15px 10px 24px; border-left: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200); background: repeating-linear-gradient(to top, transparent 0 44px, #eef0f3 45px); }
+.bars { height: 100%; display: grid; grid-template-columns: repeat(6, 1fr); align-items: end; gap: 18px; }
+.barColumn { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 5px; }
+.barColumn > span { color: var(--ink-800); font-size: 7px; font-weight: 750; }
+.barColumn > i { width: 35px; max-height: 82%; display: block; background: linear-gradient(#174da2, #0c397d); }
+.barColumn > small { position: absolute; bottom: 4px; color: var(--slate-600); font-size: 6px; }
+.chart svg { position: absolute; inset: 12px 7px 29px; width: calc(100% - 14px); height: calc(100% - 41px); pointer-events: none; }
+.trendCard > footer { display: flex; justify-content: center; gap: 7px; margin-top: 9px; color: var(--slate-600); font-size: 8px; }
+.trendCard > footer i { width: 11px; height: 3px; margin-top: 3px; background: #19964e; }
+.reportSummary dl div { grid-template-columns: 1fr auto; padding: 10px 0; }
+
+@media (max-width: 1050px) {
+  .filters { grid-template-columns: repeat(3, 1fr); }
+  .trialFilters, .profitFilters { grid-template-columns: repeat(3, 1fr); }
+  .profitLayout { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .ledgerLayout, .journalLayout { grid-template-columns: 1fr; }
+  .statusCard { min-height: auto; }
+  .accountInfo dl { grid-template-columns: 1fr 1fr; gap: 0 15px; }
+}
+@media (max-width: 620px) {
+  .filters, .trialFilters, .profitFilters { grid-template-columns: 1fr; }
+  .filters > button { width: 100%; }
+  .metrics { grid-template-columns: 1fr; }
+  .journalMeta { grid-template-columns: 1fr; }
+  .journalMeta .fullSpan { grid-column: auto; }
+  .journalActions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .journalActions button { min-width: 0; width: 100%; }
+  .accountInfo dl { grid-template-columns: 1fr; }
+  .profitLayout { grid-template-columns: minmax(0, 1fr); }
+}

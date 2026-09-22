@@ -51,7 +51,12 @@ export function PurchaseExpenseReport() {
       return;
     }
     setFilters({ ...draftFilters });
-    setMessage(`Showing ${records.filter((record) => record.date >= draftFilters.fromDate && record.date <= draftFilters.toDate).length} matching transactions.`);
+    const matchCount = records
+      .filter((record) => record.date >= draftFilters.fromDate && record.date <= draftFilters.toDate)
+      .filter((record) => draftFilters.category === "All" || record.category === draftFilters.category)
+      .filter((record) => draftFilters.supplier === "All" || record.supplier === draftFilters.supplier)
+      .length;
+    setMessage(`Showing ${matchCount} matching transactions.`);
   }
 
   function exportReport() {
@@ -62,9 +67,11 @@ export function PurchaseExpenseReport() {
     ];
     const csv = rows.map((row) => row.map(quote).join(",")).join("\n");
     const link = document.createElement("a");
-    link.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    link.href = URL.createObjectURL(new Blob([`\uFEFF${csv}`], { type: "text/csv;charset=utf-8" }));
     link.download = `purchase-expense-report-${filters.fromDate}-${filters.toDate}.csv`;
+    document.body.append(link);
     link.click();
+    link.remove();
     URL.revokeObjectURL(link.href);
     setMessage("Purchase expense report exported as CSV.");
   }

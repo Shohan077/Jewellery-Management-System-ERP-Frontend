@@ -23,7 +23,7 @@ type ExpenseForm = Omit<PurchaseExpenseRecord, "amount"> & { amount: string };
 type Feedback = { tone: "success" | "error" | "info"; message: string } | null;
 
 const defaultForm: ExpenseForm = {
-  id: "expense-0042",
+  id: "",
   date: "2025-05-20",
   category: "Transportation",
   supplier: "Shree Gems Suppliers",
@@ -131,7 +131,7 @@ export function PurchaseExpenseEntry() {
             <table className={styles.table}>
               <caption className="sr-only">Five most recent purchase expenses</caption>
               <thead><tr><th>Date</th><th>Category</th><th>Supplier</th><th>Reference No</th><th>Amount (₹)</th><th>Action</th></tr></thead>
-              <tbody>{recent.map((record) => <tr key={record.id}><td>{formatDate(record.date)}</td><td>{record.category}</td><td>{record.supplier}</td><td>{record.referenceNo}</td><td>{formatRupees(record.amount).replace("₹ ", "")}</td><td><div className={styles.rowActions}><button aria-label={`Edit ${record.referenceNo}`} onClick={() => editRecord(record)} type="button"><Pencil size={15} /></button><button aria-label={`Delete ${record.referenceNo}`} className={styles.deleteButton} onClick={() => deleteRecord(record)} type="button"><Trash2 size={15} /></button></div></td></tr>)}</tbody>
+            <tbody>{recent.map((record) => <tr key={record.id}><td>{formatDate(record.date)}</td><td>{record.category}</td><td>{record.supplier}</td><td>{record.referenceNo}</td><td>{formatRupees(record.amount).replace("₹ ", "")}</td><td><div className={styles.rowActions}><button aria-label={`Edit ${record.referenceNo}`} onClick={() => editRecord(record)} type="button"><Pencil aria-hidden="true" size={15} /></button><button aria-label={`Delete ${record.referenceNo}`} className={styles.deleteButton} onClick={() => deleteRecord(record)} type="button"><Trash2 aria-hidden="true" size={15} /></button></div></td></tr>)}</tbody>
             </table>
           </div>
         </Card>
