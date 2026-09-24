@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { SupplierList } from "@/features/suppliers/supplier-list";
+import { SupplierManagement153 } from "@/features/reference-39-management/management-lists";
 
 export const metadata: Metadata = {
-  title: "Suppliers",
+  title: "Supplier Management | Jewellery Manager",
   description: "View and manage jewellery suppliers.",
 };
 
 export default function SuppliersPage() {
-  return <SupplierList />;
+  return <SupplierManagement153 />;
 }

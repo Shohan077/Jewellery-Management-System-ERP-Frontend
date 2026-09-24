@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { ProfitLossReport } from "@/features/reports/profit-loss-report";
-export const metadata: Metadata = { title: "Profit & Loss Report" };
-export default function ProfitLossReportPage() { return <ProfitLossReport />; }
+import { ProfitLossReport140 } from "@/features/reference-35-reports/reference-35-reports";
+export const metadata: Metadata = { title: "Profit & Loss Report | Jewellery Manager" };
+export default function ProfitLossReportPage() { return <ProfitLossReport140 />; }

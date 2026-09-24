@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { KarigarManagement } from "@/features/karigar-management/karigar-management";
+import { KarigarManagement157 } from "@/features/reference-40-karigar/karigar-157-160";
 
 export const metadata: Metadata = {
   title: "Karigar Management",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function KarigarManagementPage() {
-  return <KarigarManagement />;
+  return <KarigarManagement157 />;
 }

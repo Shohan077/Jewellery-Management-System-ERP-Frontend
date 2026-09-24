@@ -1,0 +1,211 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 13px;
+  margin: 0 auto;
+}
+
+.pageHeader {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.pageHeader h1,
+.pageHeader p { margin: 0; }
+.pageHeader h1 { font-size: clamp(24px, 2.2vw, 31px); line-height: 1.08; letter-spacing: -.04em; }
+.breadcrumb { display: flex; align-items: center; gap: 6px; margin-top: 6px; color: var(--slate-600); font-size: 9px; }
+.breadcrumb i { color: var(--slate-400); font-style: normal; }
+.breadcrumb strong { color: var(--ink-800); font-weight: 650; }
+.headerActions { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; }
+
+.blueButton,
+.greenButton,
+.mutedButton,
+.whiteButton {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 13px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.blueButton { color: #fff; border-color: #0869d9; background: linear-gradient(135deg, #087ce6, #0564cf); box-shadow: 0 5px 12px rgba(7, 106, 215, .16); }
+.greenButton { color: #fff; border-color: #0a9a53; background: linear-gradient(135deg, #15ae63, #078e49); }
+.mutedButton { color: var(--ink-800); border-color: var(--slate-200); background: #e9ecef; }
+.whiteButton { color: var(--ink-800); border-color: var(--slate-200); background: #fff; }
+.blueButton:hover { background: #075ebc; }
+.greenButton:hover { background: #087f43; }
+.mutedButton:hover, .whiteButton:hover { border-color: var(--slate-300); background: var(--slate-50); }
+
+.metricsFive { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.metricCard { min-width: 0; min-height: 84px; display: flex; align-items: center; gap: 12px; padding: 13px; }
+.metricIcon { width: 39px; height: 39px; flex: 0 0 auto; display: grid; place-items: center; color: #fff; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); }
+.indigo { background: linear-gradient(145deg, #6478f2, #4d5bdd); }
+.green { background: linear-gradient(145deg, #22b96c, #07934e); }
+.rose { background: linear-gradient(145deg, #df8f84, #cb746b); }
+.blue { background: linear-gradient(145deg, #1984ea, #0569d4); }
+.amber { background: linear-gradient(145deg, #ffb11b, #ee9400); }
+.metricCopy { min-width: 0; display: grid; gap: 3px; }
+.metricCopy small { overflow: hidden; color: var(--ink-800); font-size: 9px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.metricCopy strong { font-size: clamp(20px, 1.8vw, 27px); line-height: 1; letter-spacing: -.03em; }
+
+.accountCard,
+.journalDetails { min-width: 0; overflow: visible; }
+.accountFilters { display: grid; grid-template-columns: minmax(260px, 1.6fr) minmax(125px, .65fr) minmax(105px, .55fr) auto auto; align-items: end; gap: 9px; padding: 10px; border-bottom: 1px solid var(--slate-100); }
+.searchControl { min-width: 0; height: 38px; display: flex; align-items: center; gap: 7px; padding: 0 10px; color: var(--slate-500); border: 1px solid var(--slate-200); border-radius: 7px; background: #fff; }
+.searchControl input { width: 100%; height: 100%; padding: 0; border: 0; outline: 0; background: transparent; font-size: 10px; }
+.filterField { min-width: 0; display: grid; gap: 4px; }
+.filterField span { color: var(--ink-900); font-size: 9px; font-weight: 700; }
+.filterField select { width: 100%; height: 29px; padding: 0 7px; color: var(--ink-900); border: 1px solid var(--slate-200); border-radius: 5px; background: #fff; font-size: 9px; }
+
+.feedback { margin: 0; padding: 6px 11px; color: #155d37; border-bottom: 1px solid #d7ebde; background: #f2fbf5; font-size: 9px; font-weight: 650; }
+.tableScroller { min-width: 0; overflow-x: auto; }
+.accountsTable,
+.journalTable { width: 100%; border-collapse: collapse; color: var(--ink-900); font-size: 9px; }
+.accountsTable { min-width: 760px; }
+.accountsTable th,
+.accountsTable td,
+.journalTable th,
+.journalTable td { padding: 7px 10px; border-bottom: 1px solid var(--slate-100); text-align: left; white-space: nowrap; }
+.accountsTable th,
+.journalTable th { height: 34px; color: var(--ink-800); background: #f2f3f5; font-size: 8px; font-weight: 800; }
+.accountsTable td { height: 39px; }
+.accountsTable th:first-child,
+.accountsTable td:first-child { width: 42px; text-align: center; }
+.accountsTable th:last-child,
+.accountsTable td:last-child { width: 112px; text-align: center; }
+.accountsTable tbody tr:hover { background: #fbfdff; }
+.statusBadge { min-width: 48px; min-height: 21px; display: inline-flex; align-items: center; justify-content: center; padding: 3px 7px; border-radius: 5px; font-size: 8px; font-weight: 750; }
+.statusActive { color: #fff; background: #19a75b; }
+.statusInactive { color: #a3373b; background: #ffdfe0; }
+.rowActions { display: flex; align-items: center; justify-content: center; gap: 5px; }
+.viewButton { height: 27px; display: inline-flex; align-items: center; gap: 5px; padding: 0 9px; color: #fff; border-radius: 5px; background: #0876dc; font-size: 8px; font-weight: 700; cursor: pointer; }
+.moreButton { width: 27px; height: 27px; display: grid; place-items: center; color: var(--slate-600); border-radius: 5px; background: #eff1f4; cursor: pointer; }
+.menuWrap { position: relative; display: inline-flex; }
+.rowMenu { position: absolute; z-index: 20; top: calc(100% + 4px); right: 0; width: 122px; display: grid; padding: 4px; border: 1px solid var(--slate-200); border-radius: 7px; background: #fff; box-shadow: 0 12px 30px rgba(23, 35, 51, .16); }
+.rowMenu button { padding: 7px 8px; border-radius: 4px; background: transparent; font-size: 8px; text-align: left; cursor: pointer; }
+.rowMenu button:hover { background: var(--slate-50); }
+.rowMenu .menuDanger { color: #d8323a; }
+.emptyCell { height: 180px !important; color: var(--slate-500); text-align: center !important; }
+
+.tableFooter { min-height: 59px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 11px; }
+.tableFooter p { margin: 0; color: var(--ink-800); font-size: 8px; }
+.pagination { display: flex; align-items: center; gap: 3px; }
+.pagination button { min-width: 29px; height: 29px; display: grid; place-items: center; padding: 0 5px; color: var(--ink-800); border-radius: 5px; background: #fff; font-size: 9px; cursor: pointer; }
+.pagination button[aria-current="page"] { color: #fff; background: #0874d8; }
+.pagination button:disabled { color: var(--slate-300); cursor: not-allowed; }
+.pagination span { min-width: 22px; text-align: center; }
+
+.modalBackdrop { position: fixed; z-index: 130; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(10, 20, 32, .56); backdrop-filter: blur(2px); }
+.modal { width: min(520px, 100%); max-height: calc(100svh - 36px); overflow-y: auto; border-radius: 12px; background: #fff; box-shadow: 0 24px 80px rgba(14, 29, 46, .28); }
+.modalHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 18px; border-bottom: 1px solid var(--slate-100); }
+.modalHeader h2, .modalHeader p { margin: 0; }
+.modalHeader h2 { font-size: 17px; }
+.modalHeader p { margin-top: 4px; color: var(--slate-500); font-size: 10px; }
+.modalHeader > button { width: 31px; height: 31px; display: grid; place-items: center; color: var(--slate-600); border: 1px solid var(--slate-200); border-radius: 6px; background: #fff; font-size: 20px; cursor: pointer; }
+.accountForm { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px; }
+.accountForm label { min-width: 0; display: grid; gap: 5px; color: var(--ink-800); font-size: 10px; font-weight: 650; }
+.accountForm b { color: var(--danger); }
+.formWide, .modalActions { grid-column: 1 / -1; }
+.modalActions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.accountDetails { padding: 18px; }
+.accountDetails dl { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 0 0 15px; }
+.accountDetails dl div { padding: 10px; border: 1px solid var(--slate-100); border-radius: 7px; background: #fafbfc; }
+.accountDetails dt, .accountDetails dd { margin: 0; }
+.accountDetails dt { color: var(--slate-500); font-size: 8px; }
+.accountDetails dd { margin-top: 5px; font-size: 10px; font-weight: 700; }
+
+.journalTop { min-width: 0; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(290px, .88fr); gap: 13px; }
+.journalInfoCard,
+.additionalCard { min-width: 0; padding: 14px; }
+.journalInfoCard h2,
+.additionalCard h2,
+.journalDetails h2 { margin: 0; font-size: 12px; }
+.entryState { margin-left: 6px; padding: 3px 6px; color: #1764c7; border-radius: 999px; background: #e9f3ff; font-size: 7px; vertical-align: middle; }
+.journalFormGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 11px; }
+.journalFormGrid label,
+.additionalFields label { min-width: 0; display: grid; gap: 5px; }
+.journalFormGrid label > span,
+.additionalFields label > span,
+.attachmentLabel { color: var(--ink-900); font-size: 8px; font-weight: 700; }
+.journalFormGrid b { color: var(--danger); }
+.journalFormGrid :global(.field), .additionalFields :global(.select) { height: 32px; padding-inline: 8px; border-radius: 5px; font-size: 8px; }
+.journalFormGrid :global(.textarea) { min-height: 58px; padding: 8px; border-radius: 5px; font-size: 8px; }
+.gridWide { grid-column: 1 / -1; }
+.additionalFields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 8px; }
+.attachmentLabel { display: block; margin-bottom: 5px; }
+.dropZone { min-height: 111px; display: grid; place-items: center; align-content: center; gap: 4px; padding: 10px; color: #7b8797; border: 1px dashed var(--slate-300); border-radius: 6px; text-align: center; }
+.dropZone strong { max-width: 100%; overflow: hidden; color: var(--ink-800); font-size: 8px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.dropZone button { padding: 4px 7px; color: var(--ink-900); border: 1px solid var(--slate-200); border-radius: 4px; background: #fff; font-size: 8px; cursor: pointer; }
+.dropZone small { color: var(--slate-500); font-size: 7px; }
+
+.journalDetails > header { min-height: 43px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 10px; border-bottom: 1px solid var(--slate-100); }
+.journalDetails > header .blueButton { min-height: 31px; padding-inline: 11px; }
+.journalTable { min-width: 840px; }
+.journalTable th:first-child, .journalTable td:first-child { width: 40px; text-align: center; }
+.journalTable th:nth-child(2), .journalTable td:nth-child(2) { width: 100px; }
+.journalTable th:nth-child(3), .journalTable td:nth-child(3) { width: 160px; }
+.journalTable th:nth-child(4), .journalTable td:nth-child(4) { width: 230px; }
+.journalTable th:nth-child(5), .journalTable td:nth-child(5), .journalTable th:nth-child(6), .journalTable td:nth-child(6) { width: 115px; text-align: right; }
+.journalTable th:last-child, .journalTable td:last-child { width: 66px; text-align: center; }
+.journalTable td { height: 40px; padding-block: 4px; }
+.tableControl { width: 100%; height: 29px; padding: 0 4px; color: var(--ink-900); border: 1px solid transparent; border-radius: 4px; outline: 0; background: transparent; font-size: 8px; }
+.tableControl:focus { border-color: #73a9e1; background: #fff; box-shadow: 0 0 0 2px rgba(22, 113, 212, .08); }
+.amountControl { text-align: right; font-variant-numeric: tabular-nums; }
+.accountName { padding-left: 4px; }
+.deleteRow { width: 26px; height: 26px; display: grid; place-items: center; margin: auto; color: #fff; border-radius: 5px; background: #f03c42; cursor: pointer; }
+.addPrompt td { height: 29px; background: #fbfcfd; }
+.addPrompt button { display: inline-flex; align-items: center; gap: 4px; color: var(--slate-600); background: transparent; font-size: 8px; cursor: pointer; }
+.journalTable tfoot th { height: 34px; color: var(--ink-950); border-top: 1px solid var(--slate-200); border-bottom: 0; background: #fff; font-size: 9px; }
+.journalTable tfoot th:first-child { text-align: right; }
+.journalTable tfoot th:nth-child(5), .journalTable tfoot th:nth-child(6) { text-align: right; }
+.journalActions { display: flex; align-items: center; justify-content: flex-end; gap: 13px; }
+.journalActions button { min-width: 124px; }
+
+@media (max-width: 1100px) {
+  .metricsFive { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .accountFilters { grid-template-columns: minmax(220px, 1fr) 1fr 1fr; }
+  .accountFilters > button { justify-self: stretch; }
+}
+
+@media (max-width: 820px) {
+  .journalTop { grid-template-columns: 1fr; }
+  .metricsFive { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .pageHeader { align-items: flex-start; flex-direction: column; }
+  .headerActions { width: 100%; display: grid; grid-template-columns: 1fr 1fr; }
+  .headerActions > :last-child:first-child,
+  .headerActions > :last-child:nth-child(3) { grid-column: 1 / -1; }
+  .headerActions button { width: 100%; }
+  .accountFilters { grid-template-columns: 1fr 1fr; }
+  .searchControl { grid-column: 1 / -1; }
+  .tableFooter { align-items: flex-start; flex-direction: column; }
+  .journalFormGrid, .additionalFields { grid-template-columns: 1fr; }
+  .gridWide { grid-column: auto; }
+  .journalActions { display: grid; grid-template-columns: 1fr; }
+  .journalActions button { width: 100%; }
+}
+
+@media (max-width: 460px) {
+  .metricsFive,
+  .accountFilters,
+  .accountForm,
+  .accountDetails dl { grid-template-columns: 1fr; }
+  .searchControl,
+  .formWide,
+  .modalActions { grid-column: auto; }
+  .modalActions { display: grid; grid-template-columns: 1fr 1fr; }
+}

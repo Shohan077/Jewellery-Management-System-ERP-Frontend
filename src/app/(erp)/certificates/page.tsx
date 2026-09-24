@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { CertificateManagement } from "@/features/certificates/certificate-management";
+import { Certifications143 } from "@/features/reference-36-quality/quality-control";
 
 export const metadata: Metadata = {
-  title: "Certificate Management",
-  description: "Manage jewellery product certificates and hallmark information.",
+  title: "Certifications | Jewellery Manager",
+  description: "Manage quality certificates and hallmark information.",
 };
 
 export default function CertificatesPage() {
-  return <CertificateManagement />;
+  return <Certifications143 />;
 }

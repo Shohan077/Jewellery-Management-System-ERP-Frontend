@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { ManagedProductList } from "@/features/product-management/managed-product-list";
-export const metadata: Metadata = { title: "Product Management" };
-export default function ManagedProductListPage() { return <ManagedProductList />; }
+import { ProductManagement154 } from "@/features/reference-39-management/management-lists";
+export const metadata: Metadata = { title: "Product Management | Jewellery Manager" };
+export default function ManagedProductListPage() { return <ProductManagement154 />; }

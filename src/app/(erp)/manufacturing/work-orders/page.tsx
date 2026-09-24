@@ -1,5 +1,5 @@
-import { ManufacturingWorkOrderList } from "@/features/manufacturing-work-orders/manufacturing-work-order-list";
+import { ManufacturingWorkOrders155 } from "@/features/reference-39-management/management-lists";
 
 export default function ManufacturingWorkOrdersPage() {
-  return <ManufacturingWorkOrderList />;
+  return <ManufacturingWorkOrders155 />;
 }
