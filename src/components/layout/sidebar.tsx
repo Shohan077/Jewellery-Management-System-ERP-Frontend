@@ -45,7 +45,10 @@ const navigation: NavigationItem[] = [
     href: "/sales/invoices",
     activePrefixes: ["/sales", "/pos"],
     children: [
-      { label: "POS (New Sale)", href: "/pos/new" },
+      { label: "POS Billing", href: "/pos/new" },
+      { label: "Sales Order Management", href: "/sales/orders" },
+      { label: "Invoice Management", href: "/sales/invoice-management" },
+      { label: "Sales Return Entry", href: "/sales/return-entry" },
       { label: "Sales Invoice", href: "/sales/invoices" },
       { label: "Quotation", href: "/sales/quotations/new" },
       { label: "Sales Return", href: "/sales/returns/new" },
@@ -83,7 +86,9 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/inventory", "/products"],
     children: [
       { label: "Inventory Management", href: "/inventory/management" },
-      { label: "Stock Overview", href: "/inventory/stock" },
+      { label: "Stock Adjustment Entry", href: "/inventory/adjustments" },
+      { label: "Gold Stock", href: "/inventory/gold-stock" },
+      { label: "Jewellery Stock", href: "/inventory/stock" },
       { label: "Stock View", href: "/inventory/stock-view" },
       { label: "Stock List", href: "/inventory/stock-list" },
       { label: "Stock Alerts", href: "/inventory/alerts" },
@@ -100,6 +105,7 @@ const navigation: NavigationItem[] = [
     href: "/product-management/product-list",
     activePrefixes: ["/product-management"],
     children: [
+      { label: "Management Overview", href: "/product-management/overview" },
       { label: "Product List", href: "/product-management/product-list" },
       { label: "Product Management", href: "/product-management/products" },
       { label: "Category Management", href: "/product-management/categories" },
@@ -116,11 +122,12 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/gold-rates"],
     children: [
       { label: "Gold Transactions", href: "/gold-rates/transactions" },
+      { label: "Current Gold Rates", href: "/gold-rates/current" },
       { label: "Gold Rate Management", href: "/gold-rates/management-129" },
       { label: "Gold Stock", href: "/gold-rates/stock" },
       { label: "Gold Adjustment", href: "/gold-rates/adjustments" },
       { label: "Gold Report", href: "/gold-rates/reports" },
-      { label: "Gold Rate", href: "/gold-rates" },
+      { label: "Gold Rates", href: "/gold-rates" },
       { label: "Gold Rate Manager", href: "/gold-rates/manage" },
       { label: "Purity & Karat" },
       { label: "Unit Conversion" },
@@ -159,12 +166,20 @@ const navigation: NavigationItem[] = [
     ],
   },
   {
-    label: "Production Management",
+    label: "Manufacturing",
     icon: Hammer,
     href: "/production-management/orders",
     activePrefixes: ["/production-management", "/manufacturing"],
     children: [
       { label: "Work Order Overview", href: "/manufacturing/work-orders/overview" },
+      { label: "Manufacturing Dashboard", href: "/manufacturing/dashboard" },
+      { label: "Material Requests", href: "/manufacturing/material-requests" },
+      { label: "Work Order Detail", href: "/manufacturing/work-orders/detail" },
+      { label: "Final Quality Approval", href: "/manufacturing/final-quality" },
+      { label: "Finished Goods QC", href: "/manufacturing/finished-goods-control" },
+      { label: "Production Orders", href: "/manufacturing/production-orders" },
+      { label: "Create Production Order", href: "/manufacturing/production-orders/new" },
+      { label: "Material & WIP Tracking", href: "/manufacturing/wip-tracking" },
       { label: "Production Order", href: "/production-management/orders" },
       { label: "Work in Progress" },
       { label: "Finished Items", href: "/production-management/finished-items" },
@@ -192,6 +207,8 @@ const navigation: NavigationItem[] = [
     children: [
       { label: "Karigar List", href: "/karigars" },
       { label: "Karigar Management", href: "/karigars/manage" },
+      { label: "Karigar Directory", href: "/karigars/management" },
+      { label: "Karigar Overview", href: "/karigars/overview" },
       { label: "Karigar Profile", href: "/karigars/profile" },
       { label: "Work Assignment", href: "/karigar-management/assignments" },
       { label: "Work Order", href: "/manufacturing/work-orders" },
@@ -209,6 +226,7 @@ const navigation: NavigationItem[] = [
     href: "/customers",
     activePrefixes: ["/customers", "/customer-dues", "/loyalty"],
     children: [
+      { label: "Customer Overview", href: "/customers/overview" },
       { label: "Customer List", href: "/customers" },
       { label: "Customer Management", href: "/customers/management" },
       { label: "Customer Profile", href: "/customers/profile" },
@@ -226,6 +244,7 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/customer-dues"],
     children: [
       { label: "Due Collection Entry", href: "/customer-dues/collection" },
+      { label: "Due Management", href: "/customer-dues/management" },
       { label: "Customer Due List", href: "/customer-dues" },
       { label: "Customer Ledger", href: "/customers/ledger" },
     ],
@@ -235,6 +254,7 @@ const navigation: NavigationItem[] = [
     icon: ContactRound,
     href: "/suppliers",
     children: [
+      { label: "Supplier Management", href: "/suppliers/management" },
       { label: "Supplier List", href: "/suppliers" },
       { label: "Supplier Payment", href: "/suppliers/payments/new" },
       { label: "Supplier Ledger", href: "/suppliers/ledger" },
@@ -247,22 +267,32 @@ const navigation: NavigationItem[] = [
   {
     label: "Mortgage / Pawn",
     icon: CircleDollarSign,
-    href: "/mortgages/new",
+    href: "/mortgages",
     activePrefixes: ["/mortgages"],
     children: [
       { label: "New Mortgage", href: "/mortgages/new" },
-      { label: "Mortgage List" },
+      { label: "Mortgage Management", href: "/mortgages/management" },
+      { label: "Mortgage List", href: "/mortgages" },
       { label: "Payment / Release" },
       { label: "Overdue List" },
     ],
   },
   {
-    label: "Accounts & Finance",
+    label: "Accounts",
     icon: WalletCards,
-    href: "/accounts/cash-in",
+    href: "/accounts",
     activePrefixes: ["/expenses", "/accounts", "/finance"],
     children: [
+      { label: "Cash Book", href: "/accounts/cash-ledger" },
+      { label: "Expense", href: "/accounts/expense-entry" },
+      { label: "Income", href: "/accounts/cash-in" },
+      { label: "Payment", href: "/accounts/payment-entry" },
+      { label: "Receipt", href: "/accounts/receipt-entry" },
+      { label: "Journal Entries", href: "/accounts/journal-entry" },
+      { label: "Ledger", href: "/accounts/account-ledger" },
       { label: "Chart of Accounts", href: "/finance/chart-of-accounts" },
+      { label: "Accounts Dashboard", href: "/accounts" },
+      { label: "Bank Accounts", href: "/accounts/cash-in" },
       { label: "Finance Journal Entry", href: "/finance/journal-entry" },
       { label: "Expense", href: "/expenses" },
       { label: "Expense Ledger", href: "/accounts/expenses" },
@@ -288,6 +318,7 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/quality-control", "/certificates"],
     children: [
       { label: "Quality Inspection", href: "/quality-control/inspection" },
+      { label: "Quality Control Overview", href: "/quality-control/management" },
       { label: "Testing Management", href: "/quality-control/testing" },
       { label: "Certifications", href: "/certificates" },
       { label: "Issue Tracking", href: "/quality-control/issues" },
@@ -299,14 +330,20 @@ const navigation: NavigationItem[] = [
     href: "/reports/sales",
     activePrefixes: ["/reports", "/analytics"],
     children: [
+      { label: "Sales Report", href: "/reports/sales" },
+      { label: "Purchase Report", href: "/reports/purchase" },
+      { label: "Stock Report", href: "/inventory/stock" },
+      { label: "Profit & Loss", href: "/reports/profit-loss" },
       { label: "Reports & Analytics", href: "/reports/analytics" },
+      { label: "Enterprise Reports", href: "/reports/enterprise" },
+      { label: "Business Performance", href: "/reports/business-performance" },
+      { label: "Executive Summary", href: "/reports/executive-summary" },
+      { label: "Analytics Overview", href: "/reports/overview" },
+      { label: "Manufacturing Report", href: "/reports/manufacturing" },
+      { label: "Manufacturing Profitability", href: "/reports/manufacturing-profitability" },
       { label: "Sales Analytics", href: "/analytics/sales-report" },
       { label: "Reports Dashboard", href: "/reports/dashboard" },
-      { label: "Sales Report", href: "/reports/sales" },
-      { label: "Profit & Loss", href: "/reports/profit-loss" },
-      { label: "Purchase Report", href: "/reports/purchase" },
       { label: "Inventory Report", href: "/reports/inventory" },
-      { label: "Stock Report", href: "/inventory/stock" },
       { label: "Customer Report" },
       { label: "Financial Report" },
       { label: "Tax Report" },
@@ -329,11 +366,13 @@ const navigation: NavigationItem[] = [
     activePrefixes: ["/branches", "/stock-transfers"],
     children: [
       { label: "Branch Management", href: "/branches/manage" },
+      { label: "Branch Performance", href: "/branches/management-dashboard" },
       { label: "Branch List", href: "/branches" },
       { label: "Branch Overview", href: "/branches/overview" },
       { label: "Multi-Branch Dashboard", href: "/branches/sales-dashboard" },
       { label: "Branch Stock" },
       { label: "Stock Transfer", href: "/stock-transfers/new" },
+      { label: "Stock Transfer Management", href: "/stock-transfers" },
     ],
   },
   {
@@ -342,6 +381,7 @@ const navigation: NavigationItem[] = [
     href: "/barcodes",
     children: [
       { label: "Barcode Studio", href: "/barcodes" },
+      { label: "Barcode & Printing", href: "/barcodes/management" },
       { label: "Barcode Generation", href: "/barcodes/generate" },
       { label: "Barcode Printing", href: "/barcodes/print" },
       { label: "Invoice Settings", href: "/barcodes/invoice-settings" },
@@ -356,7 +396,8 @@ const navigation: NavigationItem[] = [
     href: "/users",
     activePrefixes: ["/users", "/settings/user-management", "/settings/roles-permissions", "/settings/activity-log"],
     children: [
-      { label: "User Management", href: "/settings/user-management" },
+      { label: "Users", href: "/settings/user-management" },
+      { label: "Users & Security", href: "/users/security" },
       { label: "Roles & Permissions", href: "/settings/roles-permissions" },
       { label: "Reference Activity Log", href: "/settings/activity-log" },
       { label: "User List", href: "/users" },
@@ -372,9 +413,11 @@ const navigation: NavigationItem[] = [
     href: "/settings",
     children: [
       { label: "General Settings", href: "/settings" },
+      { label: "Shop Settings", href: "/settings/shop" },
       { label: "Company Profile", href: "/settings/company-profile" },
       { label: "Tax & Currency", href: "/settings/tax-currency" },
       { label: "Notification Settings", href: "/settings/notifications" },
+      { label: "Notifications & Integrations", href: "/settings/notifications-integrations" },
       { label: "Email Configuration", href: "/settings/email-configuration" },
       { label: "SMS / WhatsApp", href: "/settings/sms-whatsapp" },
       { label: "Security Settings", href: "/settings/security" },
@@ -457,20 +500,20 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                 )}
                 {active && item.children ? (
                   <div aria-label={`${item.label} navigation`} className={styles.subnav}>
-                    {item.children.map((child) => {
-                      const childActive = child.href === activeChildHref;
+                    {item.children.map((child, index) => {
+                      const childActive = child.href === activeChildHref && item.children?.findIndex((candidate) => candidate.href === activeChildHref) === index;
                       return child.href ? (
                         <Link
                           aria-current={childActive ? "page" : undefined}
                           className={childActive ? styles.subnavActive : ""}
                           href={child.href}
-                          key={child.label}
+                          key={`${child.label}-${child.href}`}
                           onClick={onClose}
                         >
                           {child.label}
                         </Link>
                       ) : (
-                        <span aria-disabled="true" key={child.label}>{child.label}</span>
+                        <span aria-disabled="true" key={`${child.label}-${index}`}>{child.label}</span>
                       );
                     })}
                   </div>

@@ -1,0 +1,121 @@
+.metricCard {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px;
+  border-color: #e5eaf1 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 3px 14px rgba(25, 54, 91, 0.035) !important;
+}
+
+.metricIcon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 6px;
+}
+
+.blue { color: #1268e8; background: #e9f2ff; }
+.green { color: #1b9b56; background: #e6f7ec; }
+.orange { color: #e9810c; background: #fff0dc; }
+.violet { color: #6752d8; background: #efecff; }
+
+.metricBody {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.metricBody small {
+  overflow: hidden;
+  color: #536176;
+  font-size: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metricBody strong {
+  overflow: hidden;
+  color: #172033;
+  font-size: clamp(15px, 1.45vw, 19px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metricBody > span {
+  color: #8a96a7;
+  font-size: 7px;
+}
+
+.metricBody b {
+  color: #15a35f;
+  font-weight: 760;
+}
+
+.status {
+  min-width: 48px;
+  min-height: 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.success { color: #148449; background: #e9f8ef; }
+.warning { color: #d96b04; background: #fff1df; }
+.info { color: #1268d9; background: #eaf2ff; }
+.danger { color: #e14343; background: #fff0f0; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination button {
+  min-width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+  color: #46566d;
+  border: 1px solid #dce3ec;
+  border-radius: 5px;
+  background: white;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.pagination button[aria-current="page"] {
+  color: white;
+  border-color: #1268e8;
+  background: #1268e8;
+  box-shadow: 0 4px 10px rgba(18, 104, 232, 0.18);
+}
+
+.pagination button:disabled {
+  color: #b3bdc9;
+  cursor: not-allowed;
+}
+
+.notice {
+  margin: 0;
+  padding: 7px 10px;
+  color: #145d9c;
+  border: 1px solid #cfe0f7;
+  border-radius: 6px;
+  background: #f0f7ff;
+  font-size: 9px;
+}

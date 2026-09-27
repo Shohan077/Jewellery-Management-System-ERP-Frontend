@@ -1,0 +1,304 @@
+.card {
+  min-width: 0;
+  overflow: hidden;
+  color: #121a2b;
+  border: 1px solid #e6ebf2;
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(24, 43, 72, 0.045);
+}
+
+.cardHeader {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: #101828;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #4b5870;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend i {
+  width: 17px;
+  height: 2px;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.currentKey {
+  background: #1769ec;
+}
+
+.previousKey {
+  background: repeating-linear-gradient(90deg, #9fb1ca 0 3px, transparent 3px 5px);
+}
+
+.trendCard {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.chartFrame {
+  min-width: 0;
+  padding: 0 15px 12px 13px;
+}
+
+.lineChart {
+  width: 100%;
+  height: auto;
+  min-height: 205px;
+  display: block;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: #e8edf4;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.axisLabel,
+.xLabel {
+  fill: #66758d;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.currentLine,
+.previousLine {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.currentLine {
+  stroke: #1769ec;
+  stroke-width: 1.7;
+}
+
+.previousLine {
+  stroke: #a9b8cd;
+  stroke-dasharray: 3 4;
+  stroke-width: 1.25;
+}
+
+.currentPoint {
+  fill: #ffffff;
+  stroke: #1769ec;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.donutCard {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.donutLayout {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(145px, 1fr) minmax(130px, 0.8fr);
+  align-items: center;
+  gap: 12px;
+  padding: 2px 18px 20px;
+}
+
+.donut {
+  width: min(100%, 196px);
+  aspect-ratio: 1;
+  position: relative;
+  justify-self: center;
+}
+
+.donut svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  transform: rotate(-90deg);
+}
+
+.donutTrack,
+.donutSegment {
+  stroke-width: 7;
+}
+
+.donutTrack {
+  stroke: #eef2f7;
+}
+
+.donutSegment {
+  stroke-linecap: butt;
+}
+
+.goldSegment {
+  color: #1769df;
+  stroke: #1769df;
+  background: #1769df;
+}
+
+.diamondSegment {
+  color: #7798ed;
+  stroke: #7798ed;
+  background: #7798ed;
+}
+
+.silverSegment {
+  color: #aebdf6;
+  stroke: #aebdf6;
+  background: #aebdf6;
+}
+
+.otherSegment {
+  color: #cbd6e5;
+  stroke: #cbd6e5;
+  background: #cbd6e5;
+}
+
+.donutCenter {
+  position: absolute;
+  inset: 29%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #667085;
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutCenter strong {
+  color: #101828;
+  font-size: clamp(12px, 1.05vw, 16px);
+  font-weight: 750;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.donutCenter span {
+  margin-top: 4px;
+  font-size: 9px;
+}
+
+.categoryLegend {
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.categoryLegend li {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  color: #58667c;
+  font-size: 9px;
+}
+
+.categoryLegend i {
+  width: 7px;
+  height: 7px;
+  display: block;
+  border-radius: 50%;
+}
+
+.categoryLegend span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.categoryLegend strong {
+  color: #536176;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.compact .cardHeader {
+  min-height: 43px;
+  padding-inline: 16px;
+}
+
+.compact .chartFrame {
+  padding-bottom: 7px;
+}
+
+.compact .lineChart {
+  min-height: 164px;
+}
+
+.compact .donutLayout {
+  grid-template-columns: minmax(125px, 1fr) minmax(120px, 0.82fr);
+  padding: 0 14px 14px;
+}
+
+.compact .donut {
+  width: min(100%, 156px);
+}
+
+@media (max-width: 1160px) {
+  .donutLayout {
+    grid-template-columns: minmax(165px, 0.85fr) minmax(155px, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .cardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 15px 5px;
+  }
+
+  .legend {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .lineChart {
+    width: 680px;
+    max-width: none;
+  }
+
+  .chartFrame {
+    overflow-x: auto;
+  }
+
+  .donutLayout,
+  .compact .donutLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .categoryLegend {
+    width: min(100%, 260px);
+    justify-self: center;
+  }
+}

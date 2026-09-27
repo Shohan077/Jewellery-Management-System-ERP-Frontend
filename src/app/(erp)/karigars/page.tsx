@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { KarigarList } from "@/features/karigars/karigar-list";
+import { Reference54KarigarManagement } from "@/features/reference-54/karigar-management-screen";
 
 export const metadata: Metadata = {
   title: "Karigar Management",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function KarigarsPage() {
-  return <KarigarList />;
+  return <Reference54KarigarManagement />;
 }

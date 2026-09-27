@@ -1,0 +1,34 @@
+.page { display: grid; gap: 10px; max-width: 1600px; margin: 0 auto; color: #172033; }
+.page :global(.surface-card) { border-color: #e5eaf1; border-radius: 8px; box-shadow: 0 3px 14px rgba(25,54,91,.035); }
+
+.filters { display: grid; grid-template-columns: minmax(230px,1.35fr) repeat(3,minmax(125px,.8fr)) auto auto; align-items: end; gap: 8px; padding: 10px 12px; }
+.filters label { min-width: 0; display: grid; gap: 4px; color: #425168; font-size: 8px; font-weight: 700; }
+.filters select, .filters input, .dateControl { width: 100%; height: 32px; color: #172033; border: 1px solid #dce3ec; border-radius: 5px; outline: 0; background: white; font-size: 8px; }
+.filters select { padding: 0 8px; }
+.dateControl { display: flex; align-items: center; padding-right: 8px; }
+.dateControl input { min-width: 0; flex: 1; padding: 0 8px; border: 0; background: transparent; }
+.dateControl svg { flex: 0 0 auto; color: #617187; }
+.primaryButton, .exportButton { height: 32px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 0 12px; color: #3f4f65; border: 1px solid #dce3ec; border-radius: 5px; background: white; font-size: 8px; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.primaryButton { color: white; border-color: #1268e8; background: linear-gradient(135deg,#0d5edc,#1877ef); }
+
+.metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; }
+.charts { min-width: 0; display: grid; grid-template-columns: minmax(0,1.7fr) minmax(300px,.85fr); gap: 9px; }
+.chartCard { min-width: 0; }
+
+.tableCard { min-width: 0; overflow: hidden; }
+.tableCard header { min-height: 41px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border-bottom: 1px solid #edf0f4; }
+.tableCard header div, .tableCard header button { display: flex; align-items: center; gap: 6px; }
+.tableCard header h2 { margin: 0; font-size: 11px; }
+.tableCard header svg { color: #1268e8; }
+.tableCard header button { height: 27px; padding: 0 8px; color: #3f4f65; border: 1px solid #dce3ec; border-radius: 5px; background: white; font-size: 8px; font-weight: 700; cursor: pointer; }
+.tableScroller { overflow-x: auto; }
+.tableCard table { width: 100%; min-width: 800px; border-collapse: collapse; font-size: 8px; white-space: nowrap; }
+.tableCard th { height: 29px; padding: 6px 10px; color: #46566d; background: #fafbfd; font-size: 7px; text-align: left; }
+.tableCard td { height: 33px; padding: 6px 10px; border-top: 1px solid #edf0f4; }
+.tableCard th:first-child, .tableCard td:first-child { width: 34px; text-align: center; }
+.tableCard th:nth-last-child(-n+4), .tableCard td:nth-last-child(-n+4) { text-align: right; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1180px) { .filters { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 900px) { .metrics { grid-template-columns: 1fr 1fr; } .charts { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .filters { grid-template-columns: 1fr 1fr; } .dateField { grid-column: 1/-1; } }
+@media (max-width: 460px) { .filters, .metrics { grid-template-columns: 1fr; } .dateField { grid-column: auto; } }

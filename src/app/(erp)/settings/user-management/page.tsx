@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-
-import { UserManagementScreen } from "@/features/reference-28/user-management-screen";
+import { Reference55UserManagement } from "@/features/reference-55/user-management-screen";
 
 export const metadata: Metadata = {
   title: "User Management",
@@ -8,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function UserManagementPage() {
-  return <UserManagementScreen />;
+  return <Reference55UserManagement />;
 }

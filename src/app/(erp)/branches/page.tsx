@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { BranchManagement } from "@/features/branches/branch-management";
+import { Reference54BranchManagement } from "@/features/reference-54/branch-management-screen";
 export const metadata: Metadata = { title: "Branch Management" };
-export default function BranchManagementPage() { return <BranchManagement />; }
+export default function BranchManagementPage() { return <Reference54BranchManagement />; }

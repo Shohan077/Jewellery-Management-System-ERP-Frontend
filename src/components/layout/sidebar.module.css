@@ -5,25 +5,25 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 22px 14px 16px;
+  padding: 17px 10px 14px;
   overflow: hidden;
-  color: #dfe2e6;
+  color: #e8f1ff;
   background:
-    radial-gradient(circle at 8% 4%, rgba(216, 173, 64, 0.09), transparent 28%),
-    linear-gradient(165deg, #17191d 0%, #252930 100%);
-  box-shadow: 8px 0 30px rgba(14, 16, 20, 0.05);
+    radial-gradient(circle at 6% 2%, rgba(33, 123, 255, 0.16), transparent 27%),
+    linear-gradient(165deg, #061b3b 0%, #03264f 58%, #021b3a 100%);
+  box-shadow: 8px 0 30px rgba(1, 20, 45, 0.08);
 }
 
 .brandRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 51px;
-  margin: 0 4px 22px;
+  min-height: 46px;
+  margin: 0 7px 14px;
 }
 
 .brand {
-  color: var(--gold-300);
+  color: white;
 }
 
 .brand :global(.brand-lockup) {
@@ -45,10 +45,10 @@
 
 .brand :global(.brand-lockup span) {
   margin-top: 3px;
-  color: var(--gold-300);
-  font-size: 6px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  color: #b9cae5;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .brandCompact,
@@ -58,7 +58,7 @@
 
 .nav {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   min-height: 0;
   overflow: auto;
   scrollbar-width: none;
@@ -69,15 +69,15 @@
 }
 
 .navItem {
-  min-height: 39px;
+  min-height: 36px;
   display: grid;
   grid-template-columns: 21px minmax(0, 1fr) auto;
   align-items: center;
   gap: 8px;
-  padding: 7px 11px;
-  border-radius: 7px;
-  color: #c8ccd2;
-  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #eef5ff;
+  font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
   transition: color 160ms ease, background 160ms ease, transform 160ms ease;
@@ -90,18 +90,18 @@
 
 a.navItem:hover {
   color: white;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(42, 119, 225, 0.2);
   transform: translateX(2px);
 }
 
 .navItem svg {
-  color: #aeb3bc;
+  color: #d5e4f8;
 }
 
 .navItem.active {
   color: white;
-  background: linear-gradient(95deg, #bd8618, #dfb94e);
-  box-shadow: 0 6px 16px rgba(174, 118, 18, 0.18);
+  background: linear-gradient(100deg, #0e5fe7, #1879f3);
+  box-shadow: 0 7px 18px rgba(0, 91, 230, 0.3);
 }
 
 .navItem.active svg {
@@ -122,7 +122,7 @@ a.navItem:hover {
   gap: 1px;
   margin: 0 0 4px 30px;
   padding: 3px 0 3px 10px;
-  border-left: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 1px solid rgba(107, 162, 238, 0.25);
 }
 
 .subnav a,
@@ -131,7 +131,7 @@ a.navItem:hover {
   display: flex;
   align-items: center;
   padding: 4px 8px;
-  color: #aeb4bd;
+  color: #d2e0f2;
   border-radius: 5px;
   font-size: 10px;
   white-space: nowrap;
@@ -140,7 +140,7 @@ a.navItem:hover {
 .subnav a:hover,
 .subnav .subnavActive {
   color: white;
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(23, 103, 216, 0.34);
 }
 
 .sidebarFooter {
@@ -154,14 +154,14 @@ a.navItem:hover {
 }
 
 .sidebarFooter svg {
-  color: var(--gold-400);
+  color: #70a8ff;
 }
 
 .overlay {
   display: none;
 }
 
-@media (max-width: 1160px) and (min-width: 761px) {
+@media (max-width: 1080px) and (min-width: 781px) {
   .sidebar {
     align-items: center;
     padding-inline: 11px;
@@ -201,7 +201,7 @@ a.navItem:hover {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 780px) {
   .sidebar {
     position: fixed;
     left: 0;

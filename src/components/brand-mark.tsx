@@ -39,7 +39,7 @@ export function BrandLockup({ compact = false }: { compact?: boolean }) {
       {!compact && (
         <div>
           <strong>Jewellery ERP</strong>
-          <span>MANAGE · GROW · SHINE</span>
+          <span>Smart Jewellery Management</span>
         </div>
       )}
     </div>

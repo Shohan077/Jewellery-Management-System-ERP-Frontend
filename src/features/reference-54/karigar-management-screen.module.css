@@ -1,0 +1,42 @@
+.page { display:grid; gap:11px; max-width:1600px; margin:0 auto; color:#172033; }
+.page :global(.surface-card) { border-color:#e5eaf1; border-radius:8px; box-shadow:0 3px 14px rgba(25,54,91,.035); }
+.metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; }
+.dualMetric { min-width:0; display:grid; grid-template-columns:auto 1fr 1fr; align-items:center; gap:10px; padding:13px; }
+.dualIcon { width:32px; height:32px; display:grid; place-items:center; color:#172033; border-radius:6px; background:#f0f3f7; }
+.dualMetric div { min-width:0; display:grid; gap:3px; }
+.dualMetric small { color:#536176; font-size:8px; }
+.dualMetric strong { font-size:18px; }
+.dualMetric div:last-child strong { color:#14a458; }
+.tableCard { min-width:0; overflow:hidden; }
+.tableTitle { min-height:48px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 12px; border-bottom:1px solid #e9edf3; }
+.tableTitle h2,.chartCard h2,.paymentCard h2 { margin:0; font-size:11px; }
+.tableTitle > div { display:flex; align-items:center; gap:7px; }
+.tableTitle select,.filterButton,.addButton,.primaryButton,.secondaryButton { height:32px; display:inline-flex; align-items:center; justify-content:center; gap:5px; padding:0 10px; color:#425168; border:1px solid #dce3ec; border-radius:5px; background:white; font-size:8px; font-weight:700; cursor:pointer; }
+.tableTitle select { width:120px; outline:0; }
+.addButton,.primaryButton { color:white; border-color:#1268e8; background:linear-gradient(135deg,#0d5edc,#1877ef); }
+.notice { padding:8px 12px 0; }
+.tableScroller { overflow-x:auto; }
+.tableCard table { width:100%; min-width:880px; border-collapse:collapse; font-size:8px; white-space:nowrap; }
+.tableCard th { height:29px; padding:6px 9px; color:#46566d; background:#fafbfd; font-size:7px; text-align:left; }
+.tableCard td { height:34px; padding:6px 9px; border-top:1px solid #edf0f4; }
+.tableCard th:first-child,.tableCard td:first-child { width:34px; text-align:center; }
+.tableCard th:nth-child(8),.tableCard td:nth-child(8) { text-align:right; }
+.actions { display:flex; gap:2px; }
+.actions button { width:25px; height:25px; display:grid; place-items:center; color:#53657d; border-radius:5px; background:transparent; cursor:pointer; }
+.actions button:hover { color:#1268e8; background:#edf4ff; }.actions button:last-child { color:#ef4444; }
+.tableFooter { min-height:49px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 12px; border-top:1px solid #edf0f4; color:#596a80; font-size:8px; }
+.bottomGrid { min-width:0; display:grid; grid-template-columns:1.05fr 1fr; gap:9px; }
+.chartCard,.paymentCard { min-width:0; padding:12px; }
+.chartCard h2,.paymentCard h2 { margin-bottom:9px; }
+.chartCard > div { min-height:148px; }
+.paymentGrid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.paymentGrid article { min-width:0; min-height:145px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:9px; padding:8px; border:1px solid #e8edf3; border-radius:6px; background:#fbfcfe; text-align:center; }
+.paymentGrid article > span { width:31px; height:31px; display:grid; place-items:center; border-radius:6px; }
+.greenIcon { color:#149a54; background:#e8f8ee; }.redIcon { color:#ef4444; background:#fff0f0; }.orangeIcon { color:#eb7909; background:#fff1df; }
+.paymentGrid small { color:#536176; font-size:8px; }.paymentGrid strong { font-size:13px; white-space:nowrap; }.green { color:#14a458; }.red { color:#ef3030; }
+.backdrop { position:fixed; z-index:100; inset:0; display:grid; place-items:center; padding:16px; background:rgba(4,20,43,.48); backdrop-filter:blur(2px); }
+.dialog { width:min(460px,100%); border-radius:10px!important; box-shadow:0 24px 70px rgba(8,29,56,.22)!important; }
+.dialog header { display:flex; justify-content:space-between; gap:12px; padding:16px 18px; border-bottom:1px solid #e9edf3; }.dialog h2,.dialog p{margin:0}.dialog h2{font-size:16px}.dialog p{margin-top:3px;color:#718096;font-size:9px}.dialog header button{width:30px;height:30px;display:grid;place-items:center;color:#64748b;border-radius:6px;background:#f3f6f9;cursor:pointer}
+.dialog form { display:grid; grid-template-columns:1fr 1fr; gap:13px; padding:17px 18px 18px; }.dialog label{display:grid;gap:5px;color:#4b5a70;font-size:9px;font-weight:650}.dialog footer{grid-column:1/-1;display:flex;justify-content:flex-end;gap:7px;padding-top:4px}
+@media(max-width:1000px){.metrics{grid-template-columns:1fr 1fr}.bottomGrid{grid-template-columns:1fr}.paymentGrid article{min-height:110px}}
+@media(max-width:620px){.metrics,.paymentGrid{grid-template-columns:1fr}.tableTitle{align-items:flex-start;flex-direction:column}.tableTitle>div{width:100%;display:grid;grid-template-columns:1fr 1fr}.addButton{grid-column:1/-1}.tableFooter{align-items:flex-start;flex-direction:column}.dialog form{grid-template-columns:1fr}.dialog footer{grid-column:auto}}

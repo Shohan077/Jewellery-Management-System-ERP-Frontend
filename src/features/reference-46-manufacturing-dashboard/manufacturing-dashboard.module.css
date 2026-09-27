@@ -1,0 +1,507 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+}
+
+.primary {
+  color: #fff !important;
+  border-color: #076fd0 !important;
+  background: #076fd0 !important;
+  box-shadow: 0 5px 14px rgba(7, 111, 208, 0.18);
+}
+
+.notice {
+  margin: 0;
+  padding: 9px 12px;
+  color: #075b99;
+  border: 1px solid #b9dcf5;
+  border-radius: 8px;
+  background: #eef8ff;
+  font-size: 11px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  min-width: 0;
+  min-height: 99px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+}
+
+.statIcon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  color: #0874d8;
+  border-radius: 9px;
+  background: #dcecff;
+}
+
+.statCard:nth-child(2) .statIcon {
+  color: #0f91a8;
+  background: #d6f1f4;
+}
+
+.statCard:nth-child(3) .statIcon {
+  color: #7351db;
+  background: #ece5ff;
+}
+
+.statCard:nth-child(4) .statIcon {
+  color: #ea3c40;
+  background: #ffe3e4;
+}
+
+.statCopy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.statCopy span {
+  color: #536171;
+  font-size: 10px;
+}
+
+.statCopy strong {
+  color: #172231;
+  font-size: 23px;
+  line-height: 1.05;
+}
+
+.statCopy small {
+  margin-top: 7px;
+  color: #687787;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.statCopy small b {
+  color: #15974c;
+}
+
+.charts {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(310px, 0.76fr) minmax(480px, 1.35fr);
+  gap: 12px;
+}
+
+.chartCard {
+  min-width: 0;
+  padding: 14px;
+}
+
+.chartCard h2,
+.tableCard h2 {
+  margin: 0;
+  color: #172231;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.donutArea {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: minmax(148px, 0.9fr) minmax(155px, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.donut {
+  position: relative;
+  width: min(184px, 100%);
+  aspect-ratio: 1;
+  justify-self: center;
+  border-radius: 50%;
+  background: conic-gradient(#2ba85e 0 35.2%, #176fd3 35.2% 71.1%, #e13e34 71.1% 82.8%, #f1a016 82.8% 100%);
+}
+
+.donut::after {
+  position: absolute;
+  inset: 30%;
+  content: "";
+  border-radius: 50%;
+  background: #fff;
+}
+
+.donutLegend {
+  display: grid;
+  gap: 13px;
+  color: #384859;
+  font-size: 9px;
+}
+
+.donutLegend div {
+  display: grid;
+  grid-template-columns: 9px minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+}
+
+.donutLegend i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.donutLegend strong {
+  grid-column: 2;
+  color: #172231;
+  font-size: 9px;
+}
+
+.legend1 { background: #2ba85e; }
+.legend2 { background: #176fd3; }
+.legend3 { background: #e13e34; }
+.legend4 { background: #f1a016; }
+
+.chartTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.chartLegend {
+  display: flex;
+  gap: 14px;
+  color: #566577;
+  font-size: 8px;
+}
+
+.chartLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.chartLegend i {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.productionKey { background: #1679db; }
+.ordersKey { background: #28a55f; }
+
+.trendScroll {
+  margin-top: 13px;
+  overflow-x: auto;
+}
+
+.trendChart {
+  min-width: 620px;
+  height: 218px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.yAxis {
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 1px;
+  color: #748291;
+  font-size: 8px;
+  text-align: right;
+}
+
+.plot {
+  position: relative;
+  height: 205px;
+  background: repeating-linear-gradient(to top, transparent 0, transparent calc(25% - 1px), #e9eef2 calc(25% - 1px), #e9eef2 25%);
+}
+
+.bars {
+  position: absolute;
+  inset: 0 8px 27px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  gap: 13px;
+}
+
+.bars span {
+  width: min(22px, 75%);
+  justify-self: center;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(180deg, #2593e7, #0870ca);
+  opacity: 0.88;
+}
+
+.line {
+  position: absolute;
+  inset: 0 8px 27px;
+  width: calc(100% - 16px);
+  height: calc(100% - 27px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.xAxis {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 27px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: end;
+  color: #687786;
+  font-size: 8px;
+  text-align: center;
+}
+
+.tableCard {
+  overflow: hidden;
+  padding: 0;
+}
+
+.tableCard h2 {
+  padding: 13px 14px 10px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 790px;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+.table th {
+  height: 34px;
+  padding: 7px 12px;
+  color: #243345;
+  background: #f2f5f8;
+  font-size: 9px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  height: 36px;
+  padding: 6px 12px;
+  color: #334253;
+  border-top: 1px solid #e9edf1;
+  white-space: nowrap;
+}
+
+.table tbody tr:hover {
+  background: #f9fbfd;
+}
+
+.status {
+  min-width: 66px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 4px 7px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.completed {
+  color: #14743b;
+  border-color: #a8dbb7;
+  background: #dff5e5;
+}
+
+.inProduction {
+  color: #0c69b3;
+  border-color: #abd4f2;
+  background: #e2f1fc;
+}
+
+.delayed {
+  color: #bd2d35;
+  border-color: #f0b6bb;
+  background: #ffe2e4;
+}
+
+.notStarted {
+  color: #9b6200;
+  border-color: #f1d08d;
+  background: #ffefcc;
+}
+
+.viewButton {
+  width: 29px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  color: #186bc0;
+  border: 1px solid #d8e4ef;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.viewButton:hover {
+  color: #fff;
+  border-color: #0872d5;
+  background: #0872d5;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(5, 19, 35, 0.58);
+}
+
+.modal {
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9edf1;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.closeButton {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: #617080;
+  border: 1px solid #dfe5ea;
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.modalForm,
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.field {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  color: #3d4a59;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.field input,
+.field select {
+  height: 40px;
+  font-size: 11px;
+}
+
+.full,
+.modalActions {
+  grid-column: 1 / -1;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.details div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e6ebef;
+  border-radius: 7px;
+  background: #fafbfd;
+}
+
+.details dt {
+  color: #7a8794;
+  font-size: 9px;
+}
+
+.details dd {
+  margin: 4px 0 0;
+  color: #273545;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+@media (max-width: 1050px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .stats,
+  .modalForm,
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .donutArea {
+    grid-template-columns: 1fr;
+    padding-top: 18px;
+  }
+
+  .donutLegend {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .full,
+  .modalActions {
+    grid-column: auto;
+  }
+
+  .modalActions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 390px) {
+  .donutLegend {
+    grid-template-columns: 1fr;
+  }
+}

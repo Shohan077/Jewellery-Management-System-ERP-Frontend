@@ -1,0 +1,616 @@
+.page {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+  color: #172235;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.filterCard,
+.stockCard {
+  min-width: 0;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(20, 39, 66, 0.035);
+}
+
+.filterCard {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(170px, 0.9fr) minmax(150px, 0.8fr) auto;
+  align-items: end;
+  gap: 16px;
+  padding: 14px 17px 15px;
+}
+
+.filterCard label,
+.stockForm label {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.filterCard label > span,
+.stockForm label > span {
+  color: #273448;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.filterCard select,
+.stockForm select,
+.stockForm input {
+  width: 100%;
+  height: 39px;
+  padding: 0 12px;
+  color: #243145;
+  border: 1px solid #d8e0e9;
+  border-radius: 6px;
+  outline: none;
+  background: #fff;
+  font-size: 11px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.filterCard select:focus,
+.stockForm select:focus,
+.stockForm input:focus {
+  border-color: #2b79e6;
+  box-shadow: 0 0 0 3px rgba(20, 108, 225, 0.1);
+}
+
+.filterActions,
+.headerActions,
+.rowActions,
+.modalActions {
+  display: flex;
+  align-items: center;
+}
+
+.filterActions {
+  gap: 10px;
+}
+
+.filterButton,
+.resetButton,
+.exportButton,
+.addButton,
+.primaryButton,
+.secondaryButton {
+  height: 39px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 1px solid #d8e0e9;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.filterButton,
+.addButton,
+.primaryButton {
+  color: #fff;
+  border-color: #0869df;
+  background: linear-gradient(135deg, #1479ee, #075fd6);
+  box-shadow: 0 5px 12px rgba(7, 101, 217, 0.17);
+}
+
+.filterButton:hover,
+.addButton:hover,
+.primaryButton:hover {
+  border-color: #075bc5;
+  background: #075fcf;
+}
+
+.filterButton:active,
+.resetButton:active,
+.exportButton:active,
+.addButton:active,
+.primaryButton:active,
+.secondaryButton:active {
+  transform: translateY(1px);
+}
+
+.resetButton,
+.exportButton,
+.secondaryButton {
+  color: #263448;
+  background: #fff;
+}
+
+.resetButton:hover,
+.exportButton:hover,
+.secondaryButton:hover {
+  border-color: #aebdce;
+  background: #f7f9fc;
+}
+
+.stockCard {
+  overflow: hidden;
+}
+
+.stockHeader {
+  min-height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.totals {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.totals p {
+  margin: 0;
+  color: #233147;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.totals strong {
+  color: #101a29;
+  font-size: 12px;
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: #e3e8ee;
+}
+
+.headerActions {
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.exportButton,
+.addButton {
+  height: 36px;
+  padding-inline: 13px;
+}
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.stockTable {
+  width: 100%;
+  min-width: 790px;
+  border-collapse: collapse;
+  color: #202d40;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.stockTable th,
+.stockTable td {
+  height: 49px;
+  padding: 9px 15px;
+  border-bottom: 1px solid #e8edf2;
+  text-align: left;
+}
+
+.stockTable th {
+  height: 43px;
+  color: #2c394c;
+  background: #f7f9fb;
+  font-size: 10px;
+  font-weight: 730;
+}
+
+.stockTable th:first-child,
+.stockTable td:first-child {
+  width: 54px;
+  text-align: center;
+}
+
+.stockTable th:nth-child(4),
+.stockTable td:nth-child(4),
+.stockTable th:nth-child(5),
+.stockTable td:nth-child(5),
+.stockTable th:nth-child(6),
+.stockTable td:nth-child(6) {
+  text-align: right;
+}
+
+.stockTable th:nth-child(7),
+.stockTable td:nth-child(7),
+.stockTable th:last-child,
+.stockTable td:last-child {
+  text-align: center;
+}
+
+.stockTable tbody tr {
+  transition: background 120ms ease;
+}
+
+.stockTable tbody tr:hover {
+  background: #f9fbfd;
+}
+
+.statusBadge {
+  min-height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.inStock {
+  color: #118744;
+  border-color: #c9ecd6;
+  background: #ecfaf1;
+}
+
+.lowStock {
+  color: #a46405;
+  border-color: #f2ddae;
+  background: #fff8e8;
+}
+
+.outOfStock {
+  color: #c53d46;
+  border-color: #f1cdd0;
+  background: #fff1f2;
+}
+
+.rowActions {
+  justify-content: center;
+  gap: 7px;
+}
+
+.rowActions button {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #5a687b;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.rowActions button:hover {
+  color: #0869d9;
+  border-color: #cbdcf1;
+  background: #edf5ff;
+}
+
+.emptyState {
+  height: 155px !important;
+  color: #748093;
+  text-align: center !important;
+}
+
+.tableFooter {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 16px;
+}
+
+.tableFooter p {
+  margin: 0;
+  color: #566376;
+  font-size: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination button {
+  width: 33px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #344157;
+  border: 1px solid #dce3eb;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  color: #a6afbc;
+  cursor: not-allowed;
+}
+
+.pagination .currentPage {
+  color: #fff;
+  border-color: #0968df;
+  background: #126fe5;
+  box-shadow: 0 3px 8px rgba(8, 103, 218, 0.2);
+}
+
+.modalBackdrop {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 22, 40, 0.56);
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  width: min(540px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  border: 1px solid #dde5ed;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(8, 22, 40, 0.24);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 19px 15px;
+  border-bottom: 1px solid #e9edf2;
+}
+
+.modalHeader h2,
+.modalHeader p {
+  margin: 0;
+}
+
+.modalHeader h2 {
+  color: #172235;
+  font-size: 17px;
+}
+
+.modalHeader p {
+  margin-top: 5px;
+  color: #687588;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.closeButton {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  color: #576579;
+  border-radius: 6px;
+  background: #f4f6f9;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #1c2a3d;
+  background: #e9edf2;
+}
+
+.stockForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  padding: 18px 19px 19px;
+}
+
+.wideField,
+.modalActions {
+  grid-column: 1 / -1;
+}
+
+.modalActions {
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 4px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-width: 98px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 18px 19px 8px;
+  margin: 0;
+}
+
+.detailsGrid div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e5eaf0;
+  border-radius: 7px;
+  background: #fafbfd;
+}
+
+.detailsGrid dt {
+  color: #758195;
+  font-size: 9px;
+}
+
+.detailsGrid dd {
+  margin: 5px 0 0;
+  overflow: hidden;
+  color: #1f2d41;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detailsGrid + .modalActions {
+  padding: 10px 19px 19px;
+}
+
+.toast {
+  position: fixed;
+  z-index: 120;
+  right: 22px;
+  bottom: 22px;
+  max-width: min(360px, calc(100vw - 32px));
+  margin: 0;
+  padding: 11px 14px;
+  color: #116a38;
+  border: 1px solid #bfe6cd;
+  border-radius: 7px;
+  background: #edf9f1;
+  box-shadow: 0 12px 32px rgba(12, 35, 57, 0.14);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+@media (max-width: 930px) {
+  .filterCard {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .filterActions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+
+  .stockHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .headerActions {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    gap: 11px;
+  }
+
+  .filterCard {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .filterActions {
+    grid-column: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stockHeader {
+    padding: 13px 14px;
+  }
+
+  .totals {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .headerActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tableFooter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination {
+    align-self: flex-end;
+  }
+
+  .stockForm,
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideField,
+  .modalActions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .modalBackdrop {
+    padding: 10px;
+  }
+
+  .modalHeader,
+  .stockForm {
+    padding-inline: 15px;
+  }
+
+  .detailsGrid {
+    padding-inline: 15px;
+  }
+
+  .detailsGrid + .modalActions {
+    padding-inline: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterButton,
+  .resetButton,
+  .exportButton,
+  .addButton,
+  .primaryButton,
+  .secondaryButton,
+  .stockTable tbody tr {
+    transition: none;
+  }
+}

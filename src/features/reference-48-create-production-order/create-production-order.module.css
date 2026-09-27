@@ -1,0 +1,441 @@
+.page {
+  width: 100%;
+  max-width: 1500px;
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.headerActions :global(.button) {
+  min-height: 38px;
+  padding-inline: 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.backButton {
+  color: #146fc2;
+  border-color: #9ec8f1;
+  background: #fff;
+}
+
+.backButton:hover {
+  color: #075aa6;
+  border-color: #69a9e8;
+  background: #f3f9ff;
+}
+
+.primaryButton {
+  color: #fff;
+  border-color: #086ccd;
+  background: linear-gradient(135deg, #1385e7, #0566ca);
+  box-shadow: 0 6px 15px rgba(5, 102, 202, .2);
+}
+
+.primaryButton:hover {
+  color: #fff;
+  border-color: #055bae;
+  background: linear-gradient(135deg, #0878d6, #055ab1);
+}
+
+.notice {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  color: #0f8145;
+  border: 1px solid #bde7cb;
+  border-radius: 7px;
+  background: #eefaf2;
+  font-size: 11px;
+  font-weight: 680;
+}
+
+.notice button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  color: #4f8062;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.formLayout {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 2.15fr) minmax(275px, .82fr);
+  gap: 15px;
+  align-items: start;
+}
+
+.orderCard,
+.summaryCard,
+.materialCard {
+  min-width: 0;
+  padding: 17px;
+}
+
+.materialCard {
+  grid-column: 1 / -1;
+}
+
+.cardHeading {
+  min-height: 34px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7ebf0;
+}
+
+.cardHeading h2,
+.cardHeading p {
+  margin: 0;
+}
+
+.cardHeading h2 {
+  color: #172231;
+  font-size: 13px;
+}
+
+.cardHeading p {
+  margin-top: 4px;
+  color: #748091;
+  font-size: 9px;
+}
+
+.cardHeading > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 7px;
+  color: #2477be;
+  border-radius: 5px;
+  background: #eef7ff;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+  padding-top: 16px;
+}
+
+.field {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 7px;
+}
+
+.field > span {
+  color: #354254;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.field > span b {
+  margin-left: 3px;
+  color: #ef3945;
+}
+
+.field :global(.field),
+.field :global(.select),
+.field :global(.textarea) {
+  min-width: 0;
+  height: 39px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.field :global(.textarea) {
+  min-height: 70px;
+  height: 70px;
+  line-height: 1.45;
+}
+
+.wideField {
+  grid-column: 2;
+}
+
+.inputNote,
+.inputAction {
+  position: relative;
+  min-width: 0;
+}
+
+.inputNote :global(.field) {
+  padding-right: 85px;
+}
+
+.inputNote small {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  translate: 0 -50%;
+  color: #8a94a1;
+  font-size: 8px;
+  pointer-events: none;
+}
+
+.inputAction :global(.field) {
+  padding-right: 40px;
+}
+
+.inputAction button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 38px;
+  display: grid;
+  place-items: center;
+  color: #627080;
+  border-left: 1px solid #e4e8ed;
+  border-radius: 0 5px 5px 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.inputAction button:hover {
+  color: #0871d3;
+  background: #f2f8fe;
+}
+
+.summaryCard {
+  display: grid;
+  align-content: start;
+}
+
+.jewelryStage {
+  position: relative;
+  height: 138px;
+  display: grid;
+  place-items: center;
+  margin: 10px 0 2px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: radial-gradient(circle at 50% 58%, #fffef7 0, #fffaf0 42%, #f7f5f0 100%);
+}
+
+.necklaceArc {
+  position: absolute;
+  top: 22px;
+  width: 145px;
+  height: 82px;
+  border-right: 9px double #d99b1b;
+  border-bottom: 12px double #d99b1b;
+  border-left: 9px double #d99b1b;
+  border-radius: 0 0 76px 76px;
+  filter: drop-shadow(0 3px 3px rgba(146, 88, 0, .2));
+}
+
+.necklaceArc::before,
+.necklaceArc::after {
+  position: absolute;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  content: "";
+  border: 2px solid #f0bd42;
+  border-radius: 50%;
+  box-shadow: 0 14px 0 #e4aa29, 0 28px 0 #efc14c, 0 42px 0 #d89819;
+}
+
+.necklaceArc::before { left: -9px; }
+.necklaceArc::after { right: -9px; }
+
+.centerGem {
+  position: absolute;
+  top: 78px;
+  z-index: 2;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  color: #9e6a0a;
+  border: 6px double #e1a825;
+  border-radius: 50% 50% 60% 60%;
+  background: linear-gradient(135deg, #fff3bf, #e6ad2d);
+  box-shadow: 0 4px 9px rgba(133, 82, 0, .24);
+}
+
+.sparkleOne,
+.sparkleTwo {
+  position: absolute;
+  color: #e1a221;
+}
+
+.sparkleOne { top: 26px; right: 30px; }
+.sparkleTwo { bottom: 22px; left: 31px; }
+
+.summaryRows {
+  display: grid;
+  padding-top: 5px;
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 29px;
+  color: #596676;
+  border-bottom: 1px solid #edf0f3;
+  font-size: 9px;
+}
+
+.summaryRow strong {
+  color: #1c2734;
+  font-size: 9px;
+  text-align: right;
+}
+
+.accentRow {
+  min-height: 36px;
+  margin-top: 3px;
+  padding: 0 8px;
+  color: #0d8846;
+  border: 1px solid #bce6ca;
+  border-radius: 5px;
+  background: #effaf3;
+}
+
+.accentRow strong {
+  color: #0b9148;
+  font-size: 12px;
+}
+
+.tableScroll {
+  min-width: 0;
+  margin-top: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  min-width: 830px;
+  border-collapse: collapse;
+  color: #334153;
+  font-size: 9px;
+}
+
+.table th,
+.table td {
+  height: 39px;
+  padding: 8px 11px;
+  border-bottom: 1px solid #e7ebef;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table th {
+  height: 33px;
+  color: #536173;
+  background: #f7f9fb;
+  font-size: 8px;
+  font-weight: 750;
+}
+
+.table strong {
+  color: #172331;
+}
+
+.table tfoot td {
+  color: #253243;
+  border-bottom: 0;
+  background: #fbfcfd;
+  font-weight: 780;
+  text-align: right;
+}
+
+.table tfoot td:last-child {
+  color: #152332;
+}
+
+@media (max-width: 1040px) {
+  .formLayout {
+    grid-template-columns: minmax(0, 1.55fr) minmax(260px, .8fr);
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .formLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .materialCard {
+    grid-column: auto;
+  }
+
+  .summaryCard {
+    grid-row: 2;
+  }
+
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wideField {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    gap: 13px;
+  }
+
+  .headerActions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .headerActions :global(.button) {
+    justify-content: center;
+  }
+
+  .orderCard,
+  .summaryCard,
+  .materialCard {
+    padding: 14px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+
+  .jewelryStage {
+    height: 126px;
+  }
+}

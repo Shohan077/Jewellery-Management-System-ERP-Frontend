@@ -1,0 +1,134 @@
+.page {
+  display: grid;
+  gap: 12px;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: #172033;
+}
+
+.page :global(.surface-card) {
+  border-color: #e5eaf1;
+  border-radius: 8px;
+  box-shadow: 0 3px 14px rgba(25, 54, 91, 0.035);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1fr 1.05fr;
+  gap: 10px;
+}
+
+.liveCard,
+.rateSummary,
+.converter {
+  min-width: 0;
+  padding: 14px;
+}
+
+.summaryGrid h2 {
+  margin: 0;
+  font-size: 11px;
+}
+
+.liveMain {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.goldArt {
+  position: relative;
+  width: 68px;
+  height: 55px;
+  transform: rotate(-5deg);
+}
+
+.goldArt i {
+  position: absolute;
+  width: 48px;
+  height: 25px;
+  border: 1px solid #d98b00;
+  background: linear-gradient(145deg, #ffe071, #e99a0c 62%, #c97800);
+  clip-path: polygon(18% 0, 83% 0, 100% 100%, 0 100%);
+  box-shadow: inset 0 1px rgba(255,255,255,.65), 0 4px 7px rgba(187, 113, 0, .18);
+}
+
+.goldArt i:first-child { top: 5px; right: 1px; }
+.goldArt i:last-child { left: 2px; bottom: 3px; }
+
+.liveMain > div:last-child {
+  display: grid;
+  gap: 1px;
+}
+
+.liveMain strong { font-size: clamp(22px, 2.2vw, 29px); letter-spacing: -0.035em; }
+.liveMain span { color: #66758a; font-size: 9px; font-weight: 650; }
+.liveMain b { margin-top: 8px; color: #10a45b; font-size: 11px; }
+
+.liveCard footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #6f7e91;
+  font-size: 8px;
+}
+
+.liveCard footer em { padding: 3px 6px; color: #178a4d; border-radius: 4px; background: #e9f8ef; font-style: normal; }
+
+.rateSummary dl {
+  display: grid;
+  gap: 9px;
+  margin: 13px 0 10px;
+}
+
+.rateSummary dl div { display: flex; justify-content: space-between; gap: 16px; font-size: 9px; }
+.rateSummary dt { font-weight: 650; }
+.rateSummary dd { margin: 0; font-variant-numeric: tabular-nums; }
+.rateSummary button { width: 100%; height: 29px; color: #1268e8; border: 1px solid #d4dfec; border-radius: 5px; background: white; font-size: 9px; font-weight: 700; cursor: pointer; }
+
+.converter { display: grid; gap: 8px; }
+.conversionUnits { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.converter label { min-width: 0; display: grid; gap: 4px; color: #4b5a70; font-size: 8px; font-weight: 650; }
+.converter select, .converter input, .converter output { width: 100%; height: 31px; display: flex; align-items: center; padding: 0 9px; color: #172033; border: 1px solid #dce3ec; border-radius: 5px; outline: 0; background: white; font-size: 9px; }
+.converter output { background: #f8fafc; font-weight: 700; }
+
+.tableCard { min-width: 0; overflow: hidden; }
+.tableTitle { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px 4px; }
+.tableTitle h2 { margin: 0; font-size: 12px; }
+.addButton, .primaryButton, .secondaryButton { height: 33px; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 0 12px; border: 1px solid #dce3ec; border-radius: 5px; background: white; font-size: 9px; font-weight: 700; cursor: pointer; }
+.addButton, .primaryButton { color: white; border-color: #1268e8; background: linear-gradient(135deg, #0d5edc, #1877ef); }
+
+.toolbar { display: flex; align-items: center; gap: 8px; padding: 6px 13px 12px; border-bottom: 1px solid #e9edf3; }
+.toolbar label { width: 225px; height: 32px; display: flex; align-items: center; padding-right: 8px; color: #617187; border: 1px solid #dce3ec; border-radius: 5px; }
+.toolbar input { min-width: 0; height: 100%; flex: 1; padding: 0 9px; border: 0; outline: 0; background: transparent; font-size: 9px; }
+.toolbar button { height: 32px; display: flex; align-items: center; gap: 5px; padding: 0 10px; color: #1268e8; border: 1px solid #dce3ec; border-radius: 5px; background: white; font-size: 9px; font-weight: 700; cursor: pointer; }
+.notice { padding: 8px 13px 0; }
+
+.tableScroller { overflow-x: auto; }
+.tableCard table { width: 100%; min-width: 800px; border-collapse: collapse; font-size: 9px; white-space: nowrap; }
+.tableCard th { height: 31px; padding: 6px 10px; color: #46566d; background: #fafbfd; font-size: 8px; text-align: left; }
+.tableCard td { height: 36px; padding: 6px 10px; border-top: 1px solid #edf0f4; }
+.tableCard th:first-child, .tableCard td:first-child { width: 35px; text-align: center; }
+.tableCard th:nth-child(n+3):nth-child(-n+6), .tableCard td:nth-child(n+3):nth-child(-n+6) { text-align: right; font-variant-numeric: tabular-nums; }
+.actions { display: flex; gap: 2px; }
+.actions button { width: 25px; height: 25px; display: grid; place-items: center; color: #52647b; border-radius: 5px; background: transparent; cursor: pointer; }
+.actions button:hover { color: #1268e8; background: #edf4ff; }
+.actions button:last-child { color: #ef4444; }
+.tableFooter { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 13px; border-top: 1px solid #edf0f4; color: #596a80; font-size: 9px; }
+
+.backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(4, 20, 43, .48); backdrop-filter: blur(2px); }
+.dialog { width: min(480px, 100%); border-radius: 10px !important; box-shadow: 0 24px 70px rgba(8, 29, 56, .22) !important; }
+.dialog header { display: flex; align-items: flex-start; justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid #e9edf3; }
+.dialog h2, .dialog p { margin: 0; }
+.dialog h2 { font-size: 16px; }
+.dialog p { margin-top: 3px; color: #718096; font-size: 9px; }
+.dialog header button { width: 30px; height: 30px; display: grid; place-items: center; color: #64748b; border-radius: 6px; background: #f3f6f9; cursor: pointer; }
+.dialog form { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; padding: 17px 18px 18px; }
+.dialog label { display: grid; gap: 5px; color: #4b5a70; font-size: 9px; font-weight: 650; }
+.dialog footer { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 7px; padding-top: 4px; }
+
+@media (max-width: 930px) { .summaryGrid { grid-template-columns: 1fr 1fr; } .converter { grid-column: 1 / -1; } }
+@media (max-width: 620px) { .summaryGrid { grid-template-columns: 1fr; } .converter { grid-column: auto; } .tableFooter { align-items: flex-start; flex-direction: column; } .dialog form { grid-template-columns: 1fr; } .dialog footer { grid-column: auto; } }

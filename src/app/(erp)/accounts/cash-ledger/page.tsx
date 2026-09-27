@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
+import { Reference55CashBook } from "@/features/reference-55/cash-book-screen";
 
-import { CashLedger } from "@/features/cash-management/cash-ledger";
-
-export const metadata: Metadata = { title: "Cash Ledger", description: "Filter and export the complete cash transaction ledger." };
+export const metadata: Metadata = { title: "Cash Book | Jewellery Manager", description: "Review, filter and manage cash receipts and payments." };
 
 export default function CashLedgerPage() {
-  return <CashLedger />;
+  return <Reference55CashBook />;
 }
 

@@ -1,0 +1,320 @@
+.dashboard {
+  --ref52-blue: #1769ec;
+  --ref52-ink: #111827;
+  --ref52-muted: #667085;
+  --ref52-border: #e6ebf2;
+  min-width: 0;
+  width: 100%;
+  display: grid;
+  gap: 14px;
+  color: var(--ref52-ink);
+}
+
+.summaryGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.summaryCard {
+  min-width: 0;
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border: 1px solid var(--ref52-border);
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(24, 43, 72, 0.045);
+}
+
+.metricIcon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0 5px 12px rgba(30, 64, 175, 0.12);
+}
+
+.metricIcon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.blue {
+  background: linear-gradient(145deg, #267cf4, #0c59d8);
+}
+
+.red {
+  background: linear-gradient(145deg, #ff625e, #e73535);
+}
+
+.green {
+  background: linear-gradient(145deg, #6ecb78, #35a54a);
+}
+
+.orange {
+  background: linear-gradient(145deg, #ffab32, #f18718);
+}
+
+.metricContent {
+  min-width: 0;
+}
+
+.metricLabel {
+  display: block;
+  overflow: hidden;
+  color: #344054;
+  font-size: 11px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metricContent strong {
+  display: block;
+  margin-top: 5px;
+  overflow: hidden;
+  color: #101828;
+  font-size: clamp(15px, 1.35vw, 20px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metricContent p {
+  margin: 8px 0 0;
+  overflow: hidden;
+  color: #7b8799;
+  font-size: 8.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.positiveTrend,
+.negativeTrend {
+  font-weight: 750;
+}
+
+.positiveTrend {
+  color: #12a764;
+}
+
+.negativeTrend {
+  color: #ef4444;
+}
+
+.analyticsGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.62fr) minmax(300px, 0.98fr);
+  gap: 14px;
+}
+
+.activityGrid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.72fr);
+  gap: 14px;
+}
+
+.tableCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--ref52-border);
+  border-radius: 7px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(24, 43, 72, 0.045);
+}
+
+.cardHeader {
+  min-height: 49px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 18px;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: #101828;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.viewAllButton {
+  min-height: 30px;
+  padding: 0 12px;
+  color: #1266e8;
+  border: 1px solid #a9c8fb;
+  border-radius: 4px;
+  background: #ffffff;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.viewAllButton:hover {
+  color: #ffffff;
+  border-color: #1266e8;
+  background: #1266e8;
+}
+
+.tableScroller {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.tableScroller table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #253047;
+  font-size: 9.5px;
+  white-space: nowrap;
+}
+
+.transactionsTable {
+  min-width: 660px;
+}
+
+.sellingTable {
+  min-width: 300px;
+}
+
+.tableScroller th,
+.tableScroller td {
+  height: 32px;
+  padding: 5px 11px;
+  border-bottom: 1px solid #edf1f6;
+  text-align: left;
+}
+
+.tableScroller th {
+  height: 31px;
+  color: #344054;
+  background: #fbfcfe;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.tableScroller tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tableScroller tbody tr:hover {
+  background: #f8fbff;
+}
+
+.transactionsTable th:nth-child(4),
+.transactionsTable td:nth-child(4),
+.sellingTable th:last-child,
+.sellingTable td:last-child {
+  text-align: right;
+}
+
+.invoice {
+  color: #1468ec;
+  font-weight: 650;
+}
+
+.paid,
+.pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 7px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.paid {
+  color: #10925a;
+  border-color: #bce8d2;
+  background: #effbf5;
+}
+
+.pending {
+  color: #e64848;
+  border-color: #f8c7c7;
+  background: #fff4f4;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1220px) {
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .analyticsGrid,
+  .activityGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .dashboard {
+    gap: 12px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .summaryCard {
+    min-height: 102px;
+  }
+
+  .metricContent strong {
+    font-size: 18px;
+  }
+
+  .analyticsGrid,
+  .activityGrid {
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .summaryCard,
+  .tableCard {
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+
+  .summaryCard:hover {
+    border-color: #cfdaea;
+    box-shadow: 0 8px 20px rgba(24, 43, 72, 0.075);
+    transform: translateY(-1px);
+  }
+}

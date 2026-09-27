@@ -1,8 +1,8 @@
 .shell {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 244px minmax(0, 1fr);
-  background: var(--slate-50);
+  grid-template-columns: 220px minmax(0, 1fr);
+  background: #f5f7fb;
 }
 
 .workspace {
@@ -12,25 +12,25 @@
 
 .main {
   min-width: 0;
-  padding: 26px 28px 34px;
+  padding: 16px 18px 28px;
 }
 
-@media (max-width: 1160px) and (min-width: 761px) {
+@media (max-width: 1080px) and (min-width: 781px) {
   .shell {
-    grid-template-columns: 82px minmax(0, 1fr);
+    grid-template-columns: 76px minmax(0, 1fr);
   }
 
   .main {
-    padding-inline: 22px;
+    padding-inline: 16px;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 780px) {
   .shell {
     display: block;
   }
 
   .main {
-    padding: 20px 16px 28px;
+    padding: 14px 12px 24px;
   }
 }

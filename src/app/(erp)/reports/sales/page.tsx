@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { SalesReport137 } from "@/features/reference-35-reports/reference-35-reports";
+import { Reference55SalesReport } from "@/features/reference-55/sales-report-screen";
 
 export const metadata: Metadata = {
   title: "Sales Report | Jewellery Manager",
 };
 
 export default function SalesReportPage() {
-  return <SalesReport137 />;
+  return <Reference55SalesReport />;
 }

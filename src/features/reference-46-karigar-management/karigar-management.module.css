@@ -1,0 +1,143 @@
+.page {
+  width: 100%;
+  max-width: 1480px;
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+}
+
+.primary {
+  color: #fff !important;
+  border-color: #086fd4 !important;
+  background: #086fd4 !important;
+  box-shadow: 0 5px 14px rgba(8, 111, 212, .18);
+}
+
+.notice {
+  margin: 0;
+  padding: 9px 12px;
+  color: #075b99;
+  border: 1px solid #b9dcf5;
+  border-radius: 8px;
+  background: #eef8ff;
+  font-size: 11px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric {
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border-color: #dce6f0;
+}
+
+.metricIcon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  color: #0b72db;
+  border-radius: 10px;
+  background: #dcecff;
+}
+
+.metric:nth-child(2) .metricIcon { color: #169047; background: #ddf4e3; }
+.metric:nth-child(3) .metricIcon { color: #ef8212; background: #fff0d7; }
+.metric:nth-child(4) .metricIcon { color: #703be0; background: #ece4ff; }
+.metric p, .metric strong, .metric small { margin: 0; }
+.metric p { color: #536170; font-size: 10px; }
+.metric strong { display: block; margin-top: 4px; color: #172231; font-size: 22px; line-height: 1; }
+.metric small { display: block; margin-top: 11px; color: #139343; font-size: 9px; }
+
+.listCard { overflow: hidden; padding: 0; }
+.filters {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.5fr) minmax(145px, .75fr) minmax(135px, .7fr) auto auto;
+  align-items: end;
+  gap: 10px;
+  padding: 13px;
+  border-bottom: 1px solid #e8edf2;
+}
+
+.search {
+  height: 39px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  color: #7a8795;
+  border: 1px solid #dce3e9;
+  border-radius: 6px;
+  background: #fff;
+}
+.search input { width: 100%; min-width: 0; height: 100%; padding: 0; border: 0; outline: 0; font-size: 10px; }
+.filterField { min-width: 0; display: grid; gap: 5px; color: #3f4c59; font-size: 9px; font-weight: 700; }
+.filterField select { width: 100%; height: 39px; padding: 0 10px; color: #334253; border: 1px solid #dce3e9; border-radius: 6px; background: #fff; font-size: 10px; }
+
+.tableScroll { overflow-x: auto; }
+.table { width: 100%; min-width: 820px; border-collapse: collapse; color: #263547; font-size: 10px; }
+.table th { height: 40px; padding: 8px 12px; background: #f2f5f8; font-size: 9px; text-align: left; white-space: nowrap; }
+.table td { height: 44px; padding: 8px 12px; border-top: 1px solid #e9edf1; white-space: nowrap; }
+.table tbody tr:hover { background: #f8fbfe; }
+.status { min-width: 52px; display: inline-flex; justify-content: center; padding: 4px 7px; border: 1px solid transparent; border-radius: 4px; font-size: 9px; font-weight: 700; }
+.active { color: #16723b; border-color: #b9dfc5; background: #e2f5e6; }
+.inactive { color: #c62c35; border-color: #f2bfc3; background: #ffe1e3; }
+.leave { color: #a35b00; border-color: #f1d08f; background: #fff1cd; }
+.actions { display: flex; gap: 7px; }
+.actions button { width: 27px; height: 27px; display: grid; place-items: center; color: #0871d5; border: 1px solid #8dc1f5; border-radius: 4px; background: #fff; cursor: pointer; }
+.actions button:last-child { color: #ee3442; border-color: #f1aab0; }
+.actions button:hover { background: #edf6ff; }
+.actions button:last-child:hover { background: #fff0f1; }
+.empty { height: 125px !important; color: #6c7a87; text-align: center; }
+.empty button { margin-left: 8px; }
+
+.footer { min-height: 55px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 13px; color: #62707e; border-top: 1px solid #e8edf2; font-size: 9px; }
+.pagination, .pageGroup { display: flex; align-items: center; gap: 5px; }
+.pageGroup i { color: #87929d; font-style: normal; }
+.pagination button { min-width: 30px; height: 30px; display: grid; place-items: center; padding: 0 7px; color: #526171; border: 1px solid #dce3e9; border-radius: 4px; background: #fff; font-size: 10px; cursor: pointer; }
+.pagination button:disabled { opacity: .4; cursor: not-allowed; }
+.pagination .currentPage { color: #fff; border-color: #0872d5; background: #0872d5; }
+
+.backdrop { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(4, 20, 36, .58); backdrop-filter: blur(2px); }
+.modal { width: min(580px, 100%); max-height: calc(100svh - 36px); overflow-y: auto; padding: 18px; }
+.modalHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 13px; border-bottom: 1px solid #e7ecf0; }
+.modalHeader h2, .modalHeader p { margin: 0; }
+.modalHeader h2 { font-size: 18px; }
+.modalHeader p { margin-top: 4px; color: #6d7a87; font-size: 10px; }
+.modalHeader > button { width: 32px; height: 32px; display: grid; place-items: center; color: #687582; border: 1px solid #dce3e9; border-radius: 6px; background: #fff; cursor: pointer; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+.form label { min-width: 0; display: grid; gap: 5px; color: #3b4856; font-size: 10px; font-weight: 700; }
+.form input, .form select { width: 100%; }
+.modalActions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+.confirm { width: min(440px, 100%); }
+.confirm .modalActions { margin-top: 16px; }
+.deleteButton { color: #fff !important; border-color: #e12f3c !important; background: #e12f3c !important; }
+
+@media (max-width: 950px) {
+  .filters { grid-template-columns: 1fr 1fr 1fr; }
+  .search { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .filters { grid-template-columns: 1fr 1fr; }
+  .search { grid-column: 1 / -1; }
+  .footer { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .metrics, .filters, .form { grid-template-columns: 1fr; }
+  .metric { min-height: 88px; }
+  .search, .modalActions { grid-column: auto; }
+  .filters > button { width: 100%; }
+  .pagination { flex-wrap: wrap; }
+  .backdrop { align-items: end; padding: 8px; }
+}

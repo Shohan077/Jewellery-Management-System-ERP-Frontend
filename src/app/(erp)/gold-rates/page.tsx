@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { GoldRateManagement } from "@/features/gold-rates/gold-rate-management";
+import { Reference53GoldRates } from "@/features/reference-53/gold-rates-screen";
 
 export const metadata: Metadata = {
-  title: "Gold Rate Management",
+  title: "Gold Rates",
 };
 
-export default function GoldRateManagementPage() {
-  return <GoldRateManagement />;
+export default function GoldRatesPage() {
+  return <Reference53GoldRates />;
 }
