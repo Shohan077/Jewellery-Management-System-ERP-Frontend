@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { InventoryStockList } from "@/features/stock-list/inventory-stock-list";
-export const metadata: Metadata = { title: "Inventory Stock List" };
-export default function InventoryStockListPage() { return <InventoryStockList />; }
+import { Reference62InventoryStock } from "@/features/reference-62/screens";
+export const metadata: Metadata = { title: "Inventory Stock" };
+export default function InventoryStockListPage() { return <Reference62InventoryStock />; }

@@ -32,14 +32,14 @@ export function BrandMark({ size = 34, ...props }: BrandMarkProps) {
   );
 }
 
-export function BrandLockup({ compact = false }: { compact?: boolean }) {
+export function BrandLockup({ compact = false, tagline = "Smart Jewellery Management", title = "Jewellery ERP" }: { compact?: boolean; tagline?: string; title?: string }) {
   return (
     <div className="brand-lockup">
       <BrandMark size={compact ? 33 : 39} />
       {!compact && (
         <div>
-          <strong>Jewellery ERP</strong>
-          <span>Smart Jewellery Management</span>
+          <strong>{title}</strong>
+          <span>{tagline}</span>
         </div>
       )}
     </div>

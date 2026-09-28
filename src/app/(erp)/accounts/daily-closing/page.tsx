@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { DailyClosing } from "@/features/cash-management/daily-closing";
+import { Reference62DailyCashBook } from "@/features/reference-62/screens";
 
-export const metadata: Metadata = { title: "Daily Closing", description: "Review, verify, print, and confirm daily cash closing." };
+export const metadata: Metadata = { title: "Daily Cash Book", description: "Review and manage daily cash transactions." };
 
 export default function DailyClosingPage() {
-  return <DailyClosing />;
+  return <Reference62DailyCashBook />;
 }
 

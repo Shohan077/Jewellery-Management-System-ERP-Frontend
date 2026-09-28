@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Reference53CustomerList } from "@/features/reference-53/customer-list-screen";
+import { Reference58CustomerManagement } from "@/features/reference-58/screens";
 
 export const metadata: Metadata = {
-  title: "Customer List | Jewellery Manager",
+  title: "Customer Management | Jewellery Manager",
 };
 
 export default function CustomersPage() {
-  return <Reference53CustomerList />;
+  return <Reference58CustomerManagement />;
 }

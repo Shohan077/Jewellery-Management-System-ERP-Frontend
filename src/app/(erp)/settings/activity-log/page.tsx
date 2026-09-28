@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AdminActivityLog } from "@/features/admin-control-center/admin-activity-log";
+import { Reference59AuditLog } from "@/features/reference-59/screens";
 
-export const metadata: Metadata = { title: "Activity Log | Jewellery Manager" };
-export default function SettingsActivityLogPage() { return <AdminActivityLog />; }
+export const metadata: Metadata = { title: "Audit Log | Jewellery Manager" };
+export default function SettingsActivityLogPage() { return <Reference59AuditLog />; }

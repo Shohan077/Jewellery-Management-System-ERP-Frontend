@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { DiamondList } from "@/features/diamonds/diamond-list";
+import { Reference63DiamondList } from "@/features/reference-63/screens";
 
 export const metadata: Metadata = {
-  title: "Diamond Management",
+  title: "Diamond List",
   description: "View and manage the jewellery ERP diamond inventory.",
 };
 
 export default function DiamondsPage() {
-  return <DiamondList />;
+  return <Reference63DiamondList />;
 }

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { InventoryStock } from "@/features/inventory/inventory-stock";
+import { Reference60StockOverview } from "@/features/reference-60/screens";
 
 export const metadata: Metadata = {
-  title: "Inventory Stock",
-  description: "View and manage jewellery inventory stock.",
+  title: "Stock Overview",
+  description: "View jewellery inventory values, stock levels, and low-stock alerts.",
 };
 
 export default function InventoryStockPage() {
-  return <InventoryStock />;
+  return <Reference60StockOverview />;
 }

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { PurchaseInvoiceList } from "@/features/purchases/purchase-invoice-list";
+import { Reference66PurchaseManagement } from "@/features/reference-66/screens";
 
 export const metadata: Metadata = {
-  title: "Purchase Invoices",
+  title: "Purchase Management",
 };
 
 export default function PurchaseInvoicesPage() {
-  return <PurchaseInvoiceList />;
+  return <Reference66PurchaseManagement />;
 }

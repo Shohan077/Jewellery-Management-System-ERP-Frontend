@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Reference52Dashboard } from "@/features/reference-52/dashboard-screen";
+import { Reference65Dashboard } from "@/features/reference-65/screens";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardPage() {
-  return <Reference52Dashboard />;
+  return <Reference65Dashboard />;
 }

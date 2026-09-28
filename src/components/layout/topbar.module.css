@@ -14,6 +14,87 @@
   backdrop-filter: blur(14px);
 }
 
+.contextTopbar {
+  grid-template-columns: minmax(180px, 1fr) minmax(300px, 560px) auto;
+}
+
+.reference65Topbar {
+  grid-template-columns: minmax(240px, 360px) minmax(220px, 1fr);
+}
+
+.reference65Topbar .titleGroup {
+  display: none;
+}
+
+.reference66Topbar {
+  grid-template-columns: minmax(480px, 1fr) auto;
+}
+
+.reference66Topbar .titleGroup {
+  display: none;
+}
+
+.reference66Controls {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 150px;
+  align-items: center;
+  gap: 20px;
+}
+
+.reference66Controls select {
+  width: 100%;
+  height: 32px;
+  padding: 0 9px;
+  color: #172033;
+  border: 1px solid #e4e9f0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 9px;
+}
+
+.contextControls {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.58fr) minmax(170px, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+
+.contextControls select,
+.contextSearch {
+  width: 100%;
+  height: 32px;
+  color: #172033;
+  border: 1px solid #e4e9f0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 9px;
+}
+
+.contextControls select {
+  padding: 0 9px;
+}
+
+.contextSearch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  color: #8a9ab0;
+}
+
+.contextSearch input {
+  min-width: 0;
+  flex: 1;
+  padding: 0;
+  color: #172033;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 9px;
+}
+
 .titleGroup {
   min-width: 0;
   display: flex;
@@ -117,6 +198,19 @@
   box-sizing: content-box;
 }
 
+.notificationCount {
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border-width: 1px;
+  font-size: 7px;
+  font-weight: 800;
+}
+
 .profile {
   min-height: 42px;
   display: flex;
@@ -216,6 +310,10 @@
   .chevron {
     display: none;
   }
+
+  .contextTopbar {
+    grid-template-columns: minmax(150px, 1fr) minmax(250px, 420px) auto;
+  }
 }
 
 @media (max-width: 780px) {
@@ -226,6 +324,30 @@
   }
 
   .search {
+    display: none;
+  }
+
+  .contextControls {
+    display: none;
+  }
+
+  .reference65Topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .reference65Topbar .titleGroup {
+    display: flex;
+  }
+
+  .reference66Topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .reference66Topbar .titleGroup {
+    display: flex;
+  }
+
+  .reference66Controls {
     display: none;
   }
 

@@ -13,12 +13,14 @@ export function StatCard({
   label,
   value,
   trend,
+  trendTone = "success",
 }: {
   accent?: Accent;
   icon: ReactNode;
   label: string;
   value: string;
   trend?: string;
+  trendTone?: "success" | "danger";
 }) {
   return (
     <Card as="article" className={styles.statCard}>
@@ -26,13 +28,13 @@ export function StatCard({
       <span className={styles.statCopy}>
         <small>{label}</small>
         <strong>{value}</strong>
-        {trend ? <span><b>{trend}</b> vs last month</span> : null}
+        {trend ? <span><b className={trendTone === "danger" ? styles.trendDanger : undefined}>{trend}</b> vs last month</span> : null}
       </span>
     </Card>
   );
 }
 
-export function StatusBadge({ children, tone }: { children: ReactNode; tone: "success" | "danger" | "info" }) {
+export function StatusBadge({ children, tone }: { children: ReactNode; tone: "success" | "danger" | "info" | "warning" }) {
   return <span className={`${styles.badge} ${styles[tone]}`}>{children}</span>;
 }
 
@@ -82,6 +84,7 @@ export function DataTable<T>({
   pageCount,
   rowKey,
   rows,
+  showHeader = true,
   summaryRow,
   title,
   total,
@@ -96,6 +99,7 @@ export function DataTable<T>({
   pageCount: number;
   rowKey: (row: T) => Key;
   rows: readonly T[];
+  showHeader?: boolean;
   summaryRow?: ReactNode;
   title: string;
   total: number;
@@ -105,7 +109,7 @@ export function DataTable<T>({
 
   return (
     <Card className={styles.tableCard}>
-      <header className={styles.tableHeader}><h2>{title}</h2>{headerAction}</header>
+      {showHeader ? <header className={styles.tableHeader}><h2>{title}</h2>{headerAction}</header> : null}
       <div className={styles.tableScroller}>
         <table style={tableStyle}>
           <caption className="sr-only">{title}</caption>

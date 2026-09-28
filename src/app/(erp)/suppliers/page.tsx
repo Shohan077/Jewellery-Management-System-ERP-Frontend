@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-
-import { SupplierManagement153 } from "@/features/reference-39-management/management-lists";
+import { Reference56SupplierList } from "@/features/reference-56/screens";
 
 export const metadata: Metadata = {
   title: "Supplier Management | Jewellery Manager",
@@ -8,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function SuppliersPage() {
-  return <SupplierManagement153 />;
+  return <Reference56SupplierList />;
 }

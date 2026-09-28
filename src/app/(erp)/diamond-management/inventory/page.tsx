@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { DiamondInventory133 } from "@/features/reference-34-diamond/diamond-management";
+import { Reference59DiamondInventory } from "@/features/reference-59/screens";
 export const metadata: Metadata = { title: "Diamond Inventory | Jewellery Manager" };
-export default function Page() { return <DiamondInventory133 />; }
+export default function Page() { return <Reference59DiamondInventory />; }

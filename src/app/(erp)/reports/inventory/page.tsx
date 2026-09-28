@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { InventoryReport139 } from "@/features/reference-35-reports/reference-35-reports";
+import { Reference57StockReport } from "@/features/reference-57/screens";
 
 export const metadata: Metadata = { title: "Inventory Report | Jewellery Manager" };
-export default function Page() { return <InventoryReport139 />; }
+export default function Page() { return <Reference57StockReport />; }

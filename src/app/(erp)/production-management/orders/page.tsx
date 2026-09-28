@@ -1,5 +1,5 @@
-import { ProductionOrderListPage } from "@/features/production-list-pages/production-order-list";
+import { Reference63ProductionOrders } from "@/features/reference-63/screens";
 
 export default function ProductionManagementOrdersPage() {
-  return <ProductionOrderListPage />;
+  return <Reference63ProductionOrders />;
 }

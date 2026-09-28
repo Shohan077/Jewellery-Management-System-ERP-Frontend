@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { ReportsAnalytics168 } from "@/features/reference-42-erp-modules/erp-modules";
+import { Reference67ReportsAnalytics } from "@/features/reference-67/screens";
 
 export const metadata: Metadata = { title: "Reports & Analytics | Jewellery ERP" };
 
 export default function Page() {
-  return <ReportsAnalytics168 />;
+  return <Reference67ReportsAnalytics />;
 }

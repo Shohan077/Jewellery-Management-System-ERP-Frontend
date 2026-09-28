@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Reference54AccountsDashboard } from "@/features/reference-54/accounts-dashboard-screen";
+import { Reference67CashAccounting } from "@/features/reference-67/screens";
 
 export const metadata: Metadata = {
-  title: "Accounts Dashboard | Jewellery ERP",
+  title: "Cash & Accounting | Jewellery ERP",
   description: "Monitor cash flow, balances, expenses, and recent accounting activity.",
 };
 
 export default function AccountsDashboardPage() {
-  return <Reference54AccountsDashboard />;
+  return <Reference67CashAccounting />;
 }

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Reference52GoldStock } from "@/features/reference-52/gold-stock-screen";
+import { Reference58GoldStock } from "@/features/reference-58/screens";
 
 export const metadata: Metadata = { title: "Gold Stock" };
 
 export default function GoldStockPage() {
-  return <Reference52GoldStock />;
+  return <Reference58GoldStock />;
 }

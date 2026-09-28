@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { SalesReportScreen } from "@/features/reference-28/sales-report-screen";
+import { Reference60SalesReport } from "@/features/reference-60/screens";
 
 export const metadata: Metadata = {
   title: "Sales Report",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function SalesReportPage() {
-  return <SalesReportScreen />;
+  return <Reference60SalesReport />;
 }

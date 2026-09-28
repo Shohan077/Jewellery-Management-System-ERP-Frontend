@@ -1,4 +1,4 @@
 import type { Metadata } from "next";
-import { Reference52GoldStock } from "@/features/reference-52/gold-stock-screen";
+import { Reference56GoldStock } from "@/features/reference-56/screens";
 export const metadata: Metadata = { title: "Gold Stock | Jewellery Manager" };
-export default function Page() { return <Reference52GoldStock />; }
+export default function Page() { return <Reference56GoldStock />; }

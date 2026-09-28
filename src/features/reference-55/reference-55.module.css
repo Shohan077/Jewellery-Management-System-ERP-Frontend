@@ -197,6 +197,7 @@
 .statCopy b {
   color: #16a05a;
 }
+.statCopy b.trendDanger { color: #ef4444; }
 
 .charts {
   min-width: 0;
@@ -335,6 +336,7 @@
 .success { color: #168149; background: #e6f6ec; }
 .danger { color: #dc4141; background: #ffeded; }
 .info { color: #1268d9; background: #eaf2ff; }
+.warning { color: #d66b06; background: #fff0df; }
 
 .rowActions {
   display: inline-flex;

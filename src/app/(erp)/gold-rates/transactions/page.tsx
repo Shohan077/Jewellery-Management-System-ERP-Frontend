@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { GoldManagement166 } from "@/features/reference-42-erp-modules/erp-modules";
+import { Reference66GoldManagement } from "@/features/reference-66/screens";
 
 export const metadata: Metadata = { title: "Gold Management | Jewellery ERP" };
 
 export default function Page() {
-  return <GoldManagement166 />;
+  return <Reference66GoldManagement />;
 }

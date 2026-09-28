@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Reference52PosBilling } from "@/features/reference-52/pos-billing-screen";
+import { Reference65PosSales } from "@/features/reference-65/screens";
 
 export const metadata: Metadata = {
-  title: "POS Billing",
+  title: "POS & Sales",
 };
 
 export default function PosNewSalePage() {
-  return <Reference52PosBilling />;
+  return <Reference65PosSales />;
 }
