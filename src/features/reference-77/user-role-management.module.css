@@ -1,0 +1,258 @@
+.tabCard {
+  margin-top: -18px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.tabCard nav {
+  min-height: 32px;
+}
+
+.tabCard button {
+  min-width: 108px;
+  height: 32px;
+  padding-inline: 12px;
+}
+
+.userCard,
+.panel,
+.alternatePanel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.userTable {
+  min-width: 920px;
+}
+
+.userTable th,
+.userTable td {
+  height: 27px;
+  padding-block: 4px;
+}
+
+.userTable td:nth-child(2),
+.userTable td:nth-child(3) {
+  color: #16365d;
+}
+
+.userTable td:nth-child(2) {
+  font-weight: 650;
+}
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1.08fr 1.03fr .64fr;
+  gap: 10px;
+}
+
+.panel > h2 {
+  min-height: 33px;
+  display: flex;
+  align-items: center;
+  padding: 8px 11px;
+  margin: 0;
+  color: #1c3552;
+  border-bottom: 1px solid #e5ebf2;
+  font-size: 8.5px;
+  font-weight: 750;
+}
+
+.rolePanel > div {
+  min-height: 142px;
+  grid-template-columns: minmax(105px, .92fr) minmax(135px, 1fr);
+  padding: 4px 10px 8px;
+}
+
+.rolePanel > div > div {
+  width: min(100%, 104px);
+}
+
+.rolePanel li {
+  gap: 4px;
+  font-size: 6.2px;
+}
+
+.rolePanel li i {
+  width: 6px;
+  height: 6px;
+}
+
+.chart {
+  min-width: 0;
+  overflow-x: auto;
+  padding: 1px 8px 5px;
+}
+
+.chart svg {
+  width: 100%;
+  min-width: 310px;
+  height: 142px;
+  display: block;
+}
+
+.chart line {
+  stroke: #e6edf5;
+  stroke-width: 1;
+}
+
+.chart text {
+  fill: #617892;
+  font: 6.5px Inter, system-ui, sans-serif;
+}
+
+.chart polyline {
+  fill: none;
+  stroke: #086fed;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.chart circle {
+  fill: #086fed;
+}
+
+.securityPanel ul {
+  display: grid;
+  gap: 11px;
+  padding: 13px 12px;
+  margin: 0;
+  list-style: none;
+}
+
+.securityPanel li {
+  display: grid;
+  grid-template-columns: 15px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+  color: #24405e;
+  font-size: 7px;
+}
+
+.securityPanel li svg,
+.securityPanel li b {
+  color: #08a05a;
+}
+
+.securityPanel li b {
+  font-size: 6.8px;
+  font-weight: 700;
+}
+
+.alternatePanel {
+  min-height: 350px;
+}
+
+.alternatePanel > header {
+  padding: 16px;
+  border-bottom: 1px solid #e5ebf2;
+}
+
+.alternatePanel h2,
+.alternatePanel p {
+  margin: 0;
+}
+
+.alternatePanel h2 {
+  color: #172f4d;
+  font-size: 13px;
+}
+
+.alternatePanel p {
+  margin-top: 5px;
+  color: #6b7f97;
+  font-size: 8px;
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 16px;
+}
+
+.roleGrid article {
+  min-height: 90px;
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid #e2e9f1;
+  border-radius: 6px;
+  background: #fbfdff;
+}
+
+.roleGrid strong {
+  color: #183654;
+  font-size: 10px;
+}
+
+.roleGrid b {
+  color: #0872e9;
+  font-size: 9px;
+}
+
+.roleGrid span {
+  color: #71859c;
+  font-size: 7.5px;
+}
+
+.largeChart {
+  padding: 16px;
+}
+
+.largeChart svg {
+  height: 250px;
+}
+
+@media (max-width: 1120px) {
+  .bottomGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bottomGrid > :last-child {
+    grid-column: 1 / -1;
+  }
+
+  .securityPanel ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .bottomGrid,
+  .roleGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bottomGrid > :last-child {
+    grid-column: auto;
+  }
+
+  .securityPanel ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .tabCard {
+    margin-top: -9px;
+  }
+
+  .tabCard button {
+    min-width: 118px;
+  }
+
+  .rolePanel > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rolePanel > div > div,
+  .rolePanel ul {
+    width: min(100%, 230px);
+    justify-self: center;
+  }
+}

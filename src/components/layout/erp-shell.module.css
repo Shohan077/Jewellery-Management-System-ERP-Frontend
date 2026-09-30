@@ -15,6 +15,38 @@
   padding: 16px 18px 28px;
 }
 
+.actionToast {
+  position: fixed;
+  z-index: 1200;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 11px 12px 11px 16px;
+  color: #f8fbff;
+  background: #082d55;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(5, 35, 67, 0.24);
+  font-size: 13px;
+}
+
+.actionToast button {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  place-items: center;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
 @media (max-width: 1080px) and (min-width: 781px) {
   .shell {
     grid-template-columns: 76px minmax(0, 1fr);
@@ -32,5 +64,10 @@
 
   .main {
     padding: 14px 12px 24px;
+  }
+
+  .actionToast {
+    right: 12px;
+    bottom: 12px;
   }
 }

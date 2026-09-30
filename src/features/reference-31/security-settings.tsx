@@ -1,6 +1,7 @@
 "use client";
 
-import { Ban, KeyRound, MonitorCheck, Save, ShieldCheck, Siren, UsersRound } from "lucide-react";
+import Link from "next/link";
+import { Ban, KeyRound, MonitorCheck, Save, ShieldCheck, Siren } from "lucide-react";
 import { useState } from "react";
 
 import { Card } from "@/components/ui/card";
@@ -173,5 +174,5 @@ function CompactField({ children, label }: { children: React.ReactNode; label: s
 }
 
 function Metric({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
-  return <Card className={styles.metric}><span className={styles.metricIcon}>{icon}</span><div><small>{label}</small><strong>{value}</strong><a>View Details</a></div></Card>;
+  return <Card className={styles.metric}><span className={styles.metricIcon}>{icon}</span><div><small>{label}</small><strong>{value}</strong><Link href="/users/activity-log">View Details</Link></div></Card>;
 }

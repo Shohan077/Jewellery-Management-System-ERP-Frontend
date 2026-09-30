@@ -1,0 +1,73 @@
+.loyaltyTable { min-width: 980px; }
+.cashbookTable { min-width: 1050px; }
+.expenseTable { min-width: 970px; }
+.bottomThree { display: grid; grid-template-columns: 1.05fr 1fr 1.1fr; gap: 10px; }
+.cashBottom { display: grid; grid-template-columns: .63fr 1.75fr .58fr; gap: 10px; }
+.crmBottom { display: grid; grid-template-columns: 1.12fr .95fr 1fr; gap: 10px; }
+.panel { min-width: 0; overflow: hidden; }
+.panel > h2,
+.panel > header {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 11px;
+  margin: 0;
+  color: #203752;
+  border-bottom: 1px solid #e5ebf2;
+  font-size: 8.5px;
+  font-weight: 750;
+}
+.compactTable { min-width: 390px; }
+.compactTable th,
+.compactTable td { height: 26px; padding-block: 4px; font-size: 7px; }
+.ranking { display: grid; gap: 0; padding: 5px 11px 8px 28px; margin: 0; }
+.ranking li { min-height: 25px; padding: 6px 3px; color: #3a526e; border-bottom: 1px solid #edf1f5; font-size: 7px; }
+.ranking li span { margin-left: 4px; }
+.ranking li b { float: right; color: #213c5c; font-size: 7px; }
+.transactions { display: grid; gap: 0; padding: 5px 11px 8px; margin: 0; list-style: none; }
+.transactions li { min-height: 27px; display: grid; grid-template-columns: 18px 1fr auto auto; align-items: center; gap: 6px; color: #42607d; border-bottom: 1px solid #edf1f5; font-size: 7px; }
+.transactions i { width: 15px; height: 15px; display: grid; place-items: center; color: #0a9a61; border-radius: 4px; background: #e1f7ed; font-style: normal; }
+.transactions b { color: #0a9a61; }.transactions b.negative { color: #e33e4f; }.transactions time { color: #74889f; }
+.chart { max-width: 100%; overflow-x: auto; padding: 3px 10px 7px; }
+.chart svg { width: 100%; min-width: 360px; height: 127px; display: block; }
+.chart line { stroke: #e6edf4; stroke-width: 1; }
+.chart text { fill: #637992; font: 7px Inter, system-ui, sans-serif; }
+.chart polyline { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.receiptLine { stroke: #18a468; }.paymentLine { stroke: #f04c45; }
+.chart circle.receiptLine { fill: #18a468; }.chart circle.paymentLine { fill: #f04c45; }
+.cashSummary,
+.cashHand { min-height: 151px; display: grid; align-content: center; gap: 10px; padding: 12px 14px; }
+.cashSummary span,
+.cashHand span { color: #506883; font-size: 8px; }
+.cashSummary strong,
+.cashHand strong { color: #10233e; font-size: 17px; }
+.cashSummary small,
+.cashHand small { color: #687f97; font-size: 7px; }
+.cashSummary small b { color: #0aa05f; }
+.cashIcon { width: 34px; height: 34px; display: grid; place-items: center; color: #176fed; border-radius: 6px; background: #ebf3ff; }
+.receiptButton { color: #fff !important; border-color: #0a9f61 !important; background: #0aa465 !important; }
+.paymentButton { color: #fff !important; border-color: #f26722 !important; background: #f36a24 !important; }
+.barChart { display: grid; grid-template-columns: repeat(6, 1fr); align-items: end; gap: 15px; height: 145px; padding: 20px 20px 17px 36px; background: repeating-linear-gradient(to top, transparent 0 32px, #edf1f5 33px); }
+.barItem { height: 100%; display: flex; align-items: end; justify-content: center; position: relative; }
+.barItem i { width: 17px; display: block; border-radius: 2px 2px 0 0; background: #1476ed; }
+.barItem span { position: absolute; top: calc(100% + 4px); color: #5d748e; font-size: 7px; }
+.segments { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 10px; }
+.segment { min-height: 78px; display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 10px; padding: 10px; border: 1px solid #e0e7f0; border-radius: 6px; background: #fff; }
+.segmentIcon { width: 34px; height: 34px; display: grid; place-items: center; color: #fff; border-radius: 50%; background: #7d3de1; }
+.segment:nth-child(2) .segmentIcon { background: #0874eb; }.segment:nth-child(3) .segmentIcon { background: #13a165; }.segment:nth-child(4) .segmentIcon { background: #f27022; }
+.segment div { min-width: 0; display: grid; gap: 4px; }.segment b { color: #1c3654; font-size: 9px; }.segment span { color: #58718b; font-size: 7px; }.segment small { color: #08a05e; font-size: 8px; font-weight: 700; }
+.tabPlaceholder { min-height: 270px; display: grid; place-content: center; justify-items: center; gap: 8px; color: #71859b; font-size: 8px; }.tabPlaceholder strong { color: #243c59; font-size: 14px; }
+.panelButton { margin: 6px 10px 9px; }
+
+@media (max-width: 1120px) {
+  .bottomThree,.cashBottom,.crmBottom { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .bottomThree > :last-child,.cashBottom > :last-child,.crmBottom > :last-child { grid-column: 1/-1; }
+  .segments { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 760px) {
+  .bottomThree,.cashBottom,.crmBottom { grid-template-columns: 1fr; }
+  .bottomThree > :last-child,.cashBottom > :last-child,.crmBottom > :last-child { grid-column: auto; }
+}
+@media (max-width: 520px) { .segments { grid-template-columns: 1fr; } }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { Bell, ChevronDown, Mail, Menu, Search } from "lucide-react";
+import { Bell, CalendarDays, ChevronDown, Mail, Menu, Search, Settings } from "lucide-react";
 import styles from "./topbar.module.css";
 
 const routeTitles: ReadonlyArray<[string, string]> = [
@@ -114,7 +114,55 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
     "/customers/dues-72",
     "/settings/backup-restore-72",
   ].includes(pathname);
-  const datedCompactRoute = reference66Route || reference67Route || reference68Route || reference69Route || reference70Route || reference71Route || reference72Route;
+  const reference73Route = [
+    "/products/management-73",
+    "/diamonds/management-73",
+    "/old-gold/exchange-73",
+    "/manufacturing/production-73",
+  ].includes(pathname);
+  const reference74Route = [
+    "/loyalty/rewards-74",
+    "/accounts/cashbook-74",
+    "/accounts/expenses-74",
+    "/crm/marketing-74",
+  ].includes(pathname);
+  const reference75Route = [
+    "/crm/campaigns-75",
+    "/crm/templates-75",
+    "/crm/reminders-75",
+    "/reports/analytics-75",
+  ].includes(pathname);
+  const reference76Route = [
+    "/inventory/dashboard-76",
+    "/purchases/orders-76",
+    "/suppliers/management-76",
+    "/customers/management-76",
+  ].includes(pathname);
+  const reference77Route = [
+    "/dashboard/sales-77",
+    "/sales/orders-77",
+    "/accounts/payments-77",
+    "/users/management-77",
+  ].includes(pathname);
+  const reference78Route = [
+    "/purchases/returns-78",
+    "/suppliers/list-78",
+    "/suppliers/details-78",
+    "/reports/purchase-78",
+  ].includes(pathname);
+  const reference79Route = [
+    "/products/list-79",
+    "/products/details-79",
+    "/products/categories-79",
+    "/inventory/transfers-79",
+  ].includes(pathname);
+  const reference80Route = [
+    "/customers/list-80",
+    "/customers/details-80",
+    "/customers/dues-80",
+    "/mortgages/entry-80",
+  ].includes(pathname);
+  const datedCompactRoute = reference66Route || reference67Route || reference68Route || reference69Route || reference70Route || reference71Route || reference72Route || reference73Route || reference74Route || reference75Route || reference76Route || reference77Route || reference78Route || reference79Route || reference80Route;
   const usesContentHeading = pathname === "/dashboard"
     || pathname === "/pos/new"
     || pathname === "/inventory/management"
@@ -146,6 +194,38 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
     || pathname === "/karigars/ledger-72"
     || pathname === "/customers/dues-72"
     || pathname === "/settings/backup-restore-72"
+    || pathname === "/products/management-73"
+    || pathname === "/diamonds/management-73"
+    || pathname === "/old-gold/exchange-73"
+    || pathname === "/manufacturing/production-73"
+    || pathname === "/loyalty/rewards-74"
+    || pathname === "/accounts/cashbook-74"
+    || pathname === "/accounts/expenses-74"
+    || pathname === "/crm/marketing-74"
+    || pathname === "/crm/campaigns-75"
+    || pathname === "/crm/templates-75"
+    || pathname === "/crm/reminders-75"
+    || pathname === "/reports/analytics-75"
+    || pathname === "/inventory/dashboard-76"
+    || pathname === "/purchases/orders-76"
+    || pathname === "/suppliers/management-76"
+    || pathname === "/customers/management-76"
+    || pathname === "/dashboard/sales-77"
+    || pathname === "/sales/orders-77"
+    || pathname === "/accounts/payments-77"
+    || pathname === "/users/management-77"
+    || pathname === "/purchases/returns-78"
+    || pathname === "/suppliers/list-78"
+    || pathname === "/suppliers/details-78"
+    || pathname === "/reports/purchase-78"
+    || pathname === "/products/list-79"
+    || pathname === "/products/details-79"
+    || pathname === "/products/categories-79"
+    || pathname === "/inventory/transfers-79"
+    || pathname === "/customers/list-80"
+    || pathname === "/customers/details-80"
+    || pathname === "/customers/dues-80"
+    || pathname === "/mortgages/entry-80"
     || pathname === "/inventory/gold-lots"
     || pathname === "/reports/sales-report";
   const searchPlaceholder = datedCompactRoute
@@ -183,7 +263,53 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
                                     ? "Search customer name, phone, invoice..."
                                     : pathname === "/settings/backup-restore-72"
                                       ? "Search settings, backup..."
-              : "Search here..."
+                                      : pathname === "/products/management-73"
+                                        ? "Search design, SKU, barcode..."
+                                        : pathname === "/diamonds/management-73"
+                                          ? "Search diamond, certificate no, shape..."
+                                          : pathname === "/old-gold/exchange-73"
+                                            ? "Search by customer, invoice, mobile..."
+                                            : pathname === "/manufacturing/production-73"
+                                              ? "Search production order, item..."
+                                              : pathname === "/loyalty/rewards-74"
+                                                ? "Search customer, mobile, loyalty card..."
+                                                : pathname === "/accounts/cashbook-74"
+                                                  ? "Search narration, voucher no..."
+                                                  : pathname === "/accounts/expenses-74"
+                                                    ? "Search expense, category, voucher no..."
+                                                    : pathname === "/crm/marketing-74"
+                                                      ? "Search customer, campaign, segment..."
+                                                      : pathname === "/crm/campaigns-75"
+                                                        ? "Search customer, campaign, segment..."
+                                                        : pathname === "/crm/templates-75"
+                                                          ? "Search sms template, whatsapp template..."
+                                                          : pathname === "/crm/reminders-75"
+                                                            ? "Search reminder, schedule..."
+                                                            : pathname === "/reports/analytics-75"
+                                                              ? "Search report, analytics, dashboard..."
+                                                              : pathname === "/inventory/dashboard-76"
+                                                                ? "Search item, SKU, barcode..."
+                                                                : pathname === "/purchases/orders-76"
+                                                                  ? "Search PO no, supplier, item..."
+                                                                  : pathname === "/suppliers/management-76"
+                                                                    ? "Search supplier name, phone, email..."
+                                                                    : pathname === "/customers/management-76"
+                                                                      ? "Search customer name, phone, email..."
+                                                                      : pathname === "/dashboard/sales-77"
+                                                                        ? "Search anything..."
+                                                                        : pathname === "/sales/orders-77"
+                                                                          ? "Search order no, customer, design..."
+                                                                          : pathname === "/accounts/payments-77"
+                                                                            ? "Search payment, invoice, customer..."
+                                                                            : pathname === "/users/management-77"
+                                                                              ? "Search users, roles, permission..."
+                                                                              : reference78Route
+                                                                                ? "Search menu here..."
+                                                                                : reference79Route
+                                                                                  ? "Search menu here..."
+                                                                                  : reference80Route
+                                                                                    ? "Search menu here..."
+                                                                      : "Search here..."
     : usesContentHeading
     ? "Search anything..."
     : pathname === "/pos-sales/pos-billing"
@@ -206,7 +332,8 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
             ? "Search accounts..."
             : "Search...";
   const [query, setQuery] = useState("");
-  const [openPanel, setOpenPanel] = useState<"notifications" | "messages" | "profile" | null>(null);
+  const [openPanel, setOpenPanel] = useState<"calendar" | "notifications" | "messages" | "profile" | null>(null);
+  const [businessDate, setBusinessDate] = useState("2025-05-26");
   const [hasUnreadNotification, setHasUnreadNotification] = useState(true);
 
   function submitSearch(event: FormEvent<HTMLFormElement>) {
@@ -249,6 +376,13 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
             </form>
           )}
         </div>
+      ) : reference78Route || reference79Route || reference80Route ? (
+        <div className={styles.reference78Controls}>
+          <form aria-label="Search the ERP" className={styles.search} onSubmit={submitSearch} role="search">
+            <Search aria-hidden="true" size={14} />
+            <input aria-label="Search menu" onChange={(event) => setQuery(event.target.value)} placeholder={searchPlaceholder} type="search" value={query} />
+          </form>
+        </div>
       ) : datedCompactRoute ? (
         <div className={styles.reference66Controls}>
           <form aria-label="Search the ERP" className={styles.search} onSubmit={submitSearch} role="search">
@@ -278,6 +412,16 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
       )}
 
       <div className={styles.actions}>
+        {reference78Route || reference79Route || reference80Route ? <div className={styles.popoverWrap}>
+          <button aria-expanded={openPanel === "calendar"} aria-label="Open calendar" className={styles.iconButton} onClick={() => setOpenPanel((current) => current === "calendar" ? null : "calendar")} type="button"><CalendarDays size={16} strokeWidth={1.8} /></button>
+          {openPanel === "calendar" ? (
+            <div className={styles.popover} role="dialog">
+              <strong>Business date</strong>
+              <input aria-label="Business date" onChange={(event) => setBusinessDate(event.target.value)} type="date" value={businessDate} />
+              <button onClick={() => setOpenPanel(null)} type="button">Apply date</button>
+            </div>
+          ) : null}
+        </div> : null}
         {!reference64Route ? <div className={styles.popoverWrap}>
           <button
             aria-expanded={openPanel === "notifications"}
@@ -287,7 +431,7 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
             type="button"
           >
             <Bell size={18} strokeWidth={1.8} />
-            {hasUnreadNotification ? <span className={`${styles.notificationDot} ${datedCompactRoute ? styles.notificationCount : ""}`}>{datedCompactRoute ? reference69Route || reference71Route || reference72Route ? "4" : "3" : null}</span> : null}
+            {hasUnreadNotification ? <span className={`${styles.notificationDot} ${datedCompactRoute ? styles.notificationCount : ""}`}>{datedCompactRoute ? reference78Route || reference79Route || reference80Route ? "1" : reference73Route || pathname === "/loyalty/rewards-74" ? "5" : reference69Route || reference71Route || reference72Route || reference74Route || reference75Route || reference76Route ? "4" : "3" : null}</span> : null}
           </button>
           {openPanel === "notifications" ? (
             <div className={styles.popover} role="status">
@@ -298,7 +442,9 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
           ) : null}
         </div> : null}
 
-        {!datedCompactRoute ? <div className={styles.popoverWrap}>
+        {reference78Route ? <button aria-label="Open settings" className={styles.iconButton} onClick={() => router.push("/settings")} type="button"><Settings size={16} strokeWidth={1.8} /></button> : null}
+
+        {!datedCompactRoute || reference79Route || reference80Route ? <div className={styles.popoverWrap}>
           <button
             aria-expanded={openPanel === "messages"}
             aria-label="Messages"
@@ -325,9 +471,9 @@ export function Topbar({ onOpenNavigation }: { onOpenNavigation: () => void }) {
             onClick={() => setOpenPanel((current) => current === "profile" ? null : "profile")}
             type="button"
           >
-            <span className={styles.avatar}>A</span>
-            <span className={styles.admin}><strong>Admin</strong><small>Super Admin</small></span>
-            {!datedCompactRoute ? <ChevronDown className={styles.chevron} size={14} /> : null}
+            {!reference78Route ? <span className={styles.avatar}>A</span> : null}
+            <span className={styles.admin}><strong>{reference79Route || reference80Route ? "Admin User" : "Admin"}</strong>{!reference78Route && !reference79Route && !reference80Route ? <small>Super Admin</small> : null}</span>
+            {!datedCompactRoute || reference78Route || reference79Route || reference80Route ? <ChevronDown className={styles.chevron} size={14} /> : null}
           </button>
           {openPanel === "profile" ? (
             <div className={`${styles.popover} ${styles.profilePopover}`} role="menu">

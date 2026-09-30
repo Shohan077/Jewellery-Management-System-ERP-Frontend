@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import {
   CalendarDays,
@@ -93,7 +94,7 @@ export function Reference61Dashboard() {
         <Card className={styles.panel}>
           <PanelHeader>Top Customers</PanelHeader>
           <ul className={styles.customerList}>{topCustomers.map((customer) => <li key={customer.name}><span>{customer.initial}</span><strong>{customer.name}</strong><b>৳ {customer.amount}</b></li>)}</ul>
-          <button className={styles.viewAllButton} type="button">View All</button>
+          <Link className={styles.viewAllButton} href="/customers">View All</Link>
         </Card>
       </section>
     </div>
@@ -193,7 +194,7 @@ export function Reference61GoldStock() {
   return (
     <div className={styles.page}>
       <PageHeading actions={<><button className={base.secondaryButton} onClick={exportCsv} type="button"><Download size={12} />Export</button><button className={base.primaryButton} onClick={() => setDialog({ mode: "add" })} type="button"><Plus size={12} />Add Stock</button></>} breadcrumbs={["Inventory", "Gold Stock"]} title="Gold Stock" />
-      <Card className={styles.goldFilters}><label><span>Purity</span><select onChange={(event) => setPurity(event.target.value)} value={purity}><option>All Purity</option><option>24K</option><option>22K</option><option>18K</option></select></label><label><span>Form</span><select onChange={(event) => setForm(event.target.value)} value={form}><option>All</option><option>Bar</option><option>Coin</option></select></label><label><span>Location</span><select><option>All</option><option>Main Branch</option></select></label><label><span>Search</span><input onChange={(event) => setQuery(event.target.value)} placeholder="Search by lot no, ref no..." value={query} /></label><button className={base.primaryButton} type="button">Search</button><button className={base.secondaryButton} onClick={() => { setPurity("All Purity"); setForm("All"); setQuery(""); }} type="button">Reset</button></Card>
+      <Card className={styles.goldFilters}><label><span>Purity</span><select onChange={(event) => setPurity(event.target.value)} value={purity}><option>All Purity</option><option>24K</option><option>22K</option><option>18K</option></select></label><label><span>Form</span><select onChange={(event) => setForm(event.target.value)} value={form}><option>All</option><option>Bar</option><option>Coin</option></select></label><label><span>Location</span><select><option>All</option><option>Main Branch</option></select></label><label><span>Search</span><input onChange={(event) => setQuery(event.target.value)} placeholder="Search by lot no, ref no..." value={query} /></label><button className={base.primaryButton} onClick={() => setMessage(`${visible.length} gold stock record${visible.length === 1 ? "" : "s"} found.`)} type="button">Search</button><button className={base.secondaryButton} onClick={() => { setPurity("All Purity"); setForm("All"); setQuery(""); }} type="button">Reset</button></Card>
       {message ? <Feedback>{message}</Feedback> : null}
       <Card className={styles.goldTableCard}>
         <div className={styles.tableScroll}><table className={styles.goldTable}><thead><tr><th>Lot No</th><th>Purity</th><th>Form</th><th>Weight (gm)</th><th>Rate/GM</th><th>Total Value</th><th>Ref No</th><th>Date</th><th>Action</th></tr></thead><tbody>{visible.map((row) => <tr key={row.id}><td><strong>{row.lot}</strong></td><td>{row.purity}</td><td>{row.form}</td><td>{row.weight}</td><td>{row.rate}</td><td>৳ {row.total}</td><td>{row.ref}</td><td>{row.date}</td><td><span className={base.rowActions}><IconAction label={`View ${row.lot}`} onClick={() => setDialog({ mode: "view", row })}><Eye size={12} /></IconAction><IconAction label={`Edit ${row.lot}`} onClick={() => setDialog({ mode: "edit", row })}><FilePenLine size={12} /></IconAction><IconAction danger label={`Delete ${row.lot}`} onClick={() => { setRows((current) => current.filter((item) => item.id !== row.id)); setMessage(`${row.lot} deleted.`); }}><Trash2 size={12} /></IconAction></span></td></tr>)}</tbody></table></div>

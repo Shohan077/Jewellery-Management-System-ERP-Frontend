@@ -66,15 +66,15 @@ export const adminActivities: AdminActivity[] = [
     const id = index + 11;
     const day = 30 - (index % 30);
     const action = actions[index % actions.length];
-    const module = modules[index % modules.length];
+    const moduleName = modules[index % modules.length];
     return {
       id,
       dateTime: `${String(day).padStart(2, "0")}/05/2024 ${String(8 + (index % 10)).padStart(2, "0")}:${String((index * 7) % 60).padStart(2, "0")} AM`,
       isoDate: `2024-05-${String(day).padStart(2, "0")}`,
       user: users[index % users.length],
-      module,
+      module: moduleName,
       action,
-      details: `${action} action completed in ${module}`,
+      details: `${action} action completed in ${moduleName}`,
       ipAddress: `192.168.1.${20 + (index % 90)}`,
       device: index % 4 === 0 ? "Windows / Edge" : "Windows / Chrome",
     };

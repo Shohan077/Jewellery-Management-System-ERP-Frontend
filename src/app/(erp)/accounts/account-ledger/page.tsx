@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Reference55Ledger } from "@/features/reference-55/ledger-screen";
+import { AccountLedger } from "@/features/accounting-suite/account-ledger";
 
-export const metadata: Metadata = { title: "Ledger | Jewellery Manager", description: "View and filter detailed customer ledger transactions." };
+export const metadata: Metadata = { title: "Account Ledger | Jewellery Manager", description: "View and filter detailed account ledger transactions." };
 
 export default function AccountLedgerPage() {
-  return <Reference55Ledger />;
+  return <AccountLedger />;
 }
 

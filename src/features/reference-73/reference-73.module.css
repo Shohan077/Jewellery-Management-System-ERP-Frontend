@@ -1,0 +1,133 @@
+.select {
+  min-width: 118px;
+  height: 31px;
+  padding: 0 28px 0 9px;
+  color: #304862;
+  border: 1px solid #d7e1ec;
+  border-radius: 5px;
+  outline: 0;
+  background: #fff;
+  font-size: 8px;
+}
+.toolbarSpacer { flex: 1; }
+.productTable { min-width: 980px; }
+.diamondTable { min-width: 1060px; }
+.oldGoldTable { min-width: 1000px; }
+.productionTable { min-width: 970px; }
+.productThumb,
+.diamondThumb {
+  width: 20px;
+  height: 20px;
+  display: inline-grid;
+  place-items: center;
+  overflow: hidden;
+  color: #c98412;
+  border: 1px solid #f0dfbd;
+  border-radius: 50%;
+  background: #fff8e8;
+  font-size: 9px;
+}
+.productThumb img,
+.diamondThumb img { width: 100%; height: 100%; object-fit: cover; }
+.placeholder {
+  min-height: 245px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  color: #71849b;
+  text-align: center;
+  font-size: 8px;
+}
+.placeholder strong { color: #263e5b; font-size: 14px; }
+.oldGoldBottom,
+.bottomGrid {
+  display: grid;
+  grid-template-columns: .95fr .95fr 1.35fr;
+  gap: 10px;
+}
+.productionBottom,
+.productionSummary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.panel,
+.summaryCard { min-width: 0; overflow: hidden; }
+.panel > h2,
+.panel > header,
+.panelTitle {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 11px;
+  margin: 0;
+  color: #203752;
+  border-bottom: 1px solid #e5ebf2;
+  font-size: 8.5px;
+  font-weight: 750;
+}
+.panel > header h2 { margin: 0; font-size: 8.5px; }
+.panel > header > div { display: flex; gap: 6px; }
+.panel > header .select { min-width: 82px; height: 27px; }
+.compactDonut { min-height: 145px; grid-template-columns: minmax(112px, .9fr) minmax(120px, 1fr); padding: 2px 10px 8px; }
+.compactDonut > div { width: min(100%, 105px); }
+.compactDonut li { font-size: 6.5px; }
+.ranking,
+.rankList { display: grid; gap: 0; padding: 5px 11px 8px 28px; margin: 0; }
+.ranking li,
+.rankList li { min-height: 25px; padding: 6px 3px; color: #3a526e; border-bottom: 1px solid #edf1f5; font-size: 7px; }
+.ranking li span,
+.rankList li span { margin-left: 4px; }
+.ranking li b,
+.rankList li b { float: right; color: #213c5c; font-size: 7px; }
+.trendChart,
+.chart { max-width: 100%; overflow-x: auto; padding: 2px 10px 6px; }
+.trendChart svg,
+.chart svg { width: 100%; min-width: 330px; height: 134px; display: block; }
+.trendChart line,
+.chart line { stroke: #e6edf4; stroke-width: 1; }
+.trendChart text,
+.chart text { fill: #637992; font: 7px Inter, system-ui, sans-serif; }
+.trendChart polyline,
+.chart polyline { fill: none; stroke: #0874ec; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.trendChart circle,
+.chart circle { fill: #0874ec; }
+.summaryCard { min-height: 104px; display: grid; align-content: center; gap: 9px; padding: 12px 15px; }
+.summaryCard span { color: #516982; font-size: 8px; }
+.summaryCard strong { color: #10233c; font-size: 15px; }
+.summaryCard small { color: #677d95; font-size: 7px; }
+.summaryCard small b { color: #0874ec; }
+.statusDonut { min-height: 104px; }
+.tableCard { min-width: 0; overflow: hidden; }
+.filters { display: flex; align-items: center; gap: 8px; }
+.tabShell { margin-top: -8px; }
+
+@media (max-width: 1120px) {
+  .oldGoldBottom,
+  .bottomGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .oldGoldBottom > :last-child,
+  .bottomGrid > :last-child { grid-column: 1 / -1; }
+  .productionBottom,
+  .productionSummary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .oldGoldBottom,
+  .bottomGrid,
+  .productionBottom,
+  .productionSummary { grid-template-columns: minmax(0, 1fr); }
+  .oldGoldBottom > :last-child,
+  .bottomGrid > :last-child { grid-column: auto; }
+  .toolbarSpacer { display: none; }
+  .select { min-width: calc(50% - 5px); flex: 1; }
+}
+@media (max-width: 520px) {
+  .select { width: 100%; min-width: 100%; }
+  .panel > header { align-items: stretch; flex-direction: column; }
+  .panel > header > div { display: grid; grid-template-columns: 1fr 1fr; }
+  .panel > header .select { width: 100%; }
+  .compactDonut { grid-template-columns: minmax(0, 1fr); }
+  .compactDonut ul { width: min(100%, 230px); justify-self: center; }
+}

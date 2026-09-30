@@ -1,0 +1,93 @@
+.filters {
+  display: grid;
+  grid-template-columns: minmax(230px, 1.45fr) minmax(150px, .72fr) minmax(150px, .72fr) auto auto;
+  gap: 14px;
+  align-items: end;
+  padding: 13px;
+  border: 1px solid #dfe6ef;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.filters label {
+  display: grid;
+  gap: 6px;
+  color: #26364b;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.filters input,
+.filters select,
+.pageSelect {
+  width: 100%;
+  height: 33px;
+  padding: 0 9px;
+  color: #18273b;
+  border: 1px solid #d7e0eb;
+  border-radius: 4px;
+  outline: 0;
+  background: #fff;
+  font-size: 8px;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #65a0ee;
+  box-shadow: 0 0 0 2px rgba(26, 111, 229, .08);
+}
+
+.searchWrap { position: relative; }
+.searchWrap input { padding-right: 34px; }
+.searchIcon {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  color: #526982;
+  border-left: 1px solid #d7e0eb;
+}
+
+.summaryMetric { min-height: 90px; }
+.summaryMetric strong { font-size: 18px; }
+.summaryMetricRed { background: linear-gradient(135deg, #fff, #fff7f7); }
+.summaryMetricRed strong { color: #ed3038; }
+.summaryMetricOrange { background: linear-gradient(135deg, #fff, #fffbf2); }
+.summaryMetricOrange strong { color: #f08b00; }
+.summaryMetricGreen { background: linear-gradient(135deg, #fff, #f4fff7); }
+.summaryMetricGreen strong { color: #179747; }
+
+.dueTable { min-width: 850px; }
+.money { font-variant-numeric: tabular-nums; }
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 7px;
+  font-weight: 750;
+}
+.partial { color: #d67b00; background: #fff0cf; }
+.overdue { color: #e53038; background: #ffe0e2; }
+
+.paymentButton {
+  color: #159a47 !important;
+}
+.paymentButton:hover { background: #eaf9ef !important; }
+.footerTools { display: flex; align-items: center; gap: 10px; }
+.pageSelect { width: 76px; }
+.emptyState { height: 80px !important; color: #63748a; text-align: center; }
+
+@media (max-width: 1040px) {
+  .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .filters { grid-template-columns: 1fr; }
+  .footerTools { width: 100%; flex-wrap: wrap; }
+}

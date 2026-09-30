@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import {
   BadgeDollarSign,
@@ -172,10 +173,11 @@ function DataTable({ children, minWidth = 620 }: { children: ReactNode; minWidth
 
 export function Reference65Dashboard() {
   const [period, setPeriod] = useState("Last 7 Days");
+  const [businessDate, setBusinessDate] = useState("Monday, 26 May 2025");
   return (
     <div className={styles.page}>
       <PageIntro
-        action={<button className={styles.dateButton} type="button"><span>Monday, 26 May 2025</span><CalendarDays aria-hidden="true" size={14}/></button>}
+        action={<button className={styles.dateButton} onClick={() => setBusinessDate((current) => current === "Monday, 26 May 2025" ? "Sunday, 25 May 2025" : "Monday, 26 May 2025")} type="button"><span>{businessDate}</span><CalendarDays aria-hidden="true" size={14}/></button>}
         description="Welcome back, Admin! Here's what's happening today."
         title="Dashboard"
       />
@@ -191,7 +193,7 @@ export function Reference65Dashboard() {
             <span className={styles.goldIllustration}><Package aria-hidden="true" size={33}/></span>
             <ul>{goldRates.map((rate) => <li key={rate.purity}><span>{rate.purity}</span><strong>{rate.price}</strong></li>)}</ul>
           </div>
-          <button className={styles.panelLink} type="button">View All Rates <span>→</span></button>
+          <Link className={styles.panelLink} href="/gold-rates/current">View All Rates <span>→</span></Link>
         </Card>
       </section>
       <section className={styles.dashboardBottom}>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import {
   AlertCircle,
@@ -213,7 +214,7 @@ export function Reference60StockOverview() {
       </Card>
       <section className={styles.stockBottom}>
         <Card className={styles.panel}><PanelTitle>Stock Value Summary</PanelTitle><DonutReport centerLabel="Total Value" centerValue="৳ 28.50L" slices={stockSlices} /></Card>
-        <Card className={styles.panel}><PanelTitle>Low Stock Items</PanelTitle><div className={styles.tableScroll}><table className={styles.lowTable}><thead><tr><th>Item Name</th><th>Current Stock</th><th>Minimum Stock</th><th>Status</th></tr></thead><tbody>{lowStockItems.slice(0, 3).map((row) => <tr key={row.item}><td>{row.item}</td><td>{row.stock}</td><td>{row.minimum}</td><td><StatusBadge tone="danger">Low Stock</StatusBadge></td></tr>)}</tbody></table></div><button className={styles.viewLowButton} type="button">View All Low Stock Items</button></Card>
+        <Card className={styles.panel}><PanelTitle>Low Stock Items</PanelTitle><div className={styles.tableScroll}><table className={styles.lowTable}><thead><tr><th>Item Name</th><th>Current Stock</th><th>Minimum Stock</th><th>Status</th></tr></thead><tbody>{lowStockItems.slice(0, 3).map((row) => <tr key={row.item}><td>{row.item}</td><td>{row.stock}</td><td>{row.minimum}</td><td><StatusBadge tone="danger">Low Stock</StatusBadge></td></tr>)}</tbody></table></div><Link className={styles.viewLowButton} href="/inventory/alerts">View All Low Stock Items</Link></Card>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity, ArchiveRestore, CalendarClock, CircleCheck, Database, Download, Gauge, HardDrive, Play, RefreshCcw, Save, ServerCog, Settings2, Trash2, Wrench } from "lucide-react";
+import { Activity, ArchiveRestore, CalendarClock, CircleCheck, Database, Download, HardDrive, Play, RefreshCcw, Save, ServerCog, Settings2, Trash2, Wrench } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 
 import { Card } from "@/components/ui/card";
@@ -22,8 +22,11 @@ export function SystemMaintenance() {
   const [selectedLog, setSelectedLog] = useState<MaintenanceLog | null>(null);
 
   function addLog(task: string, details: string, status: MaintenanceLog["status"] = "Success") {
-    const entry: MaintenanceLog = { id: Date.now(), time: "Now", task, status, details };
-    setLogs((current) => [entry, ...current].slice(0, 8));
+    setLogs((current) => {
+      const nextId = current.reduce((largestId, log) => Math.max(largestId, log.id), 0) + 1;
+      const entry: MaintenanceLog = { id: nextId, time: "Now", task, status, details };
+      return [entry, ...current].slice(0, 8);
+    });
     setMessage(`${task} completed successfully.`);
   }
 

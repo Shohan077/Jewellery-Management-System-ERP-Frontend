@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CategoryDonutChart, SalesTrendChart } from "./reference-charts";
 import styles from "./dashboard-screen.module.css";
 
@@ -131,7 +132,7 @@ function RecentTransactions() {
     <section aria-labelledby="recent-transactions-title" className={styles.tableCard} id="recent-transactions">
       <header className={styles.cardHeader}>
         <h2 id="recent-transactions-title">Recent Transactions</h2>
-        <button className={styles.viewAllButton} type="button">View All</button>
+        <Link className={styles.viewAllButton} href="/sales/invoices">View All</Link>
       </header>
       <div className={styles.tableScroller}>
         <table className={styles.transactionsTable}>

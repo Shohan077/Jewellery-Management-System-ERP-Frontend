@@ -95,11 +95,10 @@ export function KarigarLedger() {
       ...matchingSaved.map(paymentToLedgerTransaction),
     ].sort((first, second) => first.date.localeCompare(second.date) || first.referenceNo.localeCompare(second.referenceNo));
 
-    let balance = 0;
-    return transactions.map((transaction) => {
-      balance += transaction.debit - transaction.credit;
-      return { ...transaction, balance };
-    });
+    return transactions.reduce<LedgerRow[]>((rows, transaction) => {
+      const balance = (rows.at(-1)?.balance ?? 0) + transaction.debit - transaction.credit;
+      return [...rows, { ...transaction, balance }];
+    }, []);
   }, [filters.karigarId, savedPayments]);
 
   const datedRows = ledger.filter((row) => row.date >= filters.dateFrom && row.date <= filters.dateTo);

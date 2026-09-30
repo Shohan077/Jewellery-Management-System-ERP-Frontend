@@ -56,6 +56,55 @@
   display: none;
 }
 
+.reference78User {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  margin: -3px 7px 12px;
+  padding: 8px 2px 10px;
+  border-bottom: 1px solid rgba(139, 177, 224, 0.12);
+}
+
+.reference78User > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #92684a, #e4b48d);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.reference78User strong,
+.reference78User small {
+  display: block;
+}
+
+.reference78User strong {
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.reference78User small {
+  margin-top: 2px;
+  color: #a9bed8;
+  font-size: 7px;
+}
+
+.reference78User i {
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: #24c475;
+}
+
 .nav {
   display: grid;
   gap: 2px;
@@ -170,7 +219,8 @@ a.navItem:hover {
   .brandWide,
   .navItem span,
   .sidebarFooter span,
-  .subnav {
+  .subnav,
+  .reference78User {
     display: none;
   }
 

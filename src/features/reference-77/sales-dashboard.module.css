@@ -1,0 +1,130 @@
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: 1.35fr .92fr;
+  gap: 10px;
+}
+
+.panel,
+.salesCard {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.panel > h2,
+.panel > header,
+.salesHeader {
+  min-height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 0;
+  color: #172f4e;
+  border-bottom: 1px solid #e3eaf2;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.panel > header h2,
+.salesHeader h2 {
+  margin: 0;
+  font-size: 9px;
+}
+
+.panel select {
+  min-width: 85px;
+  height: 27px;
+  padding: 0 24px 0 8px;
+  color: #38516e;
+  border: 1px solid #d6e0eb;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 7px;
+}
+
+.trendChart {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 3px 12px 4px;
+}
+
+.trendChart svg {
+  width: 100%;
+  min-width: 390px;
+  height: 145px;
+  display: block;
+}
+
+.trendChart line {
+  stroke: #e5edf5;
+  stroke-width: 1;
+}
+
+.trendChart text {
+  fill: #607793;
+  font: 6.7px Inter, system-ui, sans-serif;
+}
+
+.trendChart polyline {
+  fill: none;
+  stroke: #096fed;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.trendChart circle {
+  fill: #096fed;
+}
+
+.categoryPanel > div {
+  min-height: 148px;
+  grid-template-columns: minmax(120px, .9fr) minmax(130px, 1fr);
+  padding: 4px 13px 7px;
+}
+
+.categoryPanel > div > div {
+  width: min(100%, 120px);
+}
+
+.categoryPanel li {
+  font-size: 7px;
+}
+
+.salesHeader button {
+  padding: 3px 0;
+  color: #086ce8;
+  background: transparent;
+  font-size: 7.5px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.salesTable {
+  min-width: 890px;
+}
+
+.salesTable th,
+.salesTable td {
+  height: 29px;
+  padding-block: 5px;
+}
+
+.salesTable td b {
+  color: #174274;
+  font-weight: 650;
+}
+
+@media (max-width: 920px) {
+  .analyticsGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .panel > header { align-items: stretch; flex-direction: column; }
+  .panel select { width: 100%; }
+  .categoryPanel > div { grid-template-columns: 1fr; }
+  .categoryPanel > div > div,
+  .categoryPanel ul { width: min(100%, 240px); justify-self: center; }
+}

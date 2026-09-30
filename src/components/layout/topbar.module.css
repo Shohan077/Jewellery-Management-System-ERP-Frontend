@@ -42,6 +42,15 @@
   gap: 20px;
 }
 
+.reference78Controls {
+  min-width: 0;
+  max-width: 500px;
+}
+
+.reference78Controls .search {
+  background: #fff;
+}
+
 .reference66Controls select {
   width: 100%;
   height: 32px;
@@ -348,6 +357,10 @@
   }
 
   .reference66Controls {
+    display: none;
+  }
+
+  .reference78Controls {
     display: none;
   }
 
